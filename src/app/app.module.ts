@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { OnlineTestComponent } from './componet/online-test/online-test.component';
 import {AppRoutingModule} from './app-routing.module';
+import { HeadComponent } from './main-page/head/head.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    OnlineTestComponent
+    OnlineTestComponent,
+    HeadComponent
   ],
   imports: [
     BrowserModule,
