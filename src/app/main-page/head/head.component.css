@@ -1,0 +1,66 @@
+li {
+  text-align: -webkit-match-parent;
+}
+
+#header {
+  height: 72px;
+  background: #fff;
+  font: 14px/1.5 "PingFang SC", "微软雅黑", "Microsoft YaHei", Helvetica, "Helvetica Neue", Tahoma, Arial, sans-serif;
+}
+
+#nav {
+  margin: 0 auto;
+  padding-right: 10px;
+  z-index: 900;
+  box-shadow: 0 4px 8px 0 rgba(7, 17, 27, .1);
+  width: auto;
+  height: 72px;
+  position: relative;
+  background-color: #07111b;
+}
+
+#logo {
+  margin: 0 20px;
+}
+
+#logo .nav-item li {
+  float: left;
+}
+.box{
+  width: auto;
+  margin-left: 510px;
+}
+
+.nav-item a {
+  padding: 0 20px;
+  display: block;
+  color: #4D555D;
+  text-align: center;
+  font-size: 16px;
+  line-height: 72px;
+  -webkit-transition: background-color .3s;
+  -moz-transition: background-color .3s;
+  transition: background-color .3s;
+}
+
+#header .box {
+  display: flex;
+  align-items: stretch;
+}
+
+#header .box div {
+  width: 84px;
+  height: 52px;
+  padding: 0 15px;
+}
+
+#header .box .choice {
+  padding-top: 20px;
+}
+
+#header .box div a {
+  text-decoration: none;
+  font-size: 16px;
+  text-align: center;
+  line-height: 36px;
+}

@@ -1,0 +1,51 @@
+.mainContainer {
+  width: 100%;
+  background: #eeeeee;
+  margin: 0 0;
+}
+.CenYan {
+  width: 1020px;
+  margin: auto;
+  background: white;
+}
+
+.CyTop {
+  height: 42px;
+  border-bottom: solid 2px #d9d9d9;
+  padding-top: 12px;
+  line-height: 42px;
+}
+
+.CyTop1 {
+  margin-top: 18px;
+  border: none;
+  padding: 0;
+}
+
+.CyTop1 p {
+  line-height: 22px;
+  margin-top: 10px;
+  color: #989898;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.CyTop1 span {
+  margin-right: 10px;
+}
+.CyTop1 p i {
+  color: #333;
+}
+
+.CyTop1 p .grade_i {
+  color: red;
+}
+
+.subject-title {
+  padding: 0 20px;
+}
+
+.subject-main {
+  background: #FFF;
+  padding: 20px;
+}

@@ -1,0 +1,72 @@
+.mainContainer {
+  width: 1010px;
+  /*height: 599px;*/
+  background: white;
+  margin: auto;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.lookLi {
+  width: 310px;
+  height: 160px;
+  margin-right: 24px;
+  margin-bottom: 24px;
+  background-color: #fff;
+  border: solid 1px #ccc;
+}
+
+.lookLi .titTxt {
+  padding: 10px 15px;
+  overflow: hidden;
+}
+
+.lookLi .titTxt p {
+  margin: 5px 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.lookLi .titTxt p a {
+  cursor: pointer;
+}
+
+.lookLi .titTxt span {
+  color: #424242;
+  font-size: 12px;
+}
+
+.pt5 {
+  padding: 5px 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.titOper {
+  background-color: #e8eeda;
+  height: 50px;
+  color: #666;
+  padding: 0 10px;
+  overflow: hidden;
+  border-top: solid 1px #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+.titOper .titOper-span {
+  color: red;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 45px;
+}
+
+.titOper a {
+  cursor: pointer;
+  line-height: 45px;
+}
+
+.titOper .a-span {
+  font-size: 18px;
+  line-height: 24px;
+}
