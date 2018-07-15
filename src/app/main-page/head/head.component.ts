@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CourseService} from '../body/course.service';
 
 @Component({
   selector: 'app-head',

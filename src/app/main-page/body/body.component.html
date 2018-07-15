@@ -1,0 +1,41 @@
+<div class="bgff">
+  <div class="container-types clearfix">
+    <h3 class="types-title">
+      <span class="tit-icon icon-shizhan-l tit-icon-l"></span>
+      <em>实 /</em>
+      <em>战 /</em>
+      <em>推 /</em>
+      <em>荐 </em>
+      <span class="tit-icon icon-shizhan-r tit-icon-r"></span>
+    </h3>
+    <div class="clearfix types-content">
+      <div class="index-card-container course-card-container container" *ngFor="let course of courses">
+        <a href="#" class="course-card" target="_blank">
+          <div class="course-card-top hashadow">
+            <img class="course-banner" src="https://img4.mukewang.com/szimg/5ac2dfe100014a9005400300.jpg">
+            <div class="course-label">
+              <label>Vue.js</label>
+            </div>
+          </div>
+          <div class="course-card-content">
+            <h3 class="course-card-name"> {{ course.info }}</h3>
+            <div class="clearfix course-card-bottom">
+              <div class="course-card-info">
+                <span>{{ course.kind }}</span>
+                <span>{{ course.level }}</span>
+                <span>
+              <i class="icon-set_sns"></i>{{ course.people }}
+            </span>
+                <span class="course-star-box">
+              <i class="icon-star2 on" *ngFor="let i of rangeArray(0,course.star)"></i>
+            </span>
+              </div>
+              <div class="course-card-price">$266.00</div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
