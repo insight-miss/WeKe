@@ -1,26 +1,29 @@
 <div class="mainContainer">
   <div class="CenYan">
-    <div class="CyTop">
-      <span>2016级第2套Java程序设计模拟试卷</span>
+    <!--<div class="CyTop">-->
+      <!--<span>2016级第2套Java程序设计模拟试卷</span>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash;用户信息&ndash;&gt;-->
+    <!--<div class="CyTop1">-->
+      <!--<p>-->
+      <!--<span>姓名:-->
+        <!--<i>Ts</i>-->
+      <!--</span>-->
+
+        <!--<span>班级:-->
+        <!--<i>2班</i>-->
+      <!--</span>-->
+
+        <!--<span>成绩:-->
+        <!--<i class="grade_i">120</i>-->
+      <!--</span>-->
+      <!--</p>-->
+    <!--</div>-->
+
+    <div class="subject-progress">
+
     </div>
-
-    <!--用户信息-->
-    <div class="CyTop1">
-      <p>
-      <span>姓名:
-        <i>Ts</i>
-      </span>
-
-        <span>班级:
-        <i>2班</i>
-      </span>
-
-        <span>成绩:
-        <i class="grade_i">120</i>
-      </span>
-      </p>
-    </div>
-
     <!--题目类型-->
     <div class="subject-title">
       <span>不定项选择题</span>
@@ -30,6 +33,55 @@
       <div class="subject-question">
         关于浅复制和深复制的说法，下列说法正确的是
       </div>
+      <a class="subject-options">
+        <label class="checkbox">
+          <input type="checkbox" class="input_button">
+          <span>原地逆序</span>
+        </label>
+      </a>
+
+      <a class="subject-options">
+        <label class="checkbox">
+          <input type="checkbox" class="input_button">
+          <span>原地逆序</span>
+        </label>
+      </a>
+      <a class="subject-options">
+        <label class="checkbox">
+          <input type="checkbox" class="input_button">
+          <span>原地逆序</span>
+        </label>
+      </a>
+      <a class="subject-options">
+        <label class="checkbox">
+          <input type="checkbox" class="input_button">
+          <span>原地逆序</span>
+        </label>
+      </a>
+      <a class="subject-options">
+        <label class="checkbox">
+          <input type="checkbox" class="input_button">
+          <span>原地逆序</span>
+        </label>
+      </a>
+
+      <div class="subject-action">
+        <div class="subject-next">
+          <form>
+            <input type="submit" name="button" value="提前交卷" class="btn-submit button">
+            <input type="submit" name="button" value="下一题" class="btn-next button">
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="answer-sheet-box">
+      <ul class="answer-sheet-num">
+        <li *ngFor="let i of rangeArray(1, sum)">
+          <a href="#">{{i}}</a>
+        </li>
+
+      </ul>
     </div>
   </div>
 </div>

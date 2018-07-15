@@ -1,11 +1,11 @@
 .mainContainer {
   width: 100%;
+  height: 1024px;
   background: #eeeeee;
-  margin: 0 0;
 }
 .CenYan {
   width: 1020px;
-  margin: auto;
+  margin: 30px auto;
   background: white;
 }
 
@@ -42,10 +42,122 @@
 }
 
 .subject-title {
-  padding: 0 20px;
+  padding: 20px 20px 0 20px;
 }
 
 .subject-main {
   background: #FFF;
   padding: 20px;
+}
+
+.subject-main a:hover {
+  background: #eeeeee;
+  color: #27c4a7;
+}
+
+.subject-progress {
+  padding: 10px 200px 10px 30px;
+  background: #232c31;
+  border-radius: 4px 4px 0 0;
+  position: relative;
+  white-space: nowrap;
+  height: 30px;
+}
+
+.subject-question {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.subject-options {
+  margin-bottom: 20px;
+  border: 1px solid #d4d4d4;
+  border-radius: 2px;
+  padding: 12px 20px 13px;
+  background: #FFF;
+  display: block;
+  word-break: break-all;
+}
+
+.checkbox {
+  margin: 0;
+  line-height: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: left;
+  display: flex;
+  justify-content: flex-start
+}
+
+.subject-action {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.subject-next {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 10px 26px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.btn-submit {
+  background-color: #ff6547;
+}
+
+.btn-next {
+  background-color: #27c4a7;
+}
+
+.button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.answer-sheet-box {
+  border-top: 1px dashed #DDD;
+  padding: 20px;
+  font-size: 16px;
+  background: #FFF;
+}
+
+.answer-sheet-num {
+   margin-top: 15px;
+}
+
+ul.answer-sheet-num {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+}
+
+ul.answer-sheet-num li {display: inline;}
+
+ul.answer-sheet-num li a {
+  color: #dce4ec;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+ul.answer-sheet-num li a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+ul.answer-sheet-num li a:hover:not(.active) {
+  background-color: #27c4a7;
+  color: white;
 }

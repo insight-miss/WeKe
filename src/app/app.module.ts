@@ -10,13 +10,15 @@ import { DetailsComponent } from './onlineExam/examDetails/details/details.compo
 import {HeadComponent} from './main-page/head/head.component';
 import { BodyComponent } from './main-page/body/body.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
     DetailsComponent,
     HeadComponent,
-    BodyComponent
+    BodyComponent,
+    HeadComponent,
   ],
   imports: [
     BrowserModule,
