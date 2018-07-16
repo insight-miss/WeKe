@@ -12,6 +12,9 @@ import { BodyComponent } from './main-page/body/body.component';
 import { MenuComponent } from './main-page/menu/menu.component';
 import { RankComponent } from './onlineExam/ExamRank/rank/rank.component';
 import {DetailsService} from './onlineExam/examDetails/service/details.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgZorroAntdModule} from 'ng-zorro-antd';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -28,7 +31,11 @@ import {DetailsService} from './onlineExam/examDetails/service/details.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    /** 导入 ng-zorro-antd 模块 **/
+    NgZorroAntdModule,
+    FormsModule
   ],
   providers: [
     TestService,
