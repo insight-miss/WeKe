@@ -9,6 +9,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { DetailsComponent } from './onlineExam/examDetails/details/details.component';
 import {HeadComponent} from './main-page/head/head.component';
 import { BodyComponent } from './main-page/body/body.component';
+import { RankComponent } from './onlineExam/ExamRank/rank/rank.component';
+import {DetailsService} from './onlineExam/examDetails/service/details.service';
 
 
 @NgModule({
@@ -19,6 +21,7 @@ import { BodyComponent } from './main-page/body/body.component';
     HeadComponent,
     BodyComponent,
     HeadComponent,
+    RankComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,8 @@ import { BodyComponent } from './main-page/body/body.component';
     HttpClientModule
   ],
   providers: [
-    TestService
+    TestService,
+    DetailsService
   ],
   bootstrap: [AppComponent]
 })
