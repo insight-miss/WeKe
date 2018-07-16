@@ -1,97 +1,26 @@
-<div class="bgff banner-box" style="height: 444px;">
+<div class="bgff banner-box" style="height: 478px;">
   <!--100% 368px-->
   <div style="margin-left: 500px;" class="g-banner pr">
     <div class="menuwrap"></div>
-    <div [style.display]="selector ===1 ? 'block' : 'none'" (mouseenter)="onHover(1)" (mouseleave)="onHover(0)" class="submenu a hide"  >
+    <div *ngFor="let menu of menus let i = index" [style.display]=" selector === i+1 ? 'block' : 'none'" (mouseenter)="onHover(i+1)" (mouseleave)="onHover(0)"
+         class="submenu a hide" style="display: none;">
       <div class="innerBox clearfix">
         <div class="subinnerBox">
           <div class="cates-box">
             <div class="fe-base-box clearfix">
-              <div class="banner-line"><span class="bold mr10 l small-title">前沿技术</span></div>
+              <div class="banner-line"><span class="bold mr10 l small-title">前沿技术{{ i }}</span></div>
             </div>
             <div class="tag-box l">
-              <a href="#" target="_blank">微服务</a>
-              <a href="#" target="_blank">微服务</a>
-              <a href="#" target="_blank">微服务</a>
-              <a href="#" target="_blank">微服务</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div [style.display]="selector ===2 ? 'block' : 'none'"  (mouseenter)="onHover(4)" (mouseleave)="onHover(0)" class="submenu a hide"  >
-      <div class="innerBox clearfix">
-        <div class="subinnerBox">
-          <div class="cates-box">
-            <div class="fe-base-box clearfix">
-              <div class="banner-line"><span class="bold mr10 l small-title">后端技术</span></div>
-            </div>
-            <div class="tag-box l">
-              <a href="#" target="_blank">微服务</a>
-              <a href="#" target="_blank">微服务</a>
-              <a href="#" target="_blank">微服务</a>
-              <a href="#" target="_blank">微服务</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div [style.display]="selector ===3 ? 'block' : 'none'" (mouseenter)="onHover(3)" (mouseleave)="onHover(0)" class="submenu a hide" >
-      <div class="innerBox clearfix">
-        <div class="subinnerBox">
-          <div class="cates-box">
-            <div class="fe-base-box clearfix">
-              <div class="banner-line"><span class="bold mr10 l small-title">Java</span></div>
-            </div>
-            <div class="tag-box l">
-              <a href="#" target="_blank">微服务</a>
-              <a href="#" target="_blank">微服务</a>
-              <a href="#" target="_blank">微服务</a>
-              <a href="#" target="_blank">微服务</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div [style.display]="selector ===4 ? 'block' : 'none'" (mouseenter)="onHover(4)" (mouseleave)="onHover(0)" class="submenu a hide"  >
-      <div class="innerBox clearfix">
-        <div class="subinnerBox">
-          <div class="cates-box">
-            <div class="fe-base-box clearfix">
-              <div class="banner-line"><span class="bold mr10 l small-title">Python</span></div>
-            </div>
-            <div class="tag-box l">
-              <a href="#" target="_blank">微服务</a>
-              <a href="#" target="_blank">微服务</a>
-              <a href="#" target="_blank">微服务</a>
-              <a href="#" target="_blank">微服务</a>
+              <a *ngFor="let uls of menu.tecList" href="{{ uls.ul}}" target="_blank">{{ uls.tec }}</a>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="menuContent">
-      <div (mouseover)="onHover(1)" (mouseleave)="onHover(0)"  class="item">
+      <div *ngFor="let menu of menus let i = index" (mouseover)="onHover(i+1)" (mouseleave)="onHover(0)" class="item">
         <a>
-          <span class="group" style="text-decoration: none;">前沿 / 区块链 / 人工智能</span>
-          <i class="imv2-arrow1_r">&gt;</i>
-        </a>
-      </div>
-      <div (mouseenter)="onHover(2)" (mouseleave)="onHover(0)" class="item">
-        <a>
-          <span class="group" style="text-decoration: none;">前沿 / 区块链 / 人工智能</span>
-          <i class="imv2-arrow1_r">&gt;</i>
-        </a>
-      </div>
-      <div (mouseenter)="onHover(3)" (mouseleave)="onHover(0)" class="item">
-        <a>
-          <span class="group" style="text-decoration: none;">前沿 / 区块链 / 人工智能</span>
-          <i class="imv2-arrow1_r">&gt;</i>
-        </a>
-      </div>
-      <div (mouseenter)="onHover(4)" (mouseleave)="onHover(0)" class="item">
-        <a>
-          <span class="group" style="text-decoration: none;">前沿 / 区块链 / 人工智能</span>
+          <span class="group" style="text-decoration: none;">{{ menu.info }}</span>
           <i class="imv2-arrow1_r">&gt;</i>
         </a>
       </div>

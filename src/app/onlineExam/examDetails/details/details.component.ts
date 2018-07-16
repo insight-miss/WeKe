@@ -23,7 +23,4 @@ export class DetailsComponent implements OnInit {
   setPos(currentPos: number) {
     this.pos = currentPos;
   }
-  selectCheckBox(check: boolean , value: string) {
-    var index:number = this.selectHobby.indexOf(value);
-  }
 }
