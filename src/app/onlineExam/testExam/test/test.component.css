@@ -9,9 +9,9 @@
 }
 
 .lookLi {
-  width: 310px;
-  height: 160px;
-  margin-right: 24px;
+  width: 315px;
+  height: 162px;
+  margin-right: 19px;
   margin-bottom: 24px;
   background-color: #fff;
   border: solid 1px #ccc;
@@ -22,17 +22,17 @@
   overflow: hidden;
 }
 
-.lookLi .titTxt p {
+.titTxt p {
   margin: 5px 0;
   font-size: 16px;
   font-weight: bold;
 }
 
-.lookLi .titTxt p a {
+.titTxt p a {
   cursor: pointer;
 }
 
-.lookLi .titTxt span {
+.titTxt span {
   color: #424242;
   font-size: 12px;
 }

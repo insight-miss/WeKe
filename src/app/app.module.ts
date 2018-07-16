@@ -10,6 +10,8 @@ import { DetailsComponent } from './onlineExam/examDetails/details/details.compo
 import {HeadComponent} from './main-page/head/head.component';
 import { BodyComponent } from './main-page/body/body.component';
 import { MenuComponent } from './main-page/menu/menu.component';
+import { RankComponent } from './onlineExam/ExamRank/rank/rank.component';
+import {DetailsService} from './onlineExam/examDetails/service/details.service';
 
 
 @NgModule({
@@ -21,6 +23,7 @@ import { MenuComponent } from './main-page/menu/menu.component';
     BodyComponent,
     HeadComponent,
     MenuComponent,
+    RankComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,8 @@ import { MenuComponent } from './main-page/menu/menu.component';
     HttpClientModule
   ],
   providers: [
-    TestService
+    TestService,
+    DetailsService
   ],
   bootstrap: [AppComponent]
 })

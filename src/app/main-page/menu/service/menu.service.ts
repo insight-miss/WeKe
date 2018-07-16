@@ -18,7 +18,7 @@ export class MenuService {
 
   private getInfo(title: String): void {
     // Array.prototype.filter(function(item, index){})
-    a: String  
+    a: String
     for (const tec of TEC1) {
         if (tec.title === title) {
           this.tec.push(tec);
