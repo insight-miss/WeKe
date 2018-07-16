@@ -9,6 +9,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { DetailsComponent } from './onlineExam/examDetails/details/details.component';
 import {HeadComponent} from './main-page/head/head.component';
 import { BodyComponent } from './main-page/body/body.component';
+import { MenuComponent } from './main-page/menu/menu.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { BodyComponent } from './main-page/body/body.component';
     HeadComponent,
     BodyComponent,
     HeadComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
