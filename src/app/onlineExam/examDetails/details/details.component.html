@@ -6,8 +6,9 @@
     </div>
 
       <!--题目类型-->
-      <div *ngFor="let question of detailsService.getQuestions()">
-          <div *ngIf="question.questionNumber==pos">
+      <div *ngFor="let question of detailsService.getQuestions();let i = index">
+
+          <div *ngIf="question._questionNumber==pos">
 
             <!--选择题-->
             <div *ngIf="question.type==1">
@@ -16,21 +17,47 @@
               </div>
               <div class="subject-main">
                 <div class="subject-question">
-                  {{question.problem}}
+                  {{question._questionNumber}}:{{question._problem}}
                 </div>
                 <!--选项详情-->
-                <div *ngIf="question.options">
-                  <form>
-                    <a class="subject-options" *ngFor="let option of question.options">
-                      <label class="checkbox">
-                        <input type="checkbox" class="input_button">
-                        <span>{{option.optionDetails}}</span>
-                      </label>
-                    </a>
-                  </form>
+                <div *ngIf="question._options">
+                  <nz-checkbox-wrapper style="width: 100%;" (nzOnChange)="log($event , question._questionNumber)">
+                    <div nz-row>
+                      <a class="subject-options" *ngFor="let option of question._options">
+                        <div nz-col>
+                          <label nz-checkbox nzValue="{{option._optionNumber}}"  [ngModel]="question.userAnswer.includes(option._optionNumber)">
+                            {{option._optionDetails}}
+                          </label>
+                        </div>
+                      </a>
+                    </div>
+                  </nz-checkbox-wrapper>
                 </div>
               </div>
             </div>
+
+            <!--判断题 单项选择题-->
+            <div *ngIf="question.type==2 || question.type == 4">
+              <div class="subject-title">
+                <span *ngIf="question.type==2">判断题</span>
+                <span *ngIf="question.type==4">单项选择题</span>
+              </div>
+              <div class="subject-main">
+                <div class="subject-question">
+                  {{question._questionNumber}}:{{question._problem}}
+                </div>
+                <!--选项详情-->
+                <div *ngIf="question._options">
+                  <nz-radio-group [(ngModel)]="radioValue" style="width: 100%" (ngModelChange)="setRadioAnswer(question.questionNumber)">
+                    <a class="subject-options" *ngFor="let option of question._options">
+                      <label nz-radio nzValue="{{option._optionNumber}}">
+                        {{option._optionDetails}}
+                      </label>
+                    </a>
+                  </nz-radio-group>
+              </div>
+            </div>
+          </div>
 
             <!--填空题-->
             <div *ngIf="question.type==3">
@@ -39,41 +66,38 @@
               </div>
               <div class="subject-main">
                 <div class="subject-question">
-                  {{question.problem}}
+                  {{question.questionNumber}}:{{question.problem}}
                 </div>
 
-                <form>
-                  <textarea rows="10" cols="110">
-                  </textarea>
-                </form>
+                <textarea [nzAutosize]="{ minRows: 15, maxRows: 25 }" nz-input [(ngModel)]="inputValue" (blur)="setTextAreaAnswer(inputValue , question.questionNumber)"></textarea>
 
               </div>
             </div>
-          </div>
+      </div>
       </div>
 
     <!--按钮详情-->
-    <div class="subject-action">
-      <div class="subject-next" *ngIf="pos< sum">
-        <form>
-          <input type="submit" name="button" value="提前交卷" class="btn-submit button">
-          <input type="button" name="button" value="下一题" class="btn-next button" (click)="getPos()">
-        </form>
+      <div class="subject-action">
+        <div class="subject-next" *ngIf="pos < sum">
+          <form>
+            <input type="submit" name="button" value="提前交卷" class="btn-submit button">
+            <input type="button" name="button" value="下一题" class="btn-next button" (click)="getPos()">
+          </form>
+        </div>
+        <div class="subject-next" *ngIf="pos == sum">
+          <form>
+            <input type="submit" name="button" value="交卷" class="btn-next button">
+          </form>
+        </div>
       </div>
-      <div class="subject-next" *ngIf="pos == sum">
-        <form>
-          <input type="submit" name="button" value="交卷" class="btn-next button">
-        </form>
-      </div>
-    </div>
 
-    <!--分页详情-->
-    <div class="answer-sheet-box">
-      <ul class="answer-sheet-num">
-        <li *ngFor="let i of rangeArray(1, sum)">
-          <a (click)="setPos(i)">{{i}}</a>
-        </li>
-      </ul>
-    </div>
+      <!--分页详情-->
+      <div class="answer-sheet-box">
+        <ul class="answer-sheet-num">
+          <li *ngFor="let i of rangeArray(1, sum)">
+            <a (click)="setPos(i)">{{i}}</a>
+          </li>
+        </ul>
+      </div>
   </div>
 </div>
