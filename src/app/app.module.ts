@@ -9,11 +9,10 @@ import {HttpClientModule} from '@angular/common/http';
 import { DetailsComponent } from './onlineExam/examDetails/details/details.component';
 import {HeadComponent} from './main-page/head/head.component';
 import { BodyComponent } from './main-page/body/body.component';
+import { MenuComponent } from './main-page/menu/menu.component';
 import { RankComponent } from './onlineExam/ExamRank/rank/rank.component';
 import {DetailsService} from './onlineExam/examDetails/service/details.service';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NgZorroAntdModule} from 'ng-zorro-antd';
-import {FormsModule} from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -23,16 +22,13 @@ import {FormsModule} from '@angular/forms';
     HeadComponent,
     BodyComponent,
     HeadComponent,
-    RankComponent
+    MenuComponent,
+    RankComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    /** 导入 ng-zorro-antd 模块 **/
-    NgZorroAntdModule,
-    FormsModule
+    HttpClientModule
   ],
   providers: [
     TestService,

@@ -1,0 +1,45 @@
+<div class="bgff banner-box" style="height: 478px;">
+  <!--100% 368px-->
+  <div style="margin-left: 500px;" class="g-banner pr">
+    <div class="menuwrap"></div>
+    <div *ngFor="let menu of menus let i = index" [style.display]=" selector === i+1 ? 'block' : 'none'" (mouseenter)="onHover(i+1)" (mouseleave)="onHover(0)"
+         class="submenu a hide" style="display: none;">
+      <div class="innerBox clearfix">
+        <div class="subinnerBox">
+          <div class="cates-box">
+            <div class="fe-base-box clearfix">
+              <div class="banner-line"><span class="bold mr10 l small-title">前沿技术{{ i }}</span></div>
+            </div>
+            <div class="tag-box l">
+              <a *ngFor="let uls of menu.tecList" href="{{ uls.ul}}" target="_blank">{{ uls.tec }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="menuContent">
+      <div *ngFor="let menu of menus let i = index" (mouseover)="onHover(i+1)" (mouseleave)="onHover(0)" class="item">
+        <a>
+          <span class="group" style="text-decoration: none;">{{ menu.info }}</span>
+          <i class="imv2-arrow1_r">&gt;</i>
+        </a>
+      </div>
+    </div>
+    <div class="g-banner-content">
+      <div class="g-banner-box">
+        <a href="#" target="_blank">
+          <div class="banner-slide">
+            <img src="https://img.mukewang.com/5b191458000144b309360316.jpg" alt="轮播图">
+          </div>
+        </a>
+      </div>
+      <div class="path-banner clearfix">
+        <a href="#" target="_blank" style="text-decoration: none;">
+          <i class="i-web"></i>
+          <p class="tit">Web前端攻城狮</p>
+          <p class="desc">互联网时代最火爆的技术</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
