@@ -15,6 +15,11 @@ import {DetailsService} from './onlineExam/examDetails/service/details.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgZorroAntdModule} from 'ng-zorro-antd';
 import {FormsModule} from '@angular/forms';
+import { ReportComponent } from './onlineExam/ExamAnalysis/EvaluationReport/report/report.component';
+import { AnalysisComponent } from './onlineExam/ExamAnalysis/AnswerAnalysis/analysis/analysis.component';
+import { ExamAnalysisComponent } from './onlineExam/ExamAnalysis/exam-analysis/exam-analysis.component';
+import {NgxEchartsModule} from 'ngx-echarts';
+import {ReportService} from './onlineExam/ExamAnalysis/EvaluationReport/service/report.service';
 
 
 @NgModule({
@@ -27,6 +32,9 @@ import {FormsModule} from '@angular/forms';
     HeadComponent,
     MenuComponent,
     RankComponent,
+    ReportComponent,
+    AnalysisComponent,
+    ExamAnalysisComponent
   ],
   imports: [
     BrowserModule,
@@ -35,11 +43,13 @@ import {FormsModule} from '@angular/forms';
     BrowserAnimationsModule,
     /** 导入 ng-zorro-antd 模块 **/
     NgZorroAntdModule,
-    FormsModule
+    FormsModule,
+    NgxEchartsModule
   ],
   providers: [
     TestService,
-    DetailsService
+    DetailsService,
+    ReportService
   ],
   bootstrap: [AppComponent]
 })

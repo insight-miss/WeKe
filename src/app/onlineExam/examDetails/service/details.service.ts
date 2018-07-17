@@ -10,18 +10,18 @@ export class DetailsService {
       new Option('A', 'A:原地逆序'),
       new Option('B', 'B:原地逆序'),
       new Option('C', 'C:原地逆序')
-    ], []),
-   new Questions(3, 2, '龙王传说', null, []),
+    ], [] , ['A', 'B'] , 0),
+   new Questions(3, 2, '龙王传说', null, [] , ['唐家三少所写'] , 0),
    new Questions(2, 3, 'float x 与“零值”比较的if语句为？', [
      new Option('A', 'A:if(x==0)'),
      new Option('B', 'B:if (x &lt; 0.00001f)'),
      new Option('C', 'C:if (fabs(x) &lt; 0.00001f) 或 if（Math.abs(x) &lt; 0.00001f）'),
      new Option('D', 'D:if (x &gt; -0.00001f)')
-   ], []),
+   ], ['C'] , ['C'] , 1),
    new Questions(4, 4, '唐家三少是龙王传说的作者', [
      new Option('A', '√'),
      new Option('B', '×'),
-   ], []),
+   ], [] , ['A'] , 0)
   ];
   constructor() { }
 

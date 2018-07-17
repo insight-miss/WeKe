@@ -1,9 +1,20 @@
 <div class="mainContainer">
+  <div class="pt-5" style="background-color: #eeeeee">
+
+  </div>
   <div class="CenYan">
 
-    <div class="subject-progress">
-
-    </div>
+    <!--<div class="subject-progress">-->
+      <!--<button nz-button nzType="primary">Primary</button>-->
+    <!--</div>-->
+    <ul nz-menu [nzMode]="'horizontal'" class="border-bottom">
+      <li nz-menu-item>
+        <a href="#" target="_blank" rel="noopener noreferrer" style="font-size: large">考试详情</a>
+      </li>
+      <li nz-menu-item>
+        <a routerLink="/rank" target="_blank" rel="noopener noreferrer" style="font-size: large">排行榜</a>
+      </li>
+    </ul>
 
       <!--题目类型-->
       <div *ngFor="let question of detailsService.getQuestions();let i = index">
@@ -39,8 +50,8 @@
             <!--判断题 单项选择题-->
             <div *ngIf="question.type==2 || question.type == 4">
               <div class="subject-title">
-                <span *ngIf="question.type==2">判断题</span>
-                <span *ngIf="question.type==4">单项选择题</span>
+                <span *ngIf="question.type==2">单项选择题</span>
+                <span *ngIf="question.type==4">判断题</span>
               </div>
               <div class="subject-main">
                 <div class="subject-question">

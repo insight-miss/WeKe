@@ -1,0 +1,41 @@
+<div class="border-top d-flex justify-content-between pt-3" style="background-color: white;">
+
+  <div class="border-right pl-5 col-xl-6 d-flex flex-column">
+    <div style="margin-bottom: 20px;">
+      <img src="../../../../../assets/grade.png" style="height: 28px;width: 28px">
+      <span style="font-size: 16px;margin-bottom: 20px;" class="pl-2">得分:{{examReport.sumGrade}}分</span>
+    </div>
+    <div class="detail">
+      <p>
+        <span class="item-label">试卷：</span>
+        <span class="item-label">{{examReport.examName}}</span>
+      </p>
+      <p>
+        <span class="item-label">正确题数：</span>
+        <span class="item-label">{{examReport.correctNumber}}/{{examReport.totalNumber}}</span>
+      </p>
+      <p>
+        <span class="item-label">选择题得分：</span>
+        <span class="item-label">{{examReport.choiceScore}}</span>
+      </p>
+      <p>
+        <span class="item-label">填空题得分：</span>
+        <span class="item-label">{{examReport.blankScore}}</span>
+      </p>
+      <p>
+        <span class="item-label">简答题得分：</span>
+        <span class="item-label">{{examReport.answerScore}}</span>
+      </p>
+    </div>
+
+  </div>
+
+  <div class="col-xl-6">
+    <h4 style=" margin-top: 5px;font-size: 16px;color: #888;">考试详情</h4>
+    <div echarts [options]="chartOption" (chartInit)="init($event)" class="demo-chart"></div>
+  </div>
+</div>
+
+<div style="margin:auto;background-color: #F4F4F4;text-align: center;padding: 30px 0; width: 1250px;">
+  <button nz-button nzType="default">查看答案解析</button>
+</div>

@@ -104,3 +104,8 @@ li {
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+:host ::ng-deep .ant-avatar {
+  margin-top: 16px;
+  margin-right: 16px;
+}
