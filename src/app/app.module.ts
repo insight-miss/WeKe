@@ -14,6 +14,7 @@ import { RankComponent } from './onlineExam/ExamRank/rank/rank.component';
 import {DetailsService} from './onlineExam/examDetails/service/details.service';
 import { KindComponent } from './freeCourse/kind/kind.component';
 import { RainBowDirective } from './freeCourse/kind/rainbow/rain-bow.directive';
+import { CatalogComponent } from './course-catalog/catalog/catalog.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { RainBowDirective } from './freeCourse/kind/rainbow/rain-bow.directive';
     RankComponent,
     KindComponent,
     RainBowDirective,
+    CatalogComponent,
   ],
   imports: [
     BrowserModule,
