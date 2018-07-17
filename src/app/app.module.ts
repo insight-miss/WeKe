@@ -12,6 +12,8 @@ import { BodyComponent } from './main-page/body/body.component';
 import { MenuComponent } from './main-page/menu/menu.component';
 import { RankComponent } from './onlineExam/ExamRank/rank/rank.component';
 import {DetailsService} from './onlineExam/examDetails/service/details.service';
+import { KindComponent } from './freeCourse/kind/kind.component';
+import { RainBowDirective } from './freeCourse/kind/rainbow/rain-bow.directive';
 
 
 @NgModule({
@@ -24,6 +26,8 @@ import {DetailsService} from './onlineExam/examDetails/service/details.service';
     HeadComponent,
     MenuComponent,
     RankComponent,
+    KindComponent,
+    RainBowDirective,
   ],
   imports: [
     BrowserModule,
