@@ -16,6 +16,11 @@ import { KindComponent } from './freeCourse/kind/kind.component';
 import { RainBowDirective } from './freeCourse/kind/rainbow/rain-bow.directive';
 import { CatalogComponent } from './course-catalog/catalog/catalog.component';
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgZorroAntdModule} from 'ng-zorro-antd';
+import {FormsModule} from '@angular/forms';
+
+
 
 @NgModule({
   declarations: [
@@ -34,7 +39,11 @@ import { CatalogComponent } from './course-catalog/catalog/catalog.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    /** 导入 ng-zorro-antd 模块 **/
+    NgZorroAntdModule,
+    FormsModule
   ],
   providers: [
     TestService,

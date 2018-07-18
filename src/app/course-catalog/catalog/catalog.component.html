@@ -1,3 +1,104 @@
-<p>
-  catalog works!
-</p>
+<div class="course-info-menu green-box">
+  <div class="w">
+    <ul class="course-menu">
+      <li>
+        <a [class]="kind==='1'?'moco-change-big-btn active':'moco-change-big-btn '" id="learnOn" [routerLink]="['/learn']" [queryParams]="{kind:'1',id:courseId}">课程章节</a>
+      </li>
+      <li>
+        <span>1266</span>
+        <a [class]="kind==='2'?'moco-change-big-btn active':'moco-change-big-btn '" id="qaOn" class="moco-change-big-btn " [routerLink]="['/ques']" [queryParams]="{kind:'2',id:courseId}">问答评论</a>
+      </li>
+      <li>
+        <a [class]="kind==='3'?'moco-change-big-btn active':'moco-change-big-btn '" id="noteOn" class="moco-change-big-btn " href="/note/18?sort=last&amp;page=1">同学笔记</a></li>
+      <li>
+        <span>244</span>
+        <a [class]="kind==='4'?'moco-change-big-btn active':'moco-change-big-btn '"id="commentOn" class="moco-change-big-btn " [routerLink]="['/comm']" [queryParams]="{kind:'4',id:courseId}">用户评价</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<!--目录-->
+<div *ngIf="kind === '1'" class="course-info-main clearfix w">
+  <div class="content-wrap clearfix">
+    <div class="content">
+      <div class="course-description course-wrap">
+        {{ catalog.info }}
+      </div>
+      <div class="course-chapters">
+        <div *ngFor="let cata of catalog.section" class="chapter course-wrap chapter-active">
+          <h3>{{ cata.title}}</h3>
+          <div class="chapter-description">{{ cata.info }}</div>
+          <ul class="video">
+            <li *ngFor="let chapter of cata.course">
+              <em class="laststudy">最近学习</em>
+              <a href="#" class="J-media-item">
+                <i class="icon-tick-revert done anticon anticon-check-square"></i>
+                <i class="imv2-play_circle type anticon anticon-play-circle"></i>
+                {{ chapter}}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="aside r" style="margin-top: 30px;">
+      <div class="course-wrap course-aside-info js-usercard-box">
+        <div class="learn-btn" id="continue">
+          <div class="learn-info">
+            <span>已学 100% </span>
+            学习耗时 5小时26分
+          </div>
+          <div class="progress">
+            <ins style="display: inline-block; width: 100%;"></ins>
+          </div>
+          <div class="learn-info-media">上次学至 1-1 原理介绍</div>
+          <a href="#" class="moco-btn moco-btn-red moco-btn-lg" >继续学习</a>
+        </div>
+        <div class="course-info-tip">
+          <dl class="first">
+            <dt>课程须知</dt>
+            <dt class="autowrap">您需要有HTML，CSS经验，能使用CSS制作静态页面，并对JS基础知识有一定的了解</dt>
+          </dl>
+        </div>
+        <div class="course-info-tip download">
+          <h4>资料下载</h4>
+          <ul class="downlist">
+            <li>
+              <a href="#" class="download-item">
+                <span>
+                  <i class="icon icon-folder"></i>
+                  焦点图轮播效果(源代码)
+                </span>
+                <span class="downcode">下载</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="js-commend-box">
+        <div class="mb40 recom-course-list-box">
+          <h4>推荐课程</h4>
+          <ul class="js-recom-course moco-aside-course clearfix">
+            <li>
+              <div class="aside-course-img"></div>
+              <div class="aside-course-content"></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="js-tag-box">
+        <div class="mb40 all-attention-box">
+          <h4>热门专题标签</h4>
+          <div class="js-all-attention all-attention"></div>
+        </div>
+      </div>
+      <div class="js-related-box">
+        <div class="mb40 recom-course-list-box">
+          <h4>相关课程</h4>
+          <ul class="js-recom-course moco-aside-course clearfix"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
