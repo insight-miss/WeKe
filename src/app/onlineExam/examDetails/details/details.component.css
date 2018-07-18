@@ -5,7 +5,7 @@
 }
 .CenYan {
   width: 1250px;
-  margin: 30px auto;
+  margin: auto;
   background: white;
 }
 
@@ -61,7 +61,7 @@
   border-radius: 4px 4px 0 0;
   position: relative;
   white-space: nowrap;
-  height: 30px;
+  height: 60px;
 }
 
 .subject-question {
@@ -160,4 +160,9 @@ ul.answer-sheet-num li a.active {
 ul.answer-sheet-num li a:hover:not(.active) {
   background-color: #27c4a7;
   color: white;
+}
+
+[nz-button] {
+  margin-right: 8px;
+  margin-bottom: 12px;
 }

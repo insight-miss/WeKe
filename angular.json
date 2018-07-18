@@ -27,7 +27,9 @@
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "node_modules/ng-zorro-antd/src/ng-zorro-antd.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/echarts/dist/echarts.min.js"
+            ]
           },
           "configurations": {
             "production": {

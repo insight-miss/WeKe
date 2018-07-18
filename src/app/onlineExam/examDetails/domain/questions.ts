@@ -6,14 +6,35 @@ export class Questions {
   private _problem: string;
   private _options: Option[];
   private _userAnswer: string[];
+  private _answer: string[];
+  private _status: number;
 
 
-  constructor(type: number, questionNumber: number, problem: string, options: Option[], userAnswer: string[]) {
+  constructor(type: number, questionNumber: number, problem: string, options: Option[],
+              userAnswer: string[], answer: string[], status: number) {
     this._type = type;
     this._questionNumber = questionNumber;
     this._problem = problem;
     this._options = options;
     this._userAnswer = userAnswer;
+    this._answer = answer;
+    this._status = status;
+  }
+
+  get status(): number {
+    return this._status;
+  }
+
+  set status(value: number) {
+    this._status = value;
+  }
+
+  get answer(): string[] {
+    return this._answer;
+  }
+
+  set answer(value: string[]) {
+    this._answer = value;
   }
 
   get type(): number {
