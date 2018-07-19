@@ -24,6 +24,9 @@ import { AnalysisComponent } from './onlineExam/ExamAnalysis/AnswerAnalysis/anal
 import { ExamAnalysisComponent } from './onlineExam/ExamAnalysis/exam-analysis/exam-analysis.component';
 import {NgxEchartsModule} from 'ngx-echarts';
 import {ReportService} from './onlineExam/ExamAnalysis/EvaluationReport/service/report.service';
+import {CommentComponent} from './comment/comment.component';
+import {PublishComponent} from './publish/publish.component';
+import {MatButtonModule, MatDialogModule, MatInputModule} from '@angular/material';
 
 
 
@@ -42,7 +45,9 @@ import {ReportService} from './onlineExam/ExamAnalysis/EvaluationReport/service/
     CatalogComponent,
     ReportComponent,
     AnalysisComponent,
-    ExamAnalysisComponent
+    ExamAnalysisComponent,
+    PublishComponent,
+    CommentComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,12 +57,20 @@ import {ReportService} from './onlineExam/ExamAnalysis/EvaluationReport/service/
     /** 导入 ng-zorro-antd 模块 **/
     NgZorroAntdModule,
     FormsModule,
-    NgxEchartsModule
+    NgxEchartsModule,
+    MatButtonModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatDialogModule,
   ],
   providers: [
     TestService,
     DetailsService,
     ReportService
+  ],
+  entryComponents:[
+    PublishComponent,
+    CommentComponent,
   ],
   bootstrap: [AppComponent]
 })
