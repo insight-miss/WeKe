@@ -1,0 +1,24 @@
+<div class="moco-modal-layer" id="comment">
+  <div class="moco-modal-title">
+    <div>
+      <span>我要评论</span>
+      <a class="moco-icon-close moco-modal-close js-modal-close">
+        <i class="anticon anticon-close" (click)="onSure()"></i>
+      </a>
+    </div>
+  </div>
+  <div class="moco-modal-inner">
+    <div class="moco-modal-dialog" style="display: block;">
+      <div id="js-pub-container" class="clearfix">
+        <mat-form-field class="example-full-width txa">
+        <textarea matInput  placeholder="扯淡、吐槽、表扬、鼓励……想说啥就说啥！" [(ngModel)]="content" name="txa"></textarea>
+        </mat-form-field>
+        <div id="pub-btm" class="pub-btm pub-comment clearfix">
+          <div class="captcha-verify-box js-verify-box hide"></div>
+          <input type="button" id="js-pl-submit" class="moco-btn moco-btn-red moco-btn-lg r" value="发表评论" (click)="onSure()">
+          <span class="errortip r">您还没有填写内容！</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
