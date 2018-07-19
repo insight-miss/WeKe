@@ -425,5 +425,189 @@ a:link, a:visited {
   background-color: #FEF3F3;
   border-radius: 4px;
 }
+.comp-filter-bar {
+  position: relative;
+  margin-bottom: 30px;
+}
+.mod-qa-list {
+  margin-bottom: 8px;
+  padding: 32px;
+  background: #FFF;
+  box-shadow: 0 4px 8px 0 rgba(7,17,27,.1);
+  border-radius: 12px;
+}
+.issques form, .mod-qa-list, .pub-btm {
+  position: relative;
+}
+.mod-qa-list .icon-wenda {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  background: url(../../../assets/icon_wenda.png) no-repeat;
+  background-size: cover;
+}
+[class*=" icon-"], [class^=icon-] {
+  font-family: icomoon!important;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.mod-qa-list .qa-medias {
+  width: 96px;
+  overflow: hidden;
+  text-align: center;
+}
+.mod-qa-list .qa-content {
+  padding-right: 20px;
+  min-height: 85px;
+  position: relative;
+  overflow: hidden;
+}
+.mod-qa-list .qa-content, .mod-qa-list .qa-header .name, .mod-qa-list .qa-header .qa-tit, .replydes {
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.moco-change-smalle-btn.active {
+  color: #FFFFFF;
+  background: #9199a1;
+  cursor: default;
+}
+a:link, a:visited, body, html {
+  color: #1c1f21;
+}
+a:link, a:visited {
+  color: #5e5e5e;
+}
+.moco-change-smalle-btn {
+  background: #f8fafc;
+  margin-right: 12px!important;
+}
+:link, :visited, ins {
+  text-decoration: none;
+}
+.moco-change-smalle-btn {
+  padding: 4px 12px;
+  font-size: 12px;
+  color: #545c63;
+  line-height: 16px;
+  background: #fff;
+  border-radius: 12px;
+  cursor: pointer;
+}
+a, button, input {
+  outline: 0;
+}
+.comp-filter-bar span.moco-btn {
+  position: absolute;
+  right: 0;
+  top: -7px;
+}
+.moco-btn-gray-l {
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  -weibkit-transition: all .3s;
+  -moz-transition: all .3s;
+  transition: all .3s;
+  color: #545c63;
+  background-color: rgba(84,92,99,0.1);
+  border-color: rgba(84,92,99,0.1);
+  opacity: 1;
+  border-color: transparent;
+}
+.moco-btn {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  text-decoration: none;
+  box-sizing: border-box;
+  background-image: none;
+  border-radius: 0;
+  -webkit-appearance: none;
+  white-space: nowrap;
+  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  -weibkit-transition: all .3s;
+  -moz-transition: all .3s;
+  transition: all .3s;
+  color: #545c63;
+  background-color: transparent;
+  border-color: #9199a1;
+  opacity: 1;
+  padding: 7px 16px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 18px;
+}
+.mod-qa-list .qa-header {
+  font-size: 14px;
+  line-height: 20px;
+  color: #363d40;
+  position: relative;
+}
+.replycont {
+  margin-top: 10px;
+  position: relative;
+}
+.mod-qa-list .qa-footer {
+  margin-top: 12px;
+  color: #93999f;
+  font-size: 12px!important;
+}
+.mod-qa-list .qa-medias img {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  border-radius: 50%;
+  vertical-align: top;
+}
+fieldset, img {
+  border: 0;
+}
+.mod-qa-list .qa-header .qa-tit {
+  font-size: 16px;
+  font-weight: 700;
+  color: #07111B;
+  line-height: 24px;
+}
+.mod-qa-list .qa-content, .mod-qa-list .qa-header .name, .mod-qa-list .qa-header .qa-tit, .replydes {
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.mod-qa-list .qa-footer .l-box a {
+  color: #93999f;
+  margin-right: 30px;
+}
+.mod-qa-list .qa-footer .static-count {
+  font-size: 12px;
+  color: #93999f;
+}
+.mod-qa-list .qa-footer .static-count .static-item.answer {
+  margin-right: 26px;
+}
+.mod-qa-list .qa-footer .static-count .static-item {
+  display: inline-block;
+}
+.js-pl-praise:hover{
+  background-color: red;
+}
+
 
 

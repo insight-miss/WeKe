@@ -12,6 +12,10 @@ import { BodyComponent } from './main-page/body/body.component';
 import { MenuComponent } from './main-page/menu/menu.component';
 import { RankComponent } from './onlineExam/ExamRank/rank/rank.component';
 import {DetailsService} from './onlineExam/examDetails/service/details.service';
+import { KindComponent } from './freeCourse/kind/kind.component';
+import { RainBowDirective } from './freeCourse/kind/rainbow/rain-bow.directive';
+import { CatalogComponent } from './course-catalog/catalog/catalog.component';
+
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgZorroAntdModule} from 'ng-zorro-antd';
 import {FormsModule} from '@angular/forms';
@@ -21,23 +25,8 @@ import { ExamAnalysisComponent } from './onlineExam/ExamAnalysis/exam-analysis/e
 import {NgxEchartsModule} from 'ngx-echarts';
 import {ReportService} from './onlineExam/ExamAnalysis/EvaluationReport/service/report.service';
 
-import {CKEditorModule} from 'ng2-ckeditor';
-import { ArticleComponent } from './article/article.component';
-import {SafeHtmlPipe} from "./article/SafeHtmlPipe";
-import {HighlightModule , HighlightOptions} from "ngx-highlightjs";
-import { ProblemComponent } from './onlineExam/problem/problem.component';
-import {ProblemService} from "./onlineExam/problem/service/problem.service";
-import { PublisProblemComponent } from './onlineExam/publis-problem/publis-problem.component';
 
-import { registerLocaleData } from '@angular/common';
-import zh from '@angular/common/locales/zh';
-import { LoginComponent } from './onlineExam/login/login.component';
-registerLocaleData(zh);
 
-const options: HighlightOptions = {
-  theme: 'monokai_sublime',
-  path: 'assets/ckeditor/plugins/codesnippet/lib/highlight/'
-};
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,14 +37,12 @@ const options: HighlightOptions = {
     HeadComponent,
     MenuComponent,
     RankComponent,
+    KindComponent,
+    RainBowDirective,
+    CatalogComponent,
     ReportComponent,
     AnalysisComponent,
-    ExamAnalysisComponent,
-    ArticleComponent,
-    SafeHtmlPipe,
-    ProblemComponent,
-    PublisProblemComponent,
-    LoginComponent
+    ExamAnalysisComponent
   ],
   imports: [
     BrowserModule,
@@ -65,17 +52,13 @@ const options: HighlightOptions = {
     /** 导入 ng-zorro-antd 模块 **/
     NgZorroAntdModule,
     FormsModule,
-    NgxEchartsModule,
-    CKEditorModule,
-    HighlightModule.forRoot(options)
+    NgxEchartsModule
   ],
   providers: [
     TestService,
     DetailsService,
-    ReportService,
-    ProblemService
+    ReportService
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }
