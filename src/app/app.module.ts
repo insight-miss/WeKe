@@ -21,7 +21,23 @@ import { ExamAnalysisComponent } from './onlineExam/ExamAnalysis/exam-analysis/e
 import {NgxEchartsModule} from 'ngx-echarts';
 import {ReportService} from './onlineExam/ExamAnalysis/EvaluationReport/service/report.service';
 
+import {CKEditorModule} from 'ng2-ckeditor';
+import { ArticleComponent } from './article/article.component';
+import {SafeHtmlPipe} from "./article/SafeHtmlPipe";
+import {HighlightModule , HighlightOptions} from "ngx-highlightjs";
+import { ProblemComponent } from './onlineExam/problem/problem.component';
+import {ProblemService} from "./onlineExam/problem/service/problem.service";
+import { PublisProblemComponent } from './onlineExam/publis-problem/publis-problem.component';
 
+import { registerLocaleData } from '@angular/common';
+import zh from '@angular/common/locales/zh';
+import { LoginComponent } from './onlineExam/login/login.component';
+registerLocaleData(zh);
+
+const options: HighlightOptions = {
+  theme: 'monokai_sublime',
+  path: 'assets/ckeditor/plugins/codesnippet/lib/highlight/'
+};
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +50,12 @@ import {ReportService} from './onlineExam/ExamAnalysis/EvaluationReport/service/
     RankComponent,
     ReportComponent,
     AnalysisComponent,
-    ExamAnalysisComponent
+    ExamAnalysisComponent,
+    ArticleComponent,
+    SafeHtmlPipe,
+    ProblemComponent,
+    PublisProblemComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -44,13 +65,17 @@ import {ReportService} from './onlineExam/ExamAnalysis/EvaluationReport/service/
     /** 导入 ng-zorro-antd 模块 **/
     NgZorroAntdModule,
     FormsModule,
-    NgxEchartsModule
+    NgxEchartsModule,
+    CKEditorModule,
+    HighlightModule.forRoot(options)
   ],
   providers: [
     TestService,
     DetailsService,
-    ReportService
+    ReportService,
+    ProblemService
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

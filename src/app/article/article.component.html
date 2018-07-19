@@ -1,0 +1,4 @@
+<ckeditor [(ngModel)]="content" (ngModelChange)="change($event)" debounce="500" [config]="conf">
+  <p>Hello <strong>world</strong></p>
+</ckeditor>
+<div highlight="all" [innerHTML]="content | safeHTML"></div>

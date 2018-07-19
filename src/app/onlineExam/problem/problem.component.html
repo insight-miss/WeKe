@@ -1,0 +1,118 @@
+<div style="background-color: #eff4f7">
+  <div class="pt-3" style="background-color: #eff4f7"></div>
+
+  <div class="card_head" style="margin: auto; background-color:#f7f7f7;width: 1250px;padding: 1.25rem;">
+    <b>{{problemType}}</b>
+  </div>
+  <div style="margin: auto; background-color: white; width: 1250px;padding: 1.25rem;">
+
+    <div>
+      <h5 class="card_title">基本信息</h5>
+
+      <!--题型-->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-2">
+            <label class="ant-form-item-required type_label"><b>题型</b></label>
+          </div>
+          <div class="col-4">
+            <nz-input-group>
+              <nz-select [(ngModel)]="problemType">
+                <nz-option [nzLabel]="'单项选择题'" [nzValue]="'单项选择题'"></nz-option>
+                <nz-option [nzLabel]="'不定选择题'" [nzValue]="'不定选择题'"></nz-option>
+                <nz-option [nzLabel]="'判断题'" [nzValue]="'判断题'"></nz-option>
+                <nz-option [nzLabel]="'简答题'" [nzValue]="'简答题'"></nz-option>
+              </nz-select>
+            </nz-input-group>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-2">
+            <label class="ant-form-item-required type_label"><b>分值</b></label>
+          </div>
+          <div class="col-4">
+            <input nz-input [(ngModel)]="problem.grade">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-2">
+            <label class="ant-form-item-required type_label"><b>答案</b></label>
+          </div>
+          <div class="col-4">
+            <div *ngIf="problemType!='简答题'">
+              <input nz-input [(ngModel)]="problem.answer">
+            </div>
+            <div *ngIf="problemType=='简答题'">
+              <textarea [nzAutosize]="{ minRows: 15, maxRows: 25 }"  nz-input [(ngModel)]="problem.answer"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--题目预览-->
+    <div>
+      <hr>
+      <h5 class="ant-form-item-required card_title">题目描述</h5>
+
+      <div class="card_head">
+        题目预览(答题者只查看题面描述)
+      </div>
+      <div class="border look_div" highlight="all" [innerHTML]="content | safeHTML"></div>
+      <ckeditor [(ngModel)]="content" (ngModelChange)="change($event)" debounce="500" [config]="conf">
+        <p>Hello <strong>world</strong></p>
+      </ckeditor>
+      <div class="pt-3"></div>
+    </div>
+
+    <div *ngIf="problemType!='简答题'">
+      <!--选项描述-->
+      <div>
+        <hr>
+
+        <div class="d-flex ">
+          <h5 class="ant-form-item-required card_title">选项描述</h5>
+          <a (click)="addInput()">
+            <i class="anticon anticon-plus-circle-o pl-3"
+               style="font-size: 20px" (mousemove)="setIconFlag('true')"  (mouseleave)="setIconFlag('false')"
+               [class]="iconFlag =='true' ?'anticon anticon-plus-circle-o pl-3' :'anticon anticon-plus-circle pl-3' "></i>
+          </a>
+
+          <!--<i class="anticon anticon-plus-circle-o"></i>-->
+        </div>
+
+
+        <!--选项输入框-->
+        <div *ngIf="optionLen!=0">
+          <div style="margin-bottom: 16px;" *ngFor="let option of options let i = index" class="d-flex">
+            <nz-input-group nzAddOnBefore="{{i+1}}" nzSize="large">
+              <input type="text" nz-input [(ngModel)]="option.optionDetails">
+            </nz-input-group>
+            <a class="pt-2" (click)="deleteInput(option.optionDetails)">
+              <i class="anticon anticon-close-circle-o pl-3"
+                 style="font-size: 20px" (mousemove)="setDelete(i+1)"  (mouseleave)="setDelete(0)"
+                 [class]="deleteFlag == i+1 ?'anticon anticon-close-circle-o pl-3' :'anticon anticon-close-circle pl-3' "></i>
+            </a>
+            <!--<i class="anticon anticon-close-circle"></i>-->
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!--创建按钮-->
+    <div class="d-flex justify-content-center pt-3">
+      <button nz-button nzType="primary" (click)="createProblem()">创建</button>
+    </div>
+
+  </div>
+
+  <div class="pt-3" style="background-color: #eff4f7"></div>
+</div>
+

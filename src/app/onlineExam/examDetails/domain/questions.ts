@@ -8,10 +8,18 @@ export class Questions {
   private _userAnswer: string[];
   private _answer: string[];
   private _status: number;
+  private _grade: number;
 
+  get grade(): number {
+    return this._grade;
+  }
+
+  set grade(value: number) {
+    this._grade = value;
+  }
 
   constructor(type: number, questionNumber: number, problem: string, options: Option[],
-              userAnswer: string[], answer: string[], status: number) {
+              userAnswer: string[], answer: string[], status: number, grade: number) {
     this._type = type;
     this._questionNumber = questionNumber;
     this._problem = problem;
@@ -19,6 +27,7 @@ export class Questions {
     this._userAnswer = userAnswer;
     this._answer = answer;
     this._status = status;
+    this._grade = grade;
   }
 
   get status(): number {

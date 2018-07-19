@@ -1,0 +1,30 @@
+.card_title {
+  margin-bottom: .75rem;
+  font-size: 1.09375rem;
+}
+
+.type_label {
+  font-size: 15px;
+  margin-top: 7px;
+}
+
+.card_head {
+  border-radius: calc(.125rem - 1px) calc(.125rem - 1px) 0 0;
+  padding: .75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: rgba(0,0,0,.03);
+  border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+.look_div {
+  min-height: 200px;
+  padding: 15px;
+}
+
+.card_a:hover {
+  background-color: white;
+}
+
+.card_b:hover {
+  background-color: white;
+}

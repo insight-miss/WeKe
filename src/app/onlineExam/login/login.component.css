@@ -1,0 +1,56 @@
+.login_h1 {
+  font-size: 16px;
+  line-height: 49px;
+  height: 49px;
+  color: #787d82;
+  border-bottom: 1px solid #d0d6d9;
+}
+
+.login_h1 span {
+  width: 80px;
+  text-align: center;
+  height: 49px;
+  line-height: 49px;
+  cursor: pointer;
+}
+
+.login_h1 span:hover {
+  border-bottom: 1px solid #f01400;
+  color: #f01400;
+}
+
+.login_body {
+  padding: 0 30px;
+}
+
+.login_append {
+  line-height: 1em;
+  margin-bottom: 20px;
+}
+
+[nz-button] {
+  margin-right: 8px;
+  margin-bottom: 12px;
+}
+
+.login_btu {
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  -moz-transition: all .3s;
+  transition: all .3s;
+  color: #fff;
+  background-color: #f20d0d;
+  border-color: #f20d0d;
+  opacity: 1;
+  padding: 23px 32px;
+  font-size: 16px;
+  line-height: 4px;
+  border-radius: 24px;
+  width: 300px;
+  box-sizing: border-box;
+}
+
+.login_footer {
+  padding: 8px 0px 4px;
+}

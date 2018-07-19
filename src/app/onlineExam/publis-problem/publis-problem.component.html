@@ -1,0 +1,76 @@
+<div style="background-color: #eff4f7">
+  <div class="pt-3" style="background-color: #eff4f7"></div>
+
+  <div style="margin: auto; background-color: white; width: 1250px;padding: 1.25rem;height: 802px">
+    <div style="margin-bottom: 16px;">
+      <button nz-button [nzType]="'primary'" class="mr-3" (click)="showModal()">发表题集</button>
+      <button nz-button (click)="addRow()" class="editable-add-btn">Add</button>
+    </div>
+
+    <nz-table
+      #editRowTable
+      nzBordered
+      [nzData]="dataSet">
+      <thead>
+      <tr>
+        <th nzWidth="30%">Name</th>
+        <th>type</th>
+        <th>grade</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let data of editRowTable.data">
+        <td>
+          <div class="editable-cell">
+            <div class="editable-cell-text-wrapper">
+              <ng-container *ngIf="!editCache[data.key].edit">
+                <!--{{data.name}}-->
+                <div highlight="all" [innerHTML]="data.name | safeHTML"></div>
+                <i class="anticon anticon-edit editable-cell-icon" (click)="startEdit(data.key)"></i>
+              </ng-container>
+              <ng-container *ngIf="editCache[data.key].edit">
+                <input type="text" nz-input [(ngModel)]="editCache[data.key].name">
+                <i class="anticon anticon-check editable-cell-icon-check" (click)="finishEdit(data.key)"></i>
+              </ng-container>
+            </div>
+          </div>
+        </td>
+        <td>{{data.age}}</td>
+        <td>{{data.address}}</td>
+        <td>
+          <nz-popconfirm [nzTitle]="'Sure to delete?'" (nzOnConfirm)="deleteRow(data.key)">
+            <a nz-popconfirm>Delete</a>
+          </nz-popconfirm>
+        </td>
+      </tr>
+      </tbody>
+    </nz-table>
+  </div>
+
+  <div class="pt-3" style="background-color: #eff4f7"></div>
+</div>
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Publish" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" [nzOkLoading]="isOkLoading">
+  <div class="form-group">
+    <div class="row">
+      <div class="col-3 pt-2">
+        <label><b>题集名称</b></label>
+      </div>
+      <div class="col-8">
+        <input nz-input [(ngModel)]="titleValue">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col-3 pt-2">
+        <label><b>起始时间</b></label>
+      </div>
+      <div class="col-8">
+        <nz-range-picker [(ngModel)]="dateRange" (ngModelChange)="onChange($event)" [nzShowTime]="true"></nz-range-picker>
+      </div>
+    </div>
+  </div>
+</nz-modal>
