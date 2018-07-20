@@ -1,0 +1,338 @@
+#main {
+  padding-top: 0;
+  padding-bottom: 50px;
+}
+#main {
+  padding: 0!important;
+  min-height: 650px;
+}
+#main {
+  min-height: 750px;
+  padding: 20px 0;
+}
+.settings-cont {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 30px 0;
+}
+.clearfix {
+}
+.settings-cont .setting-left {
+  width: 216px;
+  background-color: #f8fafc;
+}
+.l {
+  float: left;
+}
+.settings-cont .setting-right {
+  float: left;
+  margin-left: 48px;
+  width: 936px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.settings-cont .setting-left .avator-wapper {
+  padding: 32px 0 24px;
+}
+.settings-cont .setting-left .list-wapper {
+  overflow: hidden;
+}
+.settings-cont .setting-right-wrap {
+  min-height: 550px;
+}
+.setting-right-wrap {
+  padding: 0!important;
+}
+.settings-cont .setting-left .avator-mode {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  box-sizing: border-box;
+  border: 4px solid #d9dde1;
+  border-radius: 50px;
+  margin: 0 auto;
+  text-align: center;
+  overflow: hidden;
+}
+.settings-cont .setting-left .list-wapper h2 {
+  font-size: 16px;
+  line-height: 24px;
+  margin: 12px 24px;
+  font-weight: 700;
+}
+.settings-cont .setting-left .list-wapper .line {
+  height: 1px;
+  background-color: #d9dde1;
+  margin: 0 24px;
+}
+.line {
+  height: 1px;
+  background-color: #d0d6d9;
+  margin-top: 12px;
+}
+.line {
+  height: 1px;
+  background-color: #d0d6d9;
+  margin-top: 12px;
+}
+.settings-cont .setting-left .list-wapper .menu {
+  padding: 10px 0 25px;
+}
+ul {
+  list-style: none;
+}
+div{
+  margin: 0;
+  padding: 0;
+}
+img {
+  border: 0;
+}
+.settings-cont .setting-left .avator-mode .update-avator {
+  font-size: 12px;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: -30px;
+  transition: bottom .3s;
+  -moz-transition: bottom .3s;
+  -webkit-transition: bottom .3s;
+  -o-transition: bottom .3s;
+}
+.settings-cont .setting-left .des-mode p {
+  line-height: 44px;
+  width: 160px;
+  margin: 0 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+p,li{
+  margin: 0;
+  padding: 0;
+}
+.setting-left li {
+  border: none!important;
+}
+common-title {
+  line-height: 40px;
+  font-size: 16px;
+  font-weight: 700;
+}
+.common-title {
+  line-height: 40px;
+  font-size: 16px;
+  font-weight: 700;
+}
+.setting-profile .info-wapper {
+  margin: 24px auto 24px 40px;
+}
+.settings-cont .setting-left .avator-mode .update-avator p {
+  background: rgba(0,0,0,.6);
+  color: #fff;
+  line-height: 30px;
+}
+.settings-cont .setting-left .des-mode .auth-list dd {
+  display: inline-block;
+  position: relative;
+  background-color: #fff;
+  width: 26px;
+  height: 26px;
+  border-radius: 13px;
+  box-sizing: border-box;
+  padding-top: 2.5px;
+  margin-right: 12px;
+  color: #a9adb2;
+}
+.settings-cont .setting-left .des-mode .auth-list dd.active {
+  color: #f01414;
+}
+dd{
+  margin: 0;
+  padding: 0;
+}
+.settings-cont .setting-left .list-wapper .menu a {
+  display: block;
+  position: relative;
+  padding: 0 0 0 54px;
+  height: 48px;
+  line-height: 48px;
+  transition: background-color .3s ease;
+}
+.common-title a {
+  color: #93999f;
+  font-weight: 400;
+  font-size: 14px;
+}
+.setting-profile .info-box {
+  margin-bottom: 12px;
+}
+.settings-cont .setting-left .avator-mode .update-avator a {
+  color: inherit;
+}
+[class*=" icon-"], [class^=icon-] {
+  font-family: icomoon!important;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.settings-cont .setting-left .des-mode .auth-list dd .icon-tips {
+  position: absolute;
+  width: 120px;
+  line-height: 30px;
+  left: 50%;
+  margin-left: -60px;
+  bottom: -36px;
+  font-size: 12px;
+  color: #4d555d;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 1px 2px #cccecf;
+  display: none;
+}
+.settings-cont .setting-left .des-mode .auth-list dd .icon-tips .triangle_border_up {
+  width: 0;
+  height: 0;
+  border-width: 0 6px 7px;
+  border-style: solid;
+  border-color: transparent transparent #efefef;
+  position: absolute;
+  left: 50%;
+  margin-left: -7px;
+  top: -7px;
+}
+.settings-cont .setting-left .list-wapper .menu a .arr {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #b5b9bc;
+}
+.common-title a i {
+  color: #008cc8;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+.common-title a i {
+  color: #008cc8;
+  margin-right: 4px;
+  vertical-align: text-top;
+}
+[class*=" icon-"], [class^=icon-] {
+  font-family: icomoon!important;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.setting-profile .info-box label {
+  width: 120px;
+  line-height: 20px;
+  padding: 20px 0;
+  text-align: center;
+  background-color: #f3f5f7;
+  color: #07111b;
+  font-weight: 700;
+}
+.pull-left {
+  float: left;
+}
+.pull-right{
+  float: right;
+}
+.des-mode p{
+  text-align: center;
+}
+.setting-profile .info-box div {
+  width: 708px;
+  margin-left: 8px;
+  line-height: 20px;
+  padding: 20px 0 20px 22px;
+  border-bottom: 1px solid #d9dde1;
+}
+.settings-cont .setting-left .des-mode .auth-list dd .icon-tips .triangle_border_up span {
+  display: block;
+  width: 0;
+  height: 0;
+  border-width: 0 5px 5px;
+  border-style: solid;
+  border-color: transparent transparent #fff;
+  position: absolute;
+  top: 2px;
+  left: -5px;
+}
+[class^=icon-] {
+  font-family: icomoon!important;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.settings-cont .setting-left .list-wapper .menu a.on {
+  color: #fff;
+  background-color: #f01414;
+}
+.settings-cont .setting-left .list-wapper .menu a:hover {
+  background-color: #f3f5f7;
+  color: #f01414;
+}
+.settings-cont .setting-left .list-wapper .menu a {
+  display: block;
+  position: relative;
+  padding: 0 0 0 54px;
+  height: 48px;
+  line-height: 48px;
+  transition: background-color .3s ease;
+}
+.common-title {
+  line-height: 40px;
+  font-size: 16px;
+  font-weight: 700;
+}
+.oplog-list {
+  width: 100%;
+  margin-top: 24px;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.oplog-list th {
+  background-color: #f3f5f7;
+}
+.oplog-list td, .oplog-list th {
+  text-align: center;
+  line-height: 48px;
+}
+caption, th {
+  text-align: left;
+}
+th {
+  font-style: normal;
+  font-weight: 400;
+}
+.oplog-list td {
+  border-bottom: 1px solid #d9dde1;
+}
+.oplog-list td, .oplog-list th {
+  text-align: center;
+  line-height: 48px;
+}
+.common-title .title-tips {
+  font-size: 12px;
+  color: #93999f;
+  margin-left: 18px;
+  font-weight: 400;
+}

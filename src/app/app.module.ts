@@ -27,7 +27,25 @@ import {ReportService} from './onlineExam/ExamAnalysis/EvaluationReport/service/
 import {CommentComponent} from './comment/comment.component';
 import {PublishComponent} from './publish/publish.component';
 import {MatButtonModule, MatDialogModule, MatInputModule} from '@angular/material';
-
+import {ProblemComponent} from './onlineExam/problem/problem.component';
+import {PublisProblemComponent} from './onlineExam/publis-problem/publis-problem.component';
+import {LoginComponent} from './onlineExam/login/login.component';
+import {SafeHtmlPipe} from './article/SafeHtmlPipe';
+import {HighlightModule, HighlightOptions} from 'ngx-highlightjs';
+import {CKEditorModule} from 'ng2-ckeditor';
+import {ProblemService} from './onlineExam/problem/service/problem.service';
+import {WriteDemoComponent} from './write-demo/write-demo.component';
+import {VgCoreModule} from 'videogular2/core';
+import {VgControlsModule} from 'videogular2/controls';
+import {VgOverlayPlayModule} from 'videogular2/overlay-play';
+import {VgBufferingModule} from 'videogular2/buffering';
+import { VideoComponent } from './video/video.component';
+import { UserComponent } from './user/user.component';
+import { PersonComponent } from './msgInput/person/person.component';
+const options: HighlightOptions = {
+  theme: 'monokai_sublime',
+  path: 'assets/js/ckeditor/plugins/codesnippet/lib/highlight/'
+};
 
 
 @NgModule({
@@ -46,8 +64,16 @@ import {MatButtonModule, MatDialogModule, MatInputModule} from '@angular/materia
     ReportComponent,
     AnalysisComponent,
     ExamAnalysisComponent,
+    ProblemComponent,
+    PublisProblemComponent,
+    SafeHtmlPipe,
+    LoginComponent,
     PublishComponent,
     CommentComponent,
+    WriteDemoComponent,
+    VideoComponent,
+    UserComponent,
+    PersonComponent
   ],
   imports: [
     BrowserModule,
@@ -62,15 +88,25 @@ import {MatButtonModule, MatDialogModule, MatInputModule} from '@angular/materia
     BrowserAnimationsModule,
     MatInputModule,
     MatDialogModule,
+    CKEditorModule,
+    HighlightModule.forRoot(options),
+    BrowserModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule
   ],
   providers: [
     TestService,
     DetailsService,
-    ReportService
+    ReportService,
+    ProblemService
   ],
   entryComponents:[
     PublishComponent,
     CommentComponent,
+    WriteDemoComponent,
+    PersonComponent
   ],
   bootstrap: [AppComponent]
 })

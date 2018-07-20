@@ -1,0 +1,68 @@
+<div class="moco-modal-layer" style="height: 448px;">
+  <div class="moco-modal-title">
+    <div>
+      <span mat-dialog-title>编辑个人信息</span>
+      <a href="#" class="moco-icon-close moco-modal-close js-modal-close"></a>
+    </div>
+  </div>
+  <div class="moco-modal-title">
+    <div class="moco-modal-dialog">
+      <div class="edit-info">
+        <form class="js-wapper-form" id="profile">
+          <mat-dialog-content>
+            <div class="moco-form-group">
+              <label class="moco-control-label">昵称：</label>
+              <div class="moco-control-input">
+                <input type="text" class="moco-form-control" id="nick" name="nick" placeholder="请输入昵称" [(ngModel)]="data.nickname">
+                <div class="rlf-tip-wrap errorHint color-red"></div>
+              </div>
+            </div>
+            <div class="moco-form-group">
+              <label class="moco-control-label">职位：</label>
+              <div class="moco-control-input">
+                <input type="text" class="moco-form-control" value="{{ data.job }}" id="job" name="job" placeholder="请输入职位" [(ngModel)]="data.job">
+                <div class="rlf-tip-wrap errorHint color-red"></div>
+              </div>
+            </div>
+            <div class="moco-form-group">
+              <label class="moco-control-label">地区：</label>
+              <div class="moco-control-input">
+                <input type="text" class="moco-form-control" value="{{ data.address }}" id="address" name="address" placeholder="请输入地址" [(ngModel)]="data.address">
+                <div class="rlf-tip-wrap errorHint color-red"></div>
+              </div>
+            </div>
+            <div class="moco-form-group wlfg-wrap">
+              <label class="moco-control-label h16 lh16">性别</label>
+              <div class="moco-control-input rlf-group rlf-radio-group">
+                <label><input (click)="selectSex('保密')" type="radio" hidefocus="true" value="0" name="sex" [checked]="data.sex==='保密'?'checked':''" >保密</label>
+                <label><input (click)="selectSex('男')"type="radio" hidefocus="true" value="1" [checked]="data.sex==='男'?'checked':''" name="sex">男</label>
+                <label><input (click)="selectSex('女')"type="radio" hidefocus="true" value="2" name="sex" [checked]="data.sex==='女'?'checked':''">女</label>
+                <div class="rlf-tip-wrap errorHint color-red"></div>
+              </div>
+            </div>
+            <div class="moco-form-group wlfg-wrap">
+              <label class="moco-control-label">个性签名：</label>
+              <div class="moco-control-input">
+                <div class="pr">
+                  <textarea value="{{ data.info }}" id="aboutme" rows="5" class="noresize js-sign moco-form-control" [(ngModel)]="data.info" name="info"></textarea>
+                  <p class="numCanInput js-numCanInput " *ngIf="flag==='1'">输入不完整</p>
+                </div>
+              </div>
+            </div>
+          </mat-dialog-content>
+          <mat-dialog-actions>
+            <div class="wlfg-wrap clearfix">
+              <label class="moco-control-label"></label>
+              <div class="moco-control-input">
+                <a (click)="onSave('1')" class="moco-btn moco-btn-blue marR10" id="profile-submit"
+                   style="margin-right: 20px;color: white">确定</a>
+                <a (click)="onSave('0')" class="moco-btn moco-btn-normal js-modal-close">取消</a>
+                <p class="js-gerror g_error"></p>
+              </div>
+            </div>
+          </mat-dialog-actions>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

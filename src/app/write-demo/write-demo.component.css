@@ -1,0 +1,31 @@
+.btn {
+  width: 100px;
+  height: 40px;
+  border: none;
+  background-color: red;
+  color: white;
+  font-size: 16px;
+  border-radius: 20px;
+  float: right;
+  margin-right: 22px;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background-color: #c20a0a;
+}
+
+.body {
+  border-radius: 10px;
+  padding-top: 10px;
+  background-color: whitesmoke;
+  width: 900px;
+  height: 550px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.body h3 {
+  margin-left: 20px;
+  width: 800px;
+}

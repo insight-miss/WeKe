@@ -1,0 +1,111 @@
+<div id="main">
+  <div class="settings-cont clearfix">
+    <div class="setting-left l">
+      <div class="avator-wapper">
+        <div class="avator-mode">
+          <img alt="" class="avator-img" src="https://img.mukewang.com/59e5c5b30001aa2601000100-200-200.jpg" width="92"
+               height="92">
+          <div class="update-avator">
+            <p></p>
+          </div>
+        </div>
+        <div class="des-mode">
+          <p>丁丁鱼</p>
+        </div>
+      </div>
+      <div class="list-wapper">
+        <h2>账户管理</h2>
+        <div class="line"></div>
+        <ul class="menu">
+          <li>
+            <a [class]="selected==='1'?'on':''" (click)="selector('1')">
+              个人信息
+              <span class="arr">
+                <i class="icon-right2 anticon anticon-right"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a [class]="selected==='2'?'on':''" (click)="selector('2')">
+              操作记录
+              <span class="arr">
+                <i class="icon-right2 anticon anticon-right"></i>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div *ngIf="selected==='1'" class="setting-right">
+      <div class="setting-right-wrap wrap-boxes settings">
+        <div class="formBox">
+          <div class="setting-wrap setting-profile" id="setting-profile">
+            <div class="common-title">个人信息
+              <a class="pull-right js-edit-info" (click)="openDialog()">
+                <i class="icon-note anticon anticon-edit"></i>编辑
+              </a>
+            </div>
+            <div class="line"></div>
+            <div class="info-wapper">
+              <div class="info-box clearfix">
+                <label class="pull-left">昵称</label>
+                <div class="pull-left">{{ person.nickname }}</div>
+              </div>
+              <div class="info-box clearfix">
+                <label class="pull-left">职位</label>
+                <div class="pull-left">{{ person.job }}</div>
+              </div>
+              <div class="info-box clearfix">
+                <label class="pull-left">城市</label>
+                <div class="pull-left">{{ person.address }}</div>
+              </div>
+              <div class="info-box clearfix">
+                <label class="pull-left">性别</label>
+                <div class="pull-left">{{ person.sex }}</div>
+              </div>
+              <div class="info-box clearfix">
+                <label class="pull-left">个性签名</label>
+                <div class="pull-left">{{ person.info }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="selected==='2'" class="setting-right">
+      <div class="setting-right-wrap wrap-boxes settings">
+
+        <div class="page-settings">
+          <div class="common-title">操作记录
+            <span class="title-tips">通过查看操作类型、登录时间、登录地点和设备可以判断账号是否正常</span>
+          </div>
+          <div class="line"></div>
+          <div class="setting setting-height paddingBtoom">
+            <div class="contentBox">
+              <table class="oplog-list">
+                <tbody>
+                <tr>
+                  <th>类型</th>
+                  <th>登录时间</th>
+                  <th>城市</th>
+                  <th>IP</th>
+                  <th>登录设备</th>
+                </tr>
+                <tr *ngFor="let history of historys">
+                  <td>{{ history.kind }}</td>
+                  <td>{{ history.time }}</td>
+                  <td>{{ history.address }}</td>
+                  <td>{{ history.ip }}</td>
+                  <td>{{ history.tool }}</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+

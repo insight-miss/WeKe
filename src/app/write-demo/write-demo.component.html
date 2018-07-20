@@ -1,3 +1,14 @@
-<p>
-  write-demo works!
-</p>
+<div class="body">
+  <h3 mat-dialog-title="">我要提问</h3>
+  <mat-dialog-content>
+    <div style="width: 850px; margin: auto;">
+      <input style="width: 850px" placeholder="输入标题" [(ngModel)]="title" name="title">
+      <ckeditor [(ngModel)]="content" (ngModelChange)="change($event)" debounce="500" [config]="conf">
+        <p>Hello <strong>world</strong></p>
+      </ckeditor>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button class="btn" (click)="onSave()">提交</button>
+  </mat-dialog-actions>
+</div>

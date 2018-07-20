@@ -116,60 +116,57 @@
           <a href="#" class="moco-change-smalle-btn ">问答</a>
           <a href="#" class="moco-change-smalle-btn ">未解决</a>
           <a href="#" class="moco-change-smalle-btn ">精华</a>
-          <span class="js-pub-btn moco-btn moco-btn-gray-l" style="background-color:#eeeeef;margin-right: 160px" (click)="openDialog()">我要发布</span>
-          <span class="js-pub-btn moco-btn moco-btn-gray-l" style="background-color:#eeeeef;" (click)="openDialog()">我要提问</span>
+          <span class="js-pub-btn moco-btn moco-btn-gray-l" style="background-color:#eeeeef;margin-right: 160px" (click)="openDialog('1')">我要发布</span>
+          <span class="js-pub-btn moco-btn moco-btn-gray-l" style="background-color:#eeeeef;" (click)="openDialog('2')">我要提问</span>
         </div>
         <div class="answertabcon">
           <div class="course_quescon">
-            <div class="wenda-listcon mod-qa-list clearfix" data-qid="267024">
-              <div class="icon-wenda"></div>
+            <div *ngFor="let comment of comments" class="wenda-listcon mod-qa-list clearfix">
+              <div *ngIf="comment.kind==='1'" class="icon-wenda"></div>
               <div class="headslider qa-medias l">
-                <a href="#" class="wenda-head" target="_blank" title="丁丁鱼">
-                  <img src="https://img2.mukewang.com/user/59e5c5b30001aa2601000100-80-80.jpg" width="40" height="40">
-                </a></div>
-              <div class="wendaslider qa-content">
-                <h2 class="wendaquetitle qa-header">
-                  <div class="wendatitlecon qa-header-cnt clearfix">
-                    <a href="#" target="_blank" class="qa-tit">怎么做轮播图</a>
-                  </div>
-                </h2>
-                <div class="replycont qa-body clearfix"> 嗯～～，这个提问大家都在考虑......</div>
-                <div class="replymegfooter qa-footer clearfix">
-                  <div class="wenda-time">
-                    <div class="l-box l">
-                      <a href="#" target="_blank" class="replynumber static-count l">
-                        <span class="static-item answer">0 回答</span>
-                        <span class="static-item">0 浏览</span>
-                      </a>
-                    </div>
-                    <em class="r">时间：0秒前</em>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="wenda-listcon mod-qa-list clearfix" data-id="574521">
-              <div class="headslider qa-medias l">
-                <a href="#" class="media" target="_blank" title="qq_柯善文_0">
+                <a href="#" class="wenda-head" target="_blank" title="{{ comment.photo }}">
                   <img src="https://img2.mukewang.com/user/59e5c5b30001aa2601000100-80-80.jpg" width="40" height="40">
                 </a>
               </div>
               <div class="wendaslider qa-content">
-                <div class="tit">
-                  <a href="#" target="_blank">qq_柯善文_0</a>
+                <div *ngIf="comment.kind === '1'">
+                  <h2 class="wendaquetitle qa-header">
+                    <div class="wendatitlecon qa-header-cnt clearfix">
+                      <a href="#" target="_blank" class="qa-tit">{{comment.title }}</a>
+                    </div>
+                  </h2>
+                  <div class="replycont qa-body clearfix">
+                    <div  highlight="all" [innerHTML]="comment.comment | safeHTML"></div>
+                  </div>
+                  <div class="replymegfooter qa-footer clearfix">
+                    <div class="wenda-time">
+                      <div class="l-box l">
+                        <a href="#" target="_blank" class="replynumber static-count l">
+                          <span class="static-item answer">{{ comment.num}} 回答</span>
+                          <span class="static-item">{{ comment.browse }} 浏览</span>
+                        </a>
+                      </div>
+                      <em class="r">时间：{{ comment.time }}</em>
+                    </div>
+                  </div>
                 </div>
-                <div class="cnt">前辈讲的真好！！！点赞！！！</div>
-                <div class="replymegfooter qa-footer clearfix">
-                  <div class="l-box l">
-                    <a title="赞" href="javascript:;" class="js-pl-praise moco-btn moco-btn-gray-l" style="background-color: #eeeeef;border: 0px;">
+                <div *ngIf="comment.kind === '2'">
+                  <div class="tit">
+                    <a href="#" target="_blank">{{ comment.browse }}</a>
+                  </div>
+                  <div class="cnt">{{ comment.comment }}</div>
+                  <div class="replymegfooter qa-footer clearfix">
+                    <div class="l-box l">
+                      <a title="赞" href="javascript:;" class="js-pl-praise moco-btn moco-btn-gray-l" style="background-color: #eeeeef;border: 0px;">
                       <span class="icon-thumb-revert">
                         <i class="anticon anticon-like" style="color:#93999f;"></i>
                       </span>
-                      <em>126</em>
-                    </a>
-                    <a href="#" class="from">7-1 自动播放</a>
-                    <a href="javascript:;">举报</a>
+                        <em>{{ comment.num }}</em>
+                      </a>
+                      <a href="javascript:;">举报</a>
+                    </div>
+                    <span class="r timeago">时间:{{ comment.time }}</span>
                   </div>
-                  <span class="r timeago">3天前</span>
                 </div>
               </div>
             </div>

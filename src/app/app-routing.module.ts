@@ -9,6 +9,11 @@ import {AnalysisComponent} from './onlineExam/ExamAnalysis/AnswerAnalysis/analys
 import {ProblemComponent} from "./onlineExam/problem/problem.component";
 import {PublisProblemComponent} from "./onlineExam/publis-problem/publis-problem.component";
 import {LoginComponent} from "./onlineExam/login/login.component";
+import {KindComponent} from './freeCourse/kind/kind.component';
+import {BodyComponent} from './main-page/body/body.component';
+import {CatalogComponent} from './course-catalog/catalog/catalog.component';
+import {VideoComponent} from './video/video.component';
+import {UserComponent} from './user/user.component';
 
 const routes: Routes = [
   { path: 'test' , component: TestComponent } ,
@@ -20,8 +25,12 @@ const routes: Routes = [
     ]},
   {path: 'problem' , component: ProblemComponent},
   {path: 'publicProblem' , component:PublisProblemComponent},
-  {path: 'login' , component: LoginComponent}
-  // { path: 'exam/:id' , component: TestComponent}
+  {path: 'login' , component: LoginComponent},
+  {path: 'list', component: KindComponent},
+  {path: 'learn',  component: CatalogComponent},//目录页面
+  {path: 'video', component: VideoComponent},
+  {path: 'user', component:UserComponent},
+  {path: '', component: BodyComponent}
 ];
 
 

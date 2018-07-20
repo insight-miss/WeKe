@@ -1,0 +1,91 @@
+<div class="course-detail-header" id="header">
+  <div class="cd-inner clearfix">
+    <div class="cd-inner clearfix">
+      <ul class="l top">
+        <li class="nv nv-goback" (click)="goBack()">
+          <a class="revert l">
+            <i style="font-size: 20px;" class="imv2-arrow3_l anticon anticon-arrow-left"></i>
+          </a>
+        </li>
+        <li class="nv nv-menu" style="text-align: center;">
+          <a class="chaptername J-chaptername" style="cursor:text;">
+            <em>{{ chapter }}</em>
+          </a>
+        </li>
+      </ul>
+      <div id="login-area">
+        <ul class="clearfix logined">
+          <li class="set_btn user-card-box" id="header-user-card">
+            <a id="header-avator" class="user-card-item" target="_self">
+              <img src="//img2.mukewang.com/user/59e5c5b30001aa2601000100-40-40.jpg" width="40" height="40">
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="search-warp clearfix">
+        <div class="search-area">
+          <input type="text" class="search-input" placeholder="搜你想搜" [(ngModel)]="content" name="search">
+        </div>
+        <div class="showhide-search">
+          <i style="font-size: 20px;" class="icon-search anticon anticon-search"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="background-color:black;">
+  <vg-player [class]="class">
+    <!--播放-->
+    <vg-overlay-play></vg-overlay-play>
+    <!--缓冲-->
+    <vg-buffering></vg-buffering>
+
+    <!--进度条-->
+    <vg-scrub-bar>
+      <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+      <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+      <vg-scrub-bar-cue-points></vg-scrub-bar-cue-points>
+    </vg-scrub-bar>
+
+
+    <!--一系列控制器-->
+    <vg-controls>
+      <!--暂停-->
+      <vg-play-pause></vg-play-pause>
+      <!--播放速度-->
+      <vg-playback-button [playbackValues]="[ '1.0', '2.0', '3.0' ]"></vg-playback-button>
+
+      <!--视频已播时长-->
+      <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+
+      <vg-scrub-bar style="pointer-events: none;"></vg-scrub-bar>
+
+      <!--视频总时长-->
+      <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
+      <!--视频剩余时长-->
+      <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+
+      <vg-track-selector [vgFor]="media"></vg-track-selector>
+      <!--所选音量和静音音量之间切换-->
+      <vg-mute></vg-mute>
+      <!--音量-->
+      <vg-volume id="volume"></vg-volume>
+
+      <!--全屏-->
+      <vg-fullscreen (click)="onPlus()"></vg-fullscreen>
+    </vg-controls>
+
+    <!--视频资源-->
+    <video [vgMedia]="media" #media id="singleVideo" preload="auto" crossorigin>
+      <source src="{{ url }}" type="video/mp4">
+      <!--<source src="http://static.videogular.com/assets/videos/videogular.ogg" type="video/ogg">-->
+      <!--<source src="http://static.videogular.com/assets/videos/videogular.webm" type="video/webm">-->
+
+      <track kind="subtitles" label="English" src="http://static.videogular.com/assets/subs/pale-blue-dot.vtt"
+             srclang="en" default>
+      <track kind="subtitles" label="Español" src="http://static.videogular.com/assets/subs/pale-blue-dot-es.vtt"
+             srclang="es">
+    </video>
+  </vg-player>
+
+</div>

@@ -1,0 +1,234 @@
+.win {
+  width: 600px;
+  height: 400px;
+  margin: auto;
+  margin-top: 80px;
+}
+.plus{
+  width: 100%;
+  height: 100%;
+}
+#header {
+  background: #FFF;
+  z-index: 2;
+  box-shadow: 0 4px 8px 0 rgba(28,31,33,.1);
+}
+.course-detail-header {
+  position: relative;
+  padding-right: 24px;
+  height: 60px;
+}
+.l {
+  float: left;
+}
+#login-area {
+  float: right;
+}
+#login-area, .header-app {
+  position: relative;
+}
+div{
+  margin: 0;
+  padding: 0;
+}
+.search-warp {
+  float: right;
+  margin: 12px 36px 12px 0;
+}
+.search-warp {
+  float: left;
+  position: relative;
+  margin-left: 24px;
+}
+.clearfix {
+}
+.nv, .nvr {
+  float: left;
+}
+.nv-goback a {
+  width: 70px;
+  text-align: center;
+}
+.nv>a {
+  display: block;
+  height: 60px;
+}
+.nv-menu>a {
+  padding-right: 24px;
+  font-size: 14px;
+  color: #b5b9bc;
+}
+#studyMain, .nv-follow a, .nv-menu>a {
+  position: relative;
+}
+ul {
+  list-style: none;
+}
+.search-warp .search-area {
+  height: 36px;
+  width: 360px!important;
+  background: #F3F5F6;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding-right: 56px;
+  border: 1px solid #F3F5F6;
+  margin: 0;
+  transition: .3s all linear;
+}
+.search-area {
+  float: right;
+  position: relative;
+  height: 46px;
+  width: 260px;
+  padding-right: 40px;
+  border-bottom: 1px solid #000;
+  border-bottom-color: rgba(255,255,255,.4);
+  zoom: 1;
+  -webkit-transition: width .3s;
+  -moz-transition: width .3s;
+  transition: width .3s;
+}
+.search-area {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+.search-warp .showhide-search {
+  width: 56px;
+  height: 36px;
+  text-align: center;
+  top: 0;
+  right: 0;
+  padding: 0;
+  border-radius: inherit;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  transition: .3s all linear;
+}
+.search-warp .showhide-search {
+  position: absolute;
+  display: inline-block;
+  right: 0;
+  bottom: 24px;
+}
+.chaptername em {
+  font-size: 16px;
+  color: #1C1F21;
+  font-weight: 700;
+}
+em, strong, th, var, optgroup {
+  font-style: normal;
+  font-weight: 400;
+}
+.logined>li {
+  float: left;
+  position: relative;
+}
+.app-load, .user-card-box {
+  position: relative;
+}
+.set_btn {
+  right: 0;
+}
+.search-warp .search-input {
+  height: 34px;
+  background: #F3F5F6;
+  color: #1C1F21;
+  padding-left: 16px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+.search-area .search-input {
+  padding: 12px 0;
+  width: 100%;
+  height: 36px;
+  line-height: 46px;
+  font-size: 12px;
+  float: left;
+  border: 0;
+  color: #fff;
+  -webkit-transition: background-color .3s;
+  -moz-transition: background-color .3s;
+  transition: background-color .3s;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+a, button, input {
+  outline: 0;
+}
+.search-warp .showhide-search i {
+  width: 100%;
+  height: 36px;
+  line-height: 36px;
+  font-size: 24px;
+  transition: .3s all linear;
+}
+.search-warp i {
+  display: block;
+  height: 24px;
+  color: #757a7e;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 24px;
+  width: 20px;
+}
+[class*=" icon-"], [class^=icon-] {
+  font-family: icomoon!important;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.logined li>a {
+  display: block;
+  height: 72px;
+  line-height: 72px;
+  width: 60px;
+  color: #787d82;
+  text-align: center;
+  -webkit-transition: background-color .2s;
+  -moz-transition: background-color .2s;
+  transition: background-color .2s;
+}
+.user-card-box .user-card-item img {
+  width: 36px;
+  height: 36px;
+  border-color: #4d5559;
+}
+.set_btn img {
+  border-radius: 50%;
+  display: inline-block;
+  background: url(https://static.mukewang.com/static/img/menu_icon.png) no-repeat;
+}
+.set_btn img, select {
+  vertical-align: middle;
+}
+fieldset, img {
+  border: 0;
+}
+.logined li>a>i {
+  line-height: 60px;
+  color: #787d82;
+  font-size: 22px;
+}
+.myspace_remind {
+  width: 10px;
+  height: 10px;
+  background: url(https://static.mukewang.com/static/img/space-remind.png) no-repeat;
+  top: 10px;
+  right: 10px;
+}
+#nav_list, .msg_icon, .myspace_remind {
+  position: absolute;
+}
+i {
+  font-style: normal;
+}
+.top li{
+  margin-top: 17px;
+}
