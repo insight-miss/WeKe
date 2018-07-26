@@ -23,9 +23,10 @@ export class UserService {
   }
   getHistoryById(): Observable<History[]>{
     // 通过Id返回History信息
-    return this.http.get<History[]>(this.url).pipe(
-      retry(3)
-    );
+    // return this.http.get<History[]>(this.url).pipe(
+    //   retry(3)
+    // );
+    return of(this.history);
   }
 
   savaPerson(nickname: string, job: string, address: string, sex: string, info: string){
