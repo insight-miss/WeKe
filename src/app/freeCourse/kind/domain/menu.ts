@@ -1,6 +1,14 @@
 import {Direction} from './direction';
+import {Course} from "../../../main-page/domain/course";
 
 export class Menu {
+  get course(): Course[] {
+    return this._course;
+  }
+
+  set course(value: Course[]) {
+    this._course = value;
+  }
   get direction(): Direction[] {
     return this._direction;
   }
@@ -18,9 +26,11 @@ export class Menu {
 
   private _direction: Direction[];
   private _diff: string[];//难度
+  private _course: Course[];
 
-  constructor(direction: Direction[], diff: string[]) {
+  constructor(direction: Direction[], diff: string[], course: Course[]) {
     this._direction = direction;
     this._diff = diff;
+    this._course = course;
   }
 }

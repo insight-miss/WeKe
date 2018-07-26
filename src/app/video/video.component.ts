@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import {ActivatedRoute} from '@angular/router';
 import {VideoService} from './service/video.service';
+import {Video} from "./domain/video";
 
 @Component({
   selector: 'app-video',
@@ -12,10 +13,11 @@ export class VideoComponent implements OnInit {
 
   class: string = 'win';
   chapter: string;
-  url: string = 'http://static.videogular.com/assets/videos/videogular.mp4';
+  url: string = 'https://weke-resoure.oss-cn-beijing.aliyuncs.com/230_14.%E6%8E%92%E5%BA%8F-%E5%90%8E%E7%AB%AF.mp4';
   content: string;
   constructor(private location: Location, private route: ActivatedRoute, private  videoService: VideoService) { }
-  videoMsg: any;
+  video: Video;
+  chapterId: string;
 
   onPlus(): void{
     if (this.class === 'win'){
@@ -33,8 +35,8 @@ export class VideoComponent implements OnInit {
   }
 
   // 获得视频信息和用户Id；
-  getVideo(course: string, chapter: string, section: string): void{
-   this.videoService.getVideo(course, chapter, section).subscribe(video => this.videoMsg=video);
+  getVideo(): void{
+   this.videoService.getVideo(this.chapterId).subscribe(video => this.video=video);
   }
 
 
@@ -43,6 +45,7 @@ export class VideoComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getVideo()
   }
 
 }

@@ -19,8 +19,10 @@ export class MenuComponent implements OnInit {
     this.selector = num;
   }
   getMenus(): void {
-    const str = ['前沿技术', 'Java'];
-    this.menueService.getMenuList(str).subscribe(menus => this.menus = menus);
+    this.menueService.getMenuList().subscribe((menus: Array<MenuList>) => {
+      this.menus = menus;
+      console.log(this.menus);
+    });
   }
 
   ngOnInit() {

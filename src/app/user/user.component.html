@@ -1,16 +1,17 @@
 <div id="main">
   <div class="settings-cont clearfix">
+    <!--左侧边栏-->
     <div class="setting-left l">
       <div class="avator-wapper">
         <div class="avator-mode">
-          <img alt="" class="avator-img" src="https://img.mukewang.com/59e5c5b30001aa2601000100-200-200.jpg" width="92"
+          <img alt="" class="avator-img" src="{{ person.url }}" width="92"
                height="92">
           <div class="update-avator">
             <p></p>
           </div>
         </div>
         <div class="des-mode">
-          <p>丁丁鱼</p>
+          <p>{{ person.nickname }}</p>
         </div>
       </div>
       <div class="list-wapper">
@@ -36,6 +37,7 @@
         </ul>
       </div>
     </div>
+    <!--个人信息修改-->
     <div *ngIf="selected==='1'" class="setting-right">
       <div class="setting-right-wrap wrap-boxes settings">
         <div class="formBox">
@@ -72,6 +74,7 @@
         </div>
       </div>
     </div>
+    <!--操作记录-->
     <div *ngIf="selected==='2'" class="setting-right">
       <div class="setting-right-wrap wrap-boxes settings">
 

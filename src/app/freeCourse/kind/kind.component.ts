@@ -18,13 +18,14 @@ export class KindComponent implements OnInit {
   }
 
   getMenu(): void {
-    this.kindService.getInfo(this.direction, this.kind, this.diff).subscribe(menu => this.menu = menu);
+    this.kindService.getInfo(this.direction, this.kind, this.diff).subscribe((menu: Menu) => this.menu = menu);
   }
 
   onSelect(direction: string, kind: string, diff: string) {
     this.direction = direction;
     this.kind = kind;
     this.diff = diff;
+    this.getMenu();
   }
 
 

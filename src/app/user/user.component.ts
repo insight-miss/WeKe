@@ -36,16 +36,16 @@ export class UserComponent implements OnInit {
   selector(select: string){
     this.selected = select;
   }
-  getPerson(id: string){
-    this.userService.getPersonById(id).subscribe(result => this.person=result);
+  getPerson(){
+    this.userService.getPersonById().subscribe(result => this.person=result);
   }
-  getHistory(id: string){
-    this.userService.getHistoryById(id).subscribe(result => this.historys=result);
+  getHistory(){
+    this.userService.getHistoryById().subscribe(result => this.historys=result);
   }
 
   ngOnInit() {
-    this.getPerson('2');
-    this.getHistory('2');
+    this.getPerson();
+    this.getHistory();
   }
 
 }

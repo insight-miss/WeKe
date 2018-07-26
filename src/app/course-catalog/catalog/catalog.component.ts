@@ -6,6 +6,8 @@ import {MatDialog} from '@angular/material';
 import {PublishComponent} from '../../publish/publish.component';
 import {WriteDemoComponent} from '../../write-demo/write-demo.component';
 import {Comment} from './domian/comment';
+import {CourseComment} from "./domian/courseComment";
+import {LearnTime} from "./domian/learnTime";
 
 @Component({
   selector: 'app-catalog',
@@ -17,7 +19,10 @@ export class CatalogComponent implements OnInit {
   courseId: string;
   catalog: Catalog;
   comments: Comment[];
+  courseComments: CourseComment;
+  learnTime: LearnTime;
   newComment: Comment;
+  flag: string = '0';
 
 
   constructor(private route: ActivatedRoute,
@@ -32,16 +37,14 @@ export class CatalogComponent implements OnInit {
       const dialogRef = this.dialog.open(PublishComponent);//评论
       dialogRef.afterClosed().subscribe(result =>{
         console.log('ca '+result);
-        this.newComment = new Comment('2','22','2018-01-02','photo',result,'丁丁鱼', null);
-        this.catalogService.savaComment(this.newComment);
+        this.catalogService.savaComment(this.courseId, result);
         this.getAllComments();
       });
     }else{
       const dialogRef = this.dialog.open(WriteDemoComponent);//提问
       dialogRef.afterClosed().subscribe(result =>{
-        console.log('da '+result);
-        this.newComment = new Comment('1','22','2018-01-02','photo',result.content,'丁丁鱼', result.title);
-        this.catalogService.savaComment(this.newComment);
+        console.log('da '+result.title+"  "+result.content);
+        this.catalogService.savaProblem(this.courseId, result.content, result.title);
         this.getAllComments();
       });
     }
@@ -55,7 +58,14 @@ export class CatalogComponent implements OnInit {
     this.catalogService.getCourseMsg(this.kind, this.courseId).subscribe(catalog => this.catalog = catalog);
   }
   getAllComments(): void{
-    this.catalogService.getAllComments().subscribe(comments => this.comments=comments);
+    this.catalogService.getAllComments(this.courseId).subscribe(courseComments => {
+      this.flag = '0';
+      this.courseComments=courseComments;
+      this.comments = this.courseComments.comments;
+      this.learnTime = this.courseComments.learnTime;
+      this.flag = '1';
+      console.log(this.courseComments.comments);
+    });
   }
   ngOnInit() {
     this.getMsg();

@@ -1,0 +1,12 @@
+<nz-upload
+  nzType="drag"
+  [nzMultiple]="true"
+  [nzLimit]="2"
+  nzAction="http://10.0.0.31:8080/upload/video"
+  (nzChange)="handleChange($event)">
+  <p class="ant-upload-drag-icon">
+    <i class="anticon anticon-inbox"></i>
+  </p>
+  <p class="ant-upload-text">单击或拖动文件到此区域进行上传</p>
+  <p class="ant-upload-hint">支持单个或批量上传</p>
+</nz-upload>

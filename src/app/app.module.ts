@@ -42,6 +42,8 @@ import {VgBufferingModule} from 'videogular2/buffering';
 import { VideoComponent } from './video/video.component';
 import { UserComponent } from './user/user.component';
 import { PersonComponent } from './msgInput/person/person.component';
+import {HttpModule} from "@angular/http";
+import { UploadVideoComponent } from './upload-video/upload-video.component';
 const options: HighlightOptions = {
   theme: 'monokai_sublime',
   path: 'assets/js/ckeditor/plugins/codesnippet/lib/highlight/'
@@ -73,7 +75,8 @@ const options: HighlightOptions = {
     WriteDemoComponent,
     VideoComponent,
     UserComponent,
-    PersonComponent
+    PersonComponent,
+    UploadVideoComponent
   ],
   imports: [
     BrowserModule,
@@ -94,7 +97,7 @@ const options: HighlightOptions = {
     VgCoreModule,
     VgControlsModule,
     VgOverlayPlayModule,
-    VgBufferingModule
+    VgBufferingModule,
   ],
   providers: [
     TestService,

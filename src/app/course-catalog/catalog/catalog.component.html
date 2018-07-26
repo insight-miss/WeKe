@@ -56,13 +56,13 @@
             <div class="progress">
               <ins style="display: inline-block; width: 100%;"></ins>
             </div>
-            <div class="learn-info-media">上次学至 1-1 原理介绍</div>
+            <div class="learn-info-media">{{ learnTime.lastLearn }}</div>
             <a href="#" class="moco-btn moco-btn-red moco-btn-lg">继续学习</a>
           </div>
           <div class="course-info-tip">
             <dl class="first">
               <dt>课程须知</dt>
-              <dt class="autowrap">您需要有HTML，CSS经验，能使用CSS制作静态页面，并对JS基础知识有一定的了解</dt>
+              <dt class="autowrap">{{ learnTime.mustKnow }}</dt>
             </dl>
           </div>
           <div class="course-info-tip download">
@@ -120,7 +120,7 @@
           <span class="js-pub-btn moco-btn moco-btn-gray-l" style="background-color:#eeeeef;" (click)="openDialog('2')">我要提问</span>
         </div>
         <div class="answertabcon">
-          <div class="course_quescon">
+          <div class="course_quescon" *ngIf="flag === '1'">
             <div *ngFor="let comment of comments" class="wenda-listcon mod-qa-list clearfix">
               <div *ngIf="comment.kind==='1'" class="icon-wenda"></div>
               <div class="headslider qa-medias l">
@@ -136,7 +136,7 @@
                     </div>
                   </h2>
                   <div class="replycont qa-body clearfix">
-                    <div  highlight="all" [innerHTML]="comment.comment | safeHTML"></div>
+                    <div  highlight="all" [innerHTML]="comment.comment"></div>
                   </div>
                   <div class="replymegfooter qa-footer clearfix">
                     <div class="wenda-time">
@@ -157,7 +157,7 @@
                   <div class="cnt">{{ comment.comment }}</div>
                   <div class="replymegfooter qa-footer clearfix">
                     <div class="l-box l">
-                      <a title="赞" href="javascript:;" class="js-pl-praise moco-btn moco-btn-gray-l" style="background-color: #eeeeef;border: 0px;">
+                      <a title="赞"  class="js-pl-praise moco-btn moco-btn-gray-l" style="background-color: #eeeeef;border: 0px;">
                       <span class="icon-thumb-revert">
                         <i class="anticon anticon-like" style="color:#93999f;"></i>
                       </span>
@@ -178,11 +178,11 @@
         <div class="course-wrap course-aside-info js-usercard-box">
           <div class="learn-btn" id="continue">
             <div class="learn-info">
-              <span>已学 10% </span>
-              学习耗时 5小时26分
+              <span>已学 {{learnTime.studyPercent}}% </span>
+              学习耗时 {{ learnTime.studyTime }}
             </div>
             <div class="progress">
-              <ins style="display: inline-block; width: 10%;"></ins>
+              <ins style="display: inline-block; width: {{learnTime.studyPercent}}%;"></ins>
             </div>
             <div class="learn-info-media">上次学至 1-1 原理介绍</div>
             <a href="#" class="moco-btn moco-btn-red moco-btn-lg">继续学习</a>
@@ -190,7 +190,7 @@
           <div class="course-info-tip">
             <dl class="first">
               <dt>课程须知</dt>
-              <dt class="autowrap">您需要有HTML，CSS经验，能使用CSS制作静态页面，并对JS基础知识有一定的了解</dt>
+              <dt class="autowrap">{{ learnTime.mustKnow }}</dt>
             </dl>
           </div>
           <div class="course-info-tip download">

@@ -11,13 +11,14 @@ export class BodyComponent implements OnInit {
   courses: Course[] = [];
   getCourses(): void {
     this.courseService.getCourses()
-      .subscribe(courses => this.courses = courses);
+      .subscribe((courses: Course[]) => this.courses = courses);
   }
   rangeArray = (start, end) => Array(end - start).fill(0).map((v, i) => i + start);
 
   constructor(public courseService: CourseService) { }
 
   ngOnInit() {
+    console.log('OVER');
     this.getCourses();
   }
 

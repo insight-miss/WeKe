@@ -3,31 +3,64 @@ import {Observable, of} from 'rxjs';
 import {Catalog} from '../domian/catalog';
 import {Section} from '../domian/section';
 import {Comment} from '../domian/comment';
+import {HttpClient, HttpParams} from "@angular/common/http";
+import {retry} from "rxjs/operators";
+import {LearnTime} from "../domian/learnTime";
+import {CourseComment} from "../domian/courseComment";
+import {Menu} from "../../../freeCourse/kind/domain/menu";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CatalogService {
 
-  section: Section[] = [new Section('第1章 焦点图轮播特效之原理','有思路，问题就变得简单！',[' 1-1 原理介绍 (06:12)']), new Section('第2章 焦点图轮播之样式布局', '讲解实现焦点图轮播特效的CSS样式',[' 2-1 样式布局关键代码讲解 (02:57)','2-2 箭头切换 (08:43)'])];
-  catalog: Catalog = new Catalog('简介：通过学习您可以理解图片轮播原理，还将讲解setTimeout()', this.section);
-  comments: Comment[] = [new Comment('1','22','2018-01-02','photo','讲的真好！','20','怎么做轮播图'),new Comment('2','22','2018-01-02','photo','讲的真好！','丁丁鱼', null)];
+  url: string = 'http://10.0.0.26:8080/catalog/info';// 课程目录
+  url2: string = 'http://10.0.0.26:8080/problemReview/info'; //评论 提问
+  url3: string = 'http://10.0.0.26:8080/problemReview/insertProblem';// 发布问题
+  url4: string = 'http://10.0.0.26:8080/problemReview/insertReview';// 发布评论
+
 
   getCourseMsg(kind: string, courseId: string): Observable<any>{
+    const params = new HttpParams()
+      .set('courseName', courseId);
     // 目录
     if (kind === '1'){
-      return of(this.catalog);
+      return this.http.get<Catalog>(this.url, {params}).pipe(
+        retry(3)
+      );
     } else if (kind === '2'){
-      return of();
+      return this.http.get<Catalog>(this.url, {params}).pipe(
+        retry(3)
+      );
     }
     return of();
   }
-  getAllComments(): Observable<Comment[]>{
-    return of(this.comments);
+  getAllComments(courseId: string): Observable<CourseComment>{
+    const params = new HttpParams()
+      .set('courseName', courseId);
+    return this.http.get<CourseComment>(this.url2, {params}).pipe(
+      retry(3)
+    );
   }
-  savaComment(comment: Comment) {
-    this.comments.push(comment);
+  savaComment(courseId: string, info: string) {
+    console.log(courseId+"  "+info);
+    // 保存评论
+    this.http.post(this.url4, {
+      "courseName": courseId,
+      "info": info
+    }).pipe(
+      retry(3)
+    ).subscribe();
+  }
+  savaProblem(courseId: string, info: string, title: string): void{ // 保存提问
+    this.http.post(this.url3,{
+      "courseId": courseId,
+      "info": info,
+      "title": title
+    }).pipe(
+      retry(3)
+    ).subscribe();
   }
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 }

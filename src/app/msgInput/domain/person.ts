@@ -1,4 +1,11 @@
 export class Person {
+  get url(): string {
+    return this._url;
+  }
+
+  set url(value: string) {
+    this._url = value;
+  }
   get info(): string {
     return this._info;
   }
@@ -34,13 +41,15 @@ export class Person {
   set nickname(value: string) {
     this._nickname = value;
   }
+  private _url: string;// 头像链接
   private _nickname: string;
   private _job: string;
   private _address: string;
   private _sex: string;
   private _info: string;//个性签名
 
-  constructor(nickname: string, job: string, address: string, sex: string, info: string){
+  constructor(url: string, nickname: string, job: string, address: string, sex: string, info: string){
+    this._url = url;
     this._nickname = nickname;
     this._job = job;
     this._address = address;

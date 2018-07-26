@@ -23,7 +23,7 @@ export class PersonComponent implements OnInit {
     // console.log(this.nickname+" "+this.job+ " "+this.address+" "+this.sex+ " "+this.info);
      if (flag === '1'){
        if (this.data.nickname!=null && this.data.job!=null && this.data.address!=null && this.data.info!=null){
-         this.person = new Person(this.data.nickname, this.data.job, this.data.address, this.data.sex, this.data.info);
+         this.person = new Person("",this.data.nickname, this.data.job, this.data.address, this.data.sex, this.data.info);
          console.log(this.person);
          this.dialogRef.close(this.person);
        } else {

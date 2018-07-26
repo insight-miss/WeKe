@@ -41,7 +41,7 @@
                   </li>
                   <span *ngFor="let dire of menu.direction">
                     <li *ngFor="let kin of dire.kind" [class]="kind === kin ? 'course-nav-item on': 'course-nav-item'">
-                      <a (click)="onSelect(direction,kin,diff)" >{{ kin }}</a>
+                      <a (click)="onSelect(dire.direction,kin,diff)" >{{ kin }}</a>
                     </li>
                   </span>
                 </ul>
@@ -102,21 +102,21 @@
     <div class="course-list">
       <div class="moco-course-list">
         <div class="clearfix">
-          <div class="course-card-container">
+          <div *ngFor="let course of menu.course" class="course-card-container">
             <a href="#" class="course-card">
               <div class="course-card-top">
                 <img src="https://img1.mukewang.com/5b470bfe0001cdbf06000338-240-135.jpg" class="course-banner lazy" style="display: inline">
-                <div class="course-label"><label>数学</label></div>
+                <div class="course-label"><label>{{ course.star }}</label></div>
               </div>
               <div class="course-card-content">
-                <h3 class="course-card-name">统计学基础</h3>
+                <h3 class="course-card-name">{{ course.info }}</h3>
                 <div class="clearfix course-card-bottom">
                   <div class="course-card-info">
-                    <span>初级</span>
-                    <i class="icon-set_sns"></i>93
+                    <span>{{ course.level }}</span>
+                    <i class="icon-set_sns"></i>{{ course.people }}
                     <span></span>
                   </div>
-                  <p class="course-card-desc">机器学习中的常用统计学知识点</p>
+                  <!--<p class="course-card-desc">机器学习中的常用统计学知识点</p>-->
                 </div>
               </div>
             </a>

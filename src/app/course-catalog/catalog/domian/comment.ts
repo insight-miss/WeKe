@@ -1,5 +1,12 @@
 
 export class Comment {
+  get userId(): string {
+    return this._userId;
+  }
+
+  set userId(value: string) {
+    this._userId = value;
+  }
   get title(): string {
     return this._title;
   }
@@ -62,7 +69,8 @@ export class Comment {
   private _comment: string;// 评论（问题）
   private _browse: string;//浏览数
   private _title: string;
-  constructor(kind: string, num: string, time: string, photo: string, comment: string, browse: string, title:string) {
+  private _userId: string;
+  constructor(kind: string, num: string, time: string, photo: string, comment: string, browse: string, title:string, userId: string) {
     this._kind = kind;
     this._num = num;
     this._time = time;
@@ -70,5 +78,6 @@ export class Comment {
     this._comment = comment;
     this._browse = browse;
     this._title = title;
+    this._userId = userId;
   }
 }
