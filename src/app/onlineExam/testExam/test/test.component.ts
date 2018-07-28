@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Exam} from '../domain/exam';
+import {TestService} from "../service/test.service";
+import {DetailsService} from "../../examDetails/service/details.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-test',
@@ -7,10 +10,31 @@ import {Exam} from '../domain/exam';
   styleUrls: ['./test.component.css']
 })
 export class TestComponent implements OnInit {
-  information: Exam[] = [{
-    id: 1 , examTitle: '2016级第3套Java程序设...', startTime: '2018-07-02 10:58', endTime: '2018-07-04 23:59', statues: '已完成' , grade: '120'}];
-  constructor() { }
+  information: Exam[];
+  constructor(private testService : TestService,
+              private detailsService: DetailsService,
+              private rout: Router) { }
 
   ngOnInit() {
+    this.testService.getTestInfo().subscribe(
+      res => {
+        if (res) {
+          this.information = res;
+        }
+
+      }
+    )
+  }
+
+  getExamInfo(id: number) {
+    console.log("查看"+id);
+    this.testService.getExamInfo(id).subscribe(
+      res => {
+        if (res) {
+          this.detailsService.questions = res;
+          this.rout.navigateByUrl("/details");
+        }
+      }
+    );
   }
 }

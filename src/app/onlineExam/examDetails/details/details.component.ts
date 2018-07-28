@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DetailsService} from '../service/details.service';
+import {Questions} from "../domain/questions";
 
 @Component({
   selector: 'app-details',
@@ -11,6 +12,7 @@ export class DetailsComponent implements OnInit {
   pos = 1;
   radioValue = '';
   inputValue: string;
+  questionInfo : Array<Questions>;
   constructor(private detailsService: DetailsService) { }
 
   rangeArray = (start, end) => Array(end - start + 1).fill(0).map((v, i) => i + start);
@@ -28,8 +30,13 @@ export class DetailsComponent implements OnInit {
   // 选择题答案修改
   log(value: string[] , num: number): void {
     // this.detailsService.questions;
-    this.detailsService.setQuestions(value , num);
-    // console.log(value , num);
+    console.log("value:"+value);
+    let userAnswer = '';
+    for (let str of value) {
+      userAnswer+=str;
+    }
+    this.detailsService.setQuestions(userAnswer , num);
+    console.log(value , num);
   }
   // 简答题答案修改
   setTextAreaAnswer(inputValue: string , num: number) {
@@ -38,6 +45,7 @@ export class DetailsComponent implements OnInit {
   }
   // 判断题答案修改
   setRadioAnswer(num: number) {
+    console.log("num:"+num);
     this.detailsService.getTextAreaAnswer(this.radioValue , num);
   }
 }

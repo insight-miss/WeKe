@@ -5,8 +5,8 @@ export class Questions {
   private _questionNumber: number;
   private _problem: string;
   private _options: Option[];
-  private _userAnswer: string[];
-  private _answer: string[];
+  private _userAnswer: string;
+  private _answer: string;
   private _status: number;
   private _grade: number;
 
@@ -18,8 +18,8 @@ export class Questions {
     this._grade = value;
   }
 
-  constructor(type: number, questionNumber: number, problem: string, options: Option[],
-              userAnswer: string[], answer: string[], status: number, grade: number) {
+
+  constructor(type: number, questionNumber: number, problem: string, options: Option[], userAnswer: string, answer: string, status: number, grade: number) {
     this._type = type;
     this._questionNumber = questionNumber;
     this._problem = problem;
@@ -30,21 +30,6 @@ export class Questions {
     this._grade = grade;
   }
 
-  get status(): number {
-    return this._status;
-  }
-
-  set status(value: number) {
-    this._status = value;
-  }
-
-  get answer(): string[] {
-    return this._answer;
-  }
-
-  set answer(value: string[]) {
-    this._answer = value;
-  }
 
   get type(): number {
     return this._type;
@@ -78,11 +63,27 @@ export class Questions {
     this._options = value;
   }
 
-  get userAnswer(): string[] {
+  get userAnswer(): string {
     return this._userAnswer;
   }
 
-  set userAnswer(value: string[]) {
+  set userAnswer(value: string) {
     this._userAnswer = value;
+  }
+
+  get answer(): string {
+    return this._answer;
+  }
+
+  set answer(value: string) {
+    this._answer = value;
+  }
+
+  get status(): number {
+    return this._status;
+  }
+
+  set status(value: number) {
+    this._status = value;
   }
 }

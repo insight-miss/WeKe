@@ -8,16 +8,17 @@ import {retry} from "rxjs/operators";
 import {LearnTime} from "../domian/learnTime";
 import {CourseComment} from "../domian/courseComment";
 import {Menu} from "../../../freeCourse/kind/domain/menu";
+import {environment} from "../../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CatalogService {
 
-  url: string = 'http://10.0.0.26:8080/catalog/info';// 课程目录
-  url2: string = 'http://10.0.0.26:8080/problemReview/info'; //评论 提问
-  url3: string = 'http://10.0.0.26:8080/problemReview/insertProblem';// 发布问题
-  url4: string = 'http://10.0.0.26:8080/problemReview/insertReview';// 发布评论
+  url: string = environment.baseUrl+'catalog/info';// 课程目录
+  url2: string = environment.baseUrl + 'problemReview/info'; //评论 提问
+  url3: string = environment.baseUrl + 'problemReview/insertProblem';// 发布问题
+  url4: string = environment.baseUrl + 'problemReview/insertReview';// 发布评论
 
 
   getCourseMsg(kind: string, courseId: string): Observable<any>{

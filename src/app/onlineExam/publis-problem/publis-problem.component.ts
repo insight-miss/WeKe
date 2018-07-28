@@ -24,9 +24,10 @@ export class PublisProblemComponent implements OnInit {
 
   deleteRow(i: string): void {
     const dataSet = this.dataSet.filter(d => d.key !== i);
-    console.log(i);
+    console.log(dataSet);
     const index = +i;
-    this.problemService.problems.splice(index,1);
+    this.problemService.problems.splice(index-1,1);
+    console.log(this.problemService.problems);
     this.dataSet = dataSet;
   }
 
@@ -91,7 +92,30 @@ export class PublisProblemComponent implements OnInit {
     window.setTimeout(() => {
       this.isVisible = false;
       this.isOkLoading = false;
-    }, 3000);
+    }, 2000);
+
+    const problems = this.problemService.getProblems();
+    let grade =0;
+    for (let problem of problems){
+      grade+= problem.grade;
+    }
+
+    this.problemService.exam.examTitle = this.titleValue;
+    this.problemService.exam.startTime = this.startTime;
+    this.problemService.exam.endTime = this.endTime;
+    this.problemService.exam.grade = grade+'';
+    console.log(grade);
+    this.problemService.publishProblem().subscribe(
+      res =>{
+        if(res) {
+          if (res.toString() === "true") {
+             this.rout.navigateByUrl("test");
+          } else {
+            alert("发表失败,请重新发表!!!");
+          }
+        }
+      }
+    );
   }
 
   handleCancel(): void {
@@ -102,6 +126,9 @@ export class PublisProblemComponent implements OnInit {
   dateRange = []; // [ new Date(), addDays(new Date(), 3) ];
   isEnglish = false;
   titleValue = '';//题集名称
+  startTime = '';
+  endTime = '';
+
 
   onChange(result: Date): void {
 
@@ -109,11 +136,12 @@ export class PublisProblemComponent implements OnInit {
       console.log('data:',this.dateRange);
     }
     if (result[0]) {
-      console.log('开始时间: ', result[0].toString(),result[0].toString()[11]);
+      this.startTime = result[0];
     }
     if (result[1]) {
-      console.log('结束时间: ', result[1].getYear(),result[1].getMonth(),result[1].getDay());
+      this.endTime = result[1];
     }
+    console.log(this.startTime+" "+this.endTime);
   }
 
   getWeek(result: Date): void {

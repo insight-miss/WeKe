@@ -1,4 +1,4 @@
-<button nz-button nzType="primary" (click)="showModal()">
+<button nz-button nzType="primary" (click)="showModal()" style="display: none">
   <span>登录</span>
 </button>
 <nz-modal [(nzVisible)]="isVisible" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" [nzOkLoading]="isOkLoading"
@@ -11,15 +11,16 @@
 
   <div *ngIf="choiceFlag == 1">
     <div class="login_body">
-      <input nz-input placeholder="请登录邮箱/手机号" nzSize="large">
+      <input nz-input placeholder="请登录邮箱/手机号" nzSize="large" [(ngModel)]="loginName">
       <p class="pt-2"></p>
-      <input nz-input placeholder="6-16位密码,区分大小写" nzSize="large">
+      <input nz-input placeholder="6-16位密码,区分大小写" nzSize="large" [(ngModel)]="loginPassword" type="password">
       <p class="pt-2"></p>
+      <p *ngIf="loginResult == 'false'" style="color: red">用户名或密码错误</p>
       <div class="login_append d-flex justify-content-between">
         <label nz-checkbox [(ngModel)]="checked" (click)="setCheck()">7天内自动登录</label>
         <a style="color: #787d82">忘记密码</a>
       </div>
-      <button nz-button nzType="primary" class="login_btu">登录</button>
+      <button nz-button nzType="primary" class="login_btu" (click)="loginClick()">登录</button>
 
       <div class="login_footer  d-flex justify-content-between">
         <span style="text-align: center; font-size: 14px;">其他方式登录</span>
@@ -34,15 +35,16 @@
 
   <div *ngIf="choiceFlag == 2">
     <div class="login_body">
-      <input nz-input placeholder="请输入注册邮箱/手机号" nzSize="large">
+      <input nz-input placeholder="请输入注册邮箱/手机号" nzSize="large" [(ngModel)]="registerName">
       <p class="pt-2"></p>
-      <input nz-input placeholder="请输入验证码" nzSize="large">
+      <input nz-input placeholder="请输入密码" nzSize="large" [(ngModel)]="registerPassword" type="password">
       <p class="pt-2"></p>
+      <p *ngIf="registerResult == 'false'" style="color: red">用户名已存在</p>
       <div class="login_append d-flex justify-content-between">
         <label nz-checkbox [(ngModel)]="agree" (click)="setAgree()">同意</label>
         <a style="color: #787d82">慕课网注册协议</a>
       </div>
-      <button nz-button nzType="primary" class="login_btu">注册</button>
+      <button nz-button nzType="primary" class="login_btu" (click)="registerClick()">注册</button>
 
       <div class="login_footer  d-flex justify-content-between">
         <span style="text-align: center; font-size: 14px;">其他方式登录</span>
@@ -57,5 +59,4 @@
 
 
 </nz-modal>
-
 

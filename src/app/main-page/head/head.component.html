@@ -31,9 +31,23 @@
         </form>
       </div>
       <div class="pt-2">
-        <a href="#" target="_self">
+        <div *ngIf="loginService.loginFlag == 'true'">
+          <a href="#" target="_self">
           <nz-avatar nzIcon="anticon anticon-user" nzSrc="https://img3.mukewang.com/59e5c5b30001aa2601000100-100-100.jpg"></nz-avatar>
-        </a>
+          </a>
+        </div>
+
+        <div *ngIf="loginService.loginFlag == 'false'">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#" (click)="login()">登录</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" (click)="register()">注册</a>
+            </li>
+          </ul>
+        </div>
+
       </div>
     </div>
   </nav>

@@ -5,12 +5,13 @@ import {Observable, of} from 'rxjs';
 import {TEC1} from '../../mock/tecMock';
 import {HttpClient} from "@angular/common/http";
 import {catchError, retry} from "rxjs/operators";
+import {environment} from "../../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class MenuService {
-  url: string = 'http://10.0.0.26:8083/page/direction';
+  url: string = environment.baseUrl + 'page/direction';
 
   getMenuList(): Observable<Array<MenuList>>{
      return this.http.get<Array<MenuList>>(this.url).pipe(

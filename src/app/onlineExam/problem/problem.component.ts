@@ -15,7 +15,7 @@ export class ProblemComponent implements OnInit {
   conf: any = {
     extraPlugins: `clipboard,lineutils,lineheight,widget,dialog,codesnippet`,
     codeSnippet_theme: 'monokai_sublime',
-    filebrowserImageUploadUrl: ''
+    filebrowserImageUploadUrl: 'http://127.0.0.1:8080/exam/upload'
   };
 
   change(event): void {

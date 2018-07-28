@@ -17,8 +17,8 @@ import { RainBowDirective } from './freeCourse/kind/rainbow/rain-bow.directive';
 import { CatalogComponent } from './course-catalog/catalog/catalog.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NgZorroAntdModule} from 'ng-zorro-antd';
-import {FormsModule} from '@angular/forms';
+import {en_US, NgZorroAntdModule, NZ_I18N} from 'ng-zorro-antd';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ReportComponent } from './onlineExam/ExamAnalysis/EvaluationReport/report/report.component';
 import { AnalysisComponent } from './onlineExam/ExamAnalysis/AnswerAnalysis/analysis/analysis.component';
 import { ExamAnalysisComponent } from './onlineExam/ExamAnalysis/exam-analysis/exam-analysis.component';
@@ -42,11 +42,12 @@ import {VgBufferingModule} from 'videogular2/buffering';
 import { VideoComponent } from './video/video.component';
 import { UserComponent } from './user/user.component';
 import { PersonComponent } from './msgInput/person/person.component';
-import {HttpModule} from "@angular/http";
 import { UploadVideoComponent } from './upload-video/upload-video.component';
+import {EmitService} from "./route/emit.service";
+import {LoginService} from "./onlineExam/login/service/login.service";
 const options: HighlightOptions = {
   theme: 'monokai_sublime',
-  path: 'assets/js/ckeditor/plugins/codesnippet/lib/highlight/'
+  path: 'assets/ckeditor/plugins/codesnippet/lib/highlight/'
 };
 
 
@@ -98,12 +99,16 @@ const options: HighlightOptions = {
     VgControlsModule,
     VgOverlayPlayModule,
     VgBufferingModule,
+    ReactiveFormsModule
   ],
   providers: [
     TestService,
     DetailsService,
     ReportService,
-    ProblemService
+    ProblemService,
+    EmitService,
+    LoginService,
+    {provide: NZ_I18N, useValue: en_US}
   ],
   entryComponents:[
     PublishComponent,
