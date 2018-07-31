@@ -71,7 +71,7 @@
                 <div *ngIf="question.options">
                   <nz-radio-group [(ngModel)]="radioValue" style="width: 100%" (ngModelChange)="setRadioAnswer(question.questionNumber)">
                     <a class="subject-options" *ngFor="let option of question.options">
-                      <label nz-radio nzValue="{{option.optionNumber+'A'}}">
+                      <label nz-radio nzValue="{{option.optionNumber}}">
                         {{option.optionDetails}}
                       </label>
                     </a>
@@ -108,7 +108,7 @@
         </div>
         <div class="subject-next" *ngIf="pos == sum">
           <form>
-            <input type="submit" name="button" value="交卷" class="btn-next button">
+            <input type="submit" name="button" value="交卷" class="btn-next button" (click)="submitExam()">
           </form>
         </div>
       </div>

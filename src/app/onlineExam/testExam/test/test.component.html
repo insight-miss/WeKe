@@ -18,11 +18,23 @@
       </div>
 
      <div class="titOper">
-        <span class="titOper-span">
-          {{info.grade.substring(1,info.grade.length)}}分
+       <div *ngIf="info.statues.includes('已完成')">
+         <span class="titOper-span">
+          {{info.grade}}分
         </span>
+       </div>
 
-       <a (click)="getExamInfo(info.id)"><span class="a-span">查看</span></a>
+       <div *ngIf="info.statues.includes('进行中')">
+         <a (click)="getExamInfo(info.id)"><span class="a-span">考试</span></a>
+       </div>
+       <div *ngIf="info.statues.includes('已完成')">
+         <a routerLink="/analysis/{{info.id}}"><span class="a-span">查看</span></a>
+       </div>
+
+       <div *ngIf="info.statues.includes('待审批')">
+         <a><span class="a-span">待审批</span></a>
+       </div>
+
      </div>
    </div>
 </div>

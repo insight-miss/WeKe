@@ -82,6 +82,7 @@ export class PublisProblemComponent implements OnInit {
   // 模态框
   isVisible = false;
   isOkLoading = false;
+  sumGradeVaule : number;
 
   showModal(): void {
     this.isVisible = true;
@@ -95,16 +96,17 @@ export class PublisProblemComponent implements OnInit {
     }, 2000);
 
     const problems = this.problemService.getProblems();
-    let grade =0;
+    this.sumGradeVaule = 0;
+
     for (let problem of problems){
-      grade+= problem.grade;
+      this.sumGradeVaule = parseInt(this.sumGradeVaule.toString()) + parseInt(problem.grade.toString());
     }
+    console.log("grade="+this.sumGradeVaule);
 
     this.problemService.exam.examTitle = this.titleValue;
     this.problemService.exam.startTime = this.startTime;
     this.problemService.exam.endTime = this.endTime;
-    this.problemService.exam.grade = grade+'';
-    console.log(grade);
+    this.problemService.exam.grade = this.sumGradeVaule+'';
     this.problemService.publishProblem().subscribe(
       res =>{
         if(res) {

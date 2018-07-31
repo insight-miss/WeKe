@@ -1,45 +1,54 @@
-<div *ngFor="let answer of detailsService.questions">
-  <div *ngIf="answer.questionNumber == currentPos">
+<div *ngFor="let question of detailsService.questions">
+  <div *ngIf="question.questionNumber == currentPos">
     <div class="anslysis_page">
       <h1>每题情况</h1>
       <nz-pagination [(nzPageIndex)]="currentPos" [nzTotal]="answerLen*10" (nzPageIndexChange)="changePos(index)"> </nz-pagination>
     </div>
     <div class="result_question">
-      <span class="question_number">{{answer.questionNumber}}</span>
-      <span class="question_main">{{answer.problem}}</span>
+      <span class="question_number">{{question.questionNumber}}</span>
+      <div highlight="all" [innerHTML]="question.problem | safeHTML"></div>
     </div>
     <!--简答题-->
-    <div *ngIf="answer.type==3">
+    <div *ngIf="question.type==3" class="result_subject_item">
+
+      <div  >
+        <h1>
+          总分:{{question.grade}}
+          <span class="font-green" *ngIf="question.status">&nbsp;(我的得分:{{question.status}}分)</span>
+          <span class="font-red" *ngIf="!question.status">(错误)(0分)</span>
+        </h1>
+      </div>
+
       <nz-collapse>
         <nz-collapse-panel [nzHeader]="answerPanel.name" [nzActive]="answerPanel.active" [nzDisabled]="answerPanel.disabled">
-          <p style="margin:0;">{{answer.answer}}</p>
+          <p style="margin:0;">{{question.answer}}</p>
         </nz-collapse-panel>
         <nz-collapse-panel [nzHeader]="userAnswerPanel.name" [nzActive]="userAnswerPanel.active" [nzDisabled]="userAnswerPanel.disabled">
-          <p style="margin:0;">{{answer.userAnswer}}</p>
+          <p style="margin:0;">{{question.userAnswer}}</p>
         </nz-collapse-panel>
       </nz-collapse>
     </div>
 
     <!--非简答题-->
-    <div *ngIf="answer.type!=3">
+    <div *ngIf="question.type!=3">
       <div class="result_subject_item">
         <h1>
-          正确答案:{{answer.answer}} &nbsp;&nbsp;你的答案:{{answer.userAnswer}}
-          <span class="font-green" *ngIf="answer.status==1">(正确)</span>
-          <span class="font-red" *ngIf="answer.status!=1">(错误)</span>
+          正确答案:{{question.answer}} &nbsp;&nbsp;你的答案:{{question.userAnswer}}
+          <span class="font-green" *ngIf="question.answer == question.userAnswer">(正确)({{question.grade}}分)</span>
+          <span class="font-red" *ngIf="question.answer != question.userAnswer">(错误)(0分)</span>
         </h1>
 
-        <div *ngIf="answer.options">
+        <div *ngIf="question.options">
           <!--选项详情-->
-          <div *ngFor="let option of answer.options">
-            <div *ngIf="!answer.answer.includes(option._optionNumber)">
+          <div *ngFor="let option of question.options">
+            <div *ngIf="!question.answer.includes(option.optionNumber)">
               <div class="subject_options" >
-                {{option._optionDetails}}
+                {{option.optionDetails}}
               </div>
             </div>
-            <div *ngIf="answer.answer.includes(option._optionNumber)">
+            <div *ngIf="question.answer.includes(option.optionNumber)">
               <div class="subject_options" style=" border: 1px solid #53c6af;">
-                {{option._optionDetails}}
+                {{option.optionDetails}}
               </div>
             </div>
           </div>

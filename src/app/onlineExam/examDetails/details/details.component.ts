@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DetailsService} from '../service/details.service';
 import {Questions} from "../domain/questions";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-details',
@@ -13,7 +14,9 @@ export class DetailsComponent implements OnInit {
   radioValue = '';
   inputValue: string;
   questionInfo : Array<Questions>;
-  constructor(private detailsService: DetailsService) { }
+  constructor(private detailsService: DetailsService,
+              private activatedRoute : ActivatedRoute,
+              private router : Router) { }
 
   rangeArray = (start, end) => Array(end - start + 1).fill(0).map((v, i) => i + start);
 
@@ -47,5 +50,22 @@ export class DetailsComponent implements OnInit {
   setRadioAnswer(num: number) {
     console.log("num:"+num);
     this.detailsService.getTextAreaAnswer(this.radioValue , num);
+  }
+
+  // 交卷
+  submitExam() {
+    var testId = this.activatedRoute.snapshot.params["id"];
+    console.log("考场id:"+testId);
+    this.detailsService.submitExamInfo(testId).subscribe(
+      res => {
+        if (res.toString() === "true") {
+            console.log("true");
+            this.router.navigateByUrl("/test");
+        } else {
+          console.log("false");
+          alert("提交失败");
+        }
+      }
+    );
   }
 }

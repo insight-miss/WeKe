@@ -1,29 +1,31 @@
 import { Injectable } from '@angular/core';
 import {Questions} from '../domain/questions';
 import {Option} from '../domain/option';
+import {HttpClient} from "@angular/common/http";
+import {environment} from "../../../../environments/environment";
+import {ReportService} from "../../ExamAnalysis/EvaluationReport/service/report.service";
+import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class DetailsService {
 
- questions: Array<Questions> = [
-   //  new Questions(1, 1, '以下操作中，数组比链表速度更快的是', [
-   //    new Option('A', 'A:原地逆序'),
-   //    new Option('B', 'B:原地逆序'),
-   //    new Option('C', 'C:原地逆序')
-   //  ], [] , ['A', 'B'] , 0 ,null),
-   // new Questions(3, 2, '龙王传说', null, [] , ['唐家三少所写'] , 0 ,null),
-   // new Questions(2, 3, 'float x 与“零值”比较的if语句为？', [
-   //   new Option('A', 'A:if(x==0)'),
-   //   new Option('B', 'B:if (x &lt; 0.00001f)'),
-   //   new Option('C', 'C:if (fabs(x) &lt; 0.00001f) 或 if（Math.abs(x) &lt; 0.00001f）'),
-   //   new Option('D', 'D:if (x &gt; -0.00001f)')
-   // ], ['C'] , ['C'] , 1 , null),
-   // new Questions(4, 4, '唐家三少是龙王传说的作者', [
-   //   new Option('A', '√'),
-   //   new Option('B', '×'),
-   // ], [] , ['A'] , 0 , null)
-  ];
-  constructor() { }
+  url = environment.baseUrl + 'exam/submitExam';
+
+  url2 = environment.baseUrl + 'exam/getQuestions';
+
+  questions: Array<Questions> = [];
+
+  testId : number;
+
+  constructor(private http: HttpClient,
+              private reportService: ReportService) { }
+
+  getAnalySisPage(): Observable<Array<Questions> > {
+    return this.http.post<Array<Questions>>(this.url2,{
+      "testId": this.testId,
+      "userName": '6'
+    }).pipe();
+  }
 
   getQuestions(): Array<Questions> {
     return this.questions;
@@ -48,5 +50,13 @@ export class DetailsService {
       }
     }
     console.log(this.questions);
+  }
+
+  submitExamInfo(testId : number) {
+    return this.http.post(this.url,{
+      "testId": testId,
+      "userName": '6',
+      "questions": this.questions
+    }).pipe();
   }
 }

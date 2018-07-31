@@ -1,0 +1,43 @@
+<div class="mainContainer" style="background-color: #eeeeee">
+  <div class="pt-5" style="background-color: #eeeeee">
+
+  </div>
+  <div style="margin: auto; background-color: white; width: 1250px;">
+    <div *ngFor="let question of approvalService.answerQuestion">
+
+
+      <div *ngIf="question.questionNumber == posFlag">
+        <div class="anslysis_page">
+
+          <div class="d-flex justify-content-sm-between">
+            <h1>简答题情况</h1>
+            <button nz-button nzType="danger" (click)="submitted()">发表</button>
+          </div>
+
+
+          <nz-pagination [(nzPageIndex)]="currentPos" [nzTotal]="answerLen*10" (nzPageIndexChange)="changIndex(currentPos)"	> </nz-pagination>
+        </div>
+        <div class="result_question">
+          <span class="question_number">{{question.questionNumber}}</span>
+          <div highlight="all" [innerHTML]="question.problem | safeHTML"></div>
+          <div class="d-flex mt-3 col-xl-4">
+            <p class="col-xl-4 pt-2" style="font-size: 15px; color: #00B0E8">请输入分数:</p>
+            <input class="col-xl-8" nz-input placeholder="满分为{{question.grade}}分" nzSize="large" [(ngModel)]=question.status>
+          </div>
+        </div>
+        <!--简答题-->
+        <div *ngIf="question.type==3">
+
+          <nz-collapse>
+            <nz-collapse-panel [nzHeader]="answerPanel.name" [nzActive]="answerPanel.active" [nzDisabled]="answerPanel.disabled">
+              <p style="margin:0;">{{question.answer}}</p>
+            </nz-collapse-panel>
+            <nz-collapse-panel [nzHeader]="userAnswerPanel.name" [nzActive]="userAnswerPanel.active" [nzDisabled]="userAnswerPanel.disabled">
+              <p style="margin:0;">{{question.userAnswer}}</p>
+            </nz-collapse-panel>
+          </nz-collapse>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

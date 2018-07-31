@@ -45,6 +45,13 @@ import { PersonComponent } from './msgInput/person/person.component';
 import { UploadVideoComponent } from './upload-video/upload-video.component';
 import {EmitService} from "./route/emit.service";
 import {LoginService} from "./onlineExam/login/service/login.service";
+import { ApprovalExamComponent } from './onlineExam/approval-exam/approval-exam.component';
+import {ApprovalService} from "./onlineExam/approval-exam/service/approval.service";
+import { ApprovalPageComponent } from './onlineExam/approval-page/approval-page.component';
+import { BackstageComponent } from './backstage/backstage.component';
+import { UserManagemetComponent } from './backstage/user-managemet/user-managemet.component';
+import {UserInfoService} from "./backstage/user-managemet/service/user-info.service";
+import { RecommendComponent } from './backstage/recommend/recommend.component';
 const options: HighlightOptions = {
   theme: 'monokai_sublime',
   path: 'assets/ckeditor/plugins/codesnippet/lib/highlight/'
@@ -77,7 +84,12 @@ const options: HighlightOptions = {
     VideoComponent,
     UserComponent,
     PersonComponent,
-    UploadVideoComponent
+    UploadVideoComponent,
+    ApprovalExamComponent,
+    ApprovalPageComponent,
+    BackstageComponent,
+    UserManagemetComponent,
+    RecommendComponent
   ],
   imports: [
     BrowserModule,
@@ -108,6 +120,8 @@ const options: HighlightOptions = {
     ProblemService,
     EmitService,
     LoginService,
+    ApprovalService,
+    UserInfoService,
     {provide: NZ_I18N, useValue: en_US}
   ],
   entryComponents:[

@@ -3,6 +3,7 @@ import {Exam} from '../domain/exam';
 import {TestService} from "../service/test.service";
 import {DetailsService} from "../../examDetails/service/details.service";
 import {Router} from "@angular/router";
+import {ReportService} from "../../ExamAnalysis/EvaluationReport/service/report.service";
 
 @Component({
   selector: 'app-test',
@@ -13,12 +14,14 @@ export class TestComponent implements OnInit {
   information: Exam[];
   constructor(private testService : TestService,
               private detailsService: DetailsService,
-              private rout: Router) { }
+              private rout: Router,
+              private reportService:ReportService) { }
 
   ngOnInit() {
     this.testService.getTestInfo().subscribe(
       res => {
         if (res) {
+          console.log(res);
           this.information = res;
         }
 
@@ -32,9 +35,22 @@ export class TestComponent implements OnInit {
       res => {
         if (res) {
           this.detailsService.questions = res;
-          this.rout.navigateByUrl("/details");
+          this.rout.navigateByUrl("/details/"+id);
         }
       }
     );
+  }
+
+  getExamAnalysis(id: number) {
+    this.testService.getExamAnalysis(id).subscribe(
+      res => {
+        if (res) {
+          console.log(res);
+          this.reportService.examReport = res;
+          this.detailsService.testId = id;
+          this.rout.navigateByUrl("/analysis");
+        }
+      }
+    )
   }
 }

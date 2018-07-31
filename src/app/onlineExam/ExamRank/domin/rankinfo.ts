@@ -3,4 +3,5 @@ export class Rankinfo {
   name: string;
   grade: number;
   statues: number;
+  examName: string;
 }

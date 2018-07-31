@@ -31,6 +31,7 @@ export class ProblemService {
     this.examInfo.exam = this.exam;
     this.examInfo.questions = this.problems;
     console.log(this.examInfo);
+
     return this.http.post(this.url,{
       "exam":{
         " id;": this.exam.id,

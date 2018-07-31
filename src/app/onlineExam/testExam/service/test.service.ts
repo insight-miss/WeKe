@@ -6,6 +6,7 @@ import {environment} from '../../../../environments/environment';
 import {catchError} from 'rxjs/operators';
 import {Exam} from "../domain/exam";
 import {Questions} from "../../examDetails/domain/questions";
+import {ExamReport} from "../../ExamAnalysis/EvaluationReport/domain/ExamReport";
 
 @Injectable()
 export class TestService {
@@ -34,5 +35,17 @@ export class TestService {
   getExamInfo(id:number): Observable<Array<Questions>> {
     const examInfoUrl = environment.baseUrl + "exam/examInfo?id="+id;
     return this.http.get<Array<Questions>>(examInfoUrl).pipe();
+  }
+
+  /**
+   * 查看考试分析
+   */
+  getExamAnalysis(id: number): Observable<ExamReport> {
+    console.log("id:"+id);
+    const analysisUrl = environment.baseUrl + "exam/examAnalySis";
+    return this.http.post<ExamReport>(analysisUrl,{
+      'testId': id,
+      'userName': '6'
+    }).pipe();
   }
 }
