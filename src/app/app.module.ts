@@ -52,6 +52,7 @@ import { BackstageComponent } from './backstage/backstage.component';
 import { UserManagemetComponent } from './backstage/user-managemet/user-managemet.component';
 import {UserInfoService} from "./backstage/user-managemet/service/user-info.service";
 import { RecommendComponent } from './backstage/recommend/recommend.component';
+import {MessagePushService} from "./service/message-push.service";
 const options: HighlightOptions = {
   theme: 'monokai_sublime',
   path: 'assets/ckeditor/plugins/codesnippet/lib/highlight/'
@@ -122,6 +123,7 @@ const options: HighlightOptions = {
     LoginService,
     ApprovalService,
     UserInfoService,
+    MessagePushService,
     {provide: NZ_I18N, useValue: en_US}
   ],
   entryComponents:[

@@ -35,9 +35,18 @@
 
   <div *ngIf="choiceFlag == 2">
     <div class="login_body">
-      <input nz-input placeholder="请输入注册邮箱/手机号" nzSize="large" [(ngModel)]="registerName">
+      <input nz-input placeholder="请输入用户名" nzSize="large" [(ngModel)]="registerName">
       <p class="pt-2"></p>
       <input nz-input placeholder="请输入密码" nzSize="large" [(ngModel)]="registerPassword" type="password">
+      <p class="pt-2"></p>
+      <input nz-input placeholder="请输入手机号" nzSize="large" [(ngModel)] = "phoneNumber">
+      <p class="pt-2"></p>
+
+      <div class="d-flex justify-content-between">
+        <input nz-input placeholder="请输入验证码" nzSize="large" [(ngModel)] = "sendCode">
+        <button nz-button nzType="dashed" style="margin: auto" (click)="createCode()">获取验证码</button>
+      </div>
+
       <p class="pt-2"></p>
       <p *ngIf="registerResult == 'false'" style="color: red">用户名已存在</p>
       <div class="login_append d-flex justify-content-between">

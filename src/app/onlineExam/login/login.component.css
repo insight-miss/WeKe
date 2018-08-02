@@ -54,3 +54,8 @@
 .login_footer {
   padding: 8px 0px 4px;
 }
+
+[nz-button] {
+  margin-right: 8px;
+  margin-bottom: 12px;
+}

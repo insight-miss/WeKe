@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {EmitService} from "../../route/emit.service";
 import {LoginService} from "./service/login.service";
+import {NzMessageService} from "ng-zorro-antd";
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,8 @@ import {LoginService} from "./service/login.service";
 export class LoginComponent implements OnInit {
 
   constructor(public emitService: EmitService,
-              private loginService: LoginService) { }
+              private loginService: LoginService,
+              private message: NzMessageService) { }
 
   ngOnInit() {
     // 接收发射过来的数据
@@ -78,23 +80,22 @@ export class LoginComponent implements OnInit {
   registerResult='';
 
   registerClick() {
-    let temp = this.registerResult;
 
-    this.loginService.registerUser(this.registerName,this.registerPassword).subscribe(
-      (result: string) => {
-          if (result) {
-            temp = 'true';
-            this.isVisible = false;
-            this.loginService.loginFlag = 'true';
-            console.log(result);
+    this.loginService.registerUser(this.registerName,this.registerPassword,this.phoneNumber,this.sendCode).subscribe(
+      result => {
+          if (result.toString() === "true") {
+            this.message.create('success', '注册成功');
+            this.registerResult = 'true';
+            this.choiceFlag = 1;
+          } else {
+            this.message.create('error', '注册失败');
           }
+        this.registerName = '';
+        this.registerPassword = '';
+        this.phoneNumber = '';
+        this.sendCode = '';
         }
     );
-    if (temp == this.registerResult) {
-      this.registerResult = 'false';
-    } else {
-      this.registerResult = 'true';
-    }
   }
 
   //登录信息
@@ -103,16 +104,34 @@ export class LoginComponent implements OnInit {
   loginResult = '';
 
   loginClick() {
-    console.log("login");
-    this.loginResult = 'false';
     this.loginService.loginUser(this.loginName, this.loginPassword).subscribe(
       res =>{
+        console.log("wokao"+res);
         if (res) {
           this.isVisible = false;
           this.loginService.loginFlag = 'true';
-          this.loginResult = 'true';
-          console.log(res.body);
           localStorage.setItem("token",res.body);
+          localStorage.setItem("userName",this.loginName);
+          this.message.create('success', '登录成功');
+        }
+      },
+      error => {
+        this.message.create('error', '用户名或密码错误');
+        this.loginPassword = '';
+        this.loginName = '';
+      }
+    );
+  }
+
+  phoneNumber = '';
+  sendCode = '';
+  createCode() {
+    this.loginService.sendCode(parseInt(this.phoneNumber)).subscribe(
+      res => {
+        if (res.toString() === 'true' ) {
+          this.message.create('success', '验证码发送成功');
+        } else {
+          this.message.create('error', '验证码发送失败');
         }
       }
     );
