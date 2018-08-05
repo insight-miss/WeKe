@@ -21,10 +21,12 @@
 
       <nz-collapse>
         <nz-collapse-panel [nzHeader]="answerPanel.name" [nzActive]="answerPanel.active" [nzDisabled]="answerPanel.disabled">
-          <p style="margin:0;">{{question.answer}}</p>
+          <!--<p style="margin:0;">-->
+            <pre>{{question.answer}}</pre>
+          <!--</p>-->
         </nz-collapse-panel>
         <nz-collapse-panel [nzHeader]="userAnswerPanel.name" [nzActive]="userAnswerPanel.active" [nzDisabled]="userAnswerPanel.disabled">
-          <p style="margin:0;">{{question.userAnswer}}</p>
+           <pre>{{question.userAnswer}}</pre>
         </nz-collapse-panel>
       </nz-collapse>
     </div>

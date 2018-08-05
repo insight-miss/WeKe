@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {retry} from "rxjs/operators";
 import {environment} from "../../../../environments/environment";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {UserInfo} from "../domain/UserInfo";
 import {Observable} from "rxjs/Observable";
 
@@ -17,7 +17,7 @@ export class UserInfoService {
   constructor(private http : HttpClient) { }
 
   getUserInfo(): Observable<Array<UserInfo>> {
-    return this.http.post<Array<UserInfo>>(this.url,null).pipe(
+    return this.http.post<Array<UserInfo>>(this.url,null,httpOptions).pipe(
       retry(3)
     );
   }
@@ -26,6 +26,13 @@ export class UserInfoService {
     return this.http.post(this.url1,{
       'userAdmin': user.userAdmin,
       'userName': user.userName
-    }).pipe( retry(3) );
+    },httpOptions).pipe( retry(3) );
   }
 }
+const httpOptions = {
+  headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': localStorage.getItem("token")
+    }
+  )
+};

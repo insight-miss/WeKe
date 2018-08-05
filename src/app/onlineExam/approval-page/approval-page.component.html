@@ -4,7 +4,7 @@
     <button nz-button (click)="addExam()" class="editable-add-btn mb-3">新建题集</button>
     <nz-table
       #editRowTable
-      [nzData]="dataSet">
+      [nzData]=approvalPageService.userExams>
       <thead>
       <tr>
         <th nzWidth="60%">标题</th>

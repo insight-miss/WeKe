@@ -23,8 +23,13 @@ export class TestComponent implements OnInit {
         if (res) {
           console.log(res);
           this.information = res;
+        } else {
+          console.log('没有权限');
         }
 
+      } ,
+      error => {
+        console.log("没有权限");
       }
     )
   }

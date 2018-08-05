@@ -30,7 +30,7 @@ export class ProblemService {
   publishProblem() {
     this.examInfo.exam = this.exam;
     this.examInfo.questions = this.problems;
-    console.log(this.examInfo);
+    console.log(this.examInfo + " " + this.problems);
 
     return this.http.post(this.url,{
       "exam":{

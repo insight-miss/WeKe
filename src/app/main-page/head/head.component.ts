@@ -22,4 +22,10 @@ export class HeadComponent implements OnInit {
   register() {
     this.emitService.eventEmit.emit("register");
   }
+
+  getUserName(): string {
+    // const name = localStorage.getItem("userName");
+    // console.log("name="+name);
+    return localStorage.getItem("token");
+  }
 }

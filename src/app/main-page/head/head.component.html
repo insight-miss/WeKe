@@ -11,17 +11,17 @@
             <a class="nav-link" href="#">免费课程</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">职业路径</a>
+            <a class="nav-link" routerLink="test">题集</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">实战</a>
+            <a class="nav-link" routerLink="publicProblem">出题</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">题集</a>
+            <a class="nav-link" routerLink="approvalPage">审核</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">排行榜</a>
-          </li>
+          <!--<li class="nav-item">-->
+            <!--<a class="nav-link" href="#">排行榜</a>-->
+          <!--</li>-->
         </ul>
         <form class="form-inline mt-2 mt-md-0 ml-3">
           <mat-form-field class="example-full-width">
@@ -31,19 +31,20 @@
         </form>
       </div>
       <div class="pt-2">
-        <div *ngIf="loginService.loginFlag == 'true'">
+
+        <div *ngIf="getUserName()">
           <a href="#" target="_self">
           <nz-avatar nzIcon="anticon anticon-user" nzSrc="https://img3.mukewang.com/59e5c5b30001aa2601000100-100-100.jpg"></nz-avatar>
           </a>
         </div>
 
-        <div *ngIf="loginService.loginFlag == 'false'">
+        <div *ngIf="!getUserName()">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#" (click)="login()">登录</a>
+              <a class="nav-link" (click)="login()">登录</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" (click)="register()">注册</a>
+              <a class="nav-link" (click)="register()">注册</a>
             </li>
           </ul>
         </div>

@@ -43,7 +43,7 @@ export class ProblemComponent implements OnInit {
   // 添加选项框
   optionLen=1;
   options : Array<Option> = [ new Option(null,'')];
-  problem = new Questions(null,null,null,null,null,null,null,null);
+  problem = new Questions();
   addInput() {
     console.log("添加选项");
     this.optionLen++;

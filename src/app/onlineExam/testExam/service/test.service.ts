@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Answer} from '../domain/answer';
 import {Observable} from 'rxjs/internal/Observable';
 import {environment} from '../../../../environments/environment';
@@ -26,7 +26,7 @@ export class TestService {
    * @returns {Observable<Array<any>>}
    */
   getTestInfo(): Observable<Array<any>> {
-    return this.http.get<Array<any>>(this.url,{}).pipe();
+    return this.http.get<Array<any>>(this.url,httpOptions).pipe();
   }
 
   /**
@@ -49,3 +49,11 @@ export class TestService {
     }).pipe();
   }
 }
+
+const httpOptions = {
+  headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': localStorage.getItem("token")
+    }
+  )
+};

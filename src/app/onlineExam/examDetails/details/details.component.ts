@@ -44,12 +44,14 @@ export class DetailsComponent implements OnInit {
   // 简答题答案修改
   setTextAreaAnswer(inputValue: string , num: number) {
     this.detailsService.getTextAreaAnswer(inputValue , num);
+    this.inputValue = '';
     // console.log(inputValue , num);
   }
   // 判断题答案修改
   setRadioAnswer(num: number) {
     console.log("num:"+num);
     this.detailsService.getTextAreaAnswer(this.radioValue , num);
+    this.radioValue = '';
   }
 
   // 交卷

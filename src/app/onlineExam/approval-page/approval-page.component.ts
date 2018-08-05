@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ApprovalPageService} from "./service/approval-page.service";
 import {UserExam} from "./domain/UserExam";
 import {Router} from "@angular/router";
+import {NzMessageService} from "ng-zorro-antd";
 
 @Component({
   selector: 'app-approval-page',
@@ -13,9 +14,11 @@ export class ApprovalPageComponent implements OnInit {
   dataSet:Array<UserExam>=[];
 
   constructor(private approvalPageService: ApprovalPageService,
-              private router : Router) { }
+              private router : Router,
+              private message: NzMessageService) { }
 
   ngOnInit(): void {
+    // localStorage.removeItem('token');
     this.approvalPageService.getUserExam().subscribe(
       res => {
         if (res) {
@@ -28,6 +31,8 @@ export class ApprovalPageComponent implements OnInit {
           }
           this.dataSet = this.approvalPageService.userExams;
           console.log(this.dataSet);
+        } else {
+          this.message.create('error', '权限不够');
         }
       }
     )

@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import { TestComponent } from './onlineExam/testExam/test/test.component';
 import {TestService} from './onlineExam/testExam/service/test.service';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { DetailsComponent } from './onlineExam/examDetails/details/details.component';
 import {HeadComponent} from './main-page/head/head.component';
 import { BodyComponent } from './main-page/body/body.component';
@@ -53,6 +53,8 @@ import { UserManagemetComponent } from './backstage/user-managemet/user-manageme
 import {UserInfoService} from "./backstage/user-managemet/service/user-info.service";
 import { RecommendComponent } from './backstage/recommend/recommend.component';
 import {MessagePushService} from "./service/message-push.service";
+import { ClassicProblemComponent } from './onlineExam/classic-problem/classic-problem.component';
+import {AuthInterceptor} from "./Jwt/JWTInterceptor";
 const options: HighlightOptions = {
   theme: 'monokai_sublime',
   path: 'assets/ckeditor/plugins/codesnippet/lib/highlight/'
@@ -90,7 +92,8 @@ const options: HighlightOptions = {
     ApprovalPageComponent,
     BackstageComponent,
     UserManagemetComponent,
-    RecommendComponent
+    RecommendComponent,
+    ClassicProblemComponent
   ],
   imports: [
     BrowserModule,
@@ -124,7 +127,8 @@ const options: HighlightOptions = {
     ApprovalService,
     UserInfoService,
     MessagePushService,
-    {provide: NZ_I18N, useValue: en_US}
+    {provide: NZ_I18N, useValue: en_US},
+    [ { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true } ]
   ],
   entryComponents:[
     PublishComponent,

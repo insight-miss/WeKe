@@ -1,0 +1,57 @@
+<div class="shadow-none p-3 bg-light rounded"  style="background-color: #eff4f7">
+  <div class="shadow-none p-3 bg-light rounded" style="background-color: #eff4f7"></div>
+  <div class="container p-5" style="background-color: white">
+    <button nz-button (click)="returnExam()" class="editable-add-btn mb-3">返回题集</button>
+    <nz-table
+      #editRowTable
+      [nzData]=shortQuestions
+      [nzShowPagination]="false">
+
+      <thead>
+      <tr>
+        <th nzWidth="40%">题目</th>
+        <th nzWidth="13%">类型</th>
+        <th nzWidth="13%">分数</th>
+        <th nzWidth="33%">解析</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let question of shortQuestions">
+        <td class="room-cell" *ngIf="!problemService.problems.includes(question)">
+          <a style="color: #3f5aa2" (click)="showModal(question)">{{question.problem}}</a>
+        </td>
+        <td class="room-cell" *ngIf="problemService.problems.includes(question)">
+          <a style="color: #53c6af" >{{question.problem}}</a>
+        </td>
+        <td >{{question.type}}</td>
+        <td >{{question.grade}}</td>
+        <td class="room-cell">
+           {{question.answer}}
+        </td>
+      </tr>
+      </tbody>
+    </nz-table>
+
+    <div class="d-flex justify-content-end mt-5">
+      <nz-pagination [(nzPageIndex)]="currentIndex" [(nzTotal)]="totalIndex"
+                     (nzPageIndexChange)="changIndexs()" nzShowQuickJumper></nz-pagination>
+    </div>
+  </div>
+
+</div>
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="题目预览" (nzOnCancel)="handleCancel()"
+          (nzOnOk)="handleOk()" nzWidth="958px" class="pt-4">
+  <div>
+    <h3 style="font-size: 1.53125rem; overflow-x: hidden; overflow-y: auto;">题目详情</h3>
+    <div *ngIf="modelQuestion">
+      <pre>{{modelQuestion.problem}}</pre>
+    </div>
+  </div>
+  <div>
+    <h3 style="font-size: 1.53125rem">答案解析</h3>
+    <div *ngIf="modelQuestion">
+      <pre>{{modelQuestion.answer}}</pre>
+    </div>
+  </div>
+</nz-modal>

@@ -19,27 +19,32 @@ import {ApprovalPageComponent} from "./onlineExam/approval-page/approval-page.co
 import {BackstageComponent} from "./backstage/backstage.component";
 import {UserManagemetComponent} from "./backstage/user-managemet/user-managemet.component";
 import {RecommendComponent} from "./backstage/recommend/recommend.component";
+import {ClassicProblemComponent} from "./onlineExam/classic-problem/classic-problem.component";
+import {LoginGuard} from "./Jwt/LoginGuard";
 
 const routes: Routes = [
-  { path: 'test' , component: TestComponent } ,
-  { path: 'details/:id', component: DetailsComponent} ,
-  { path: 'rank/:id' , component: RankComponent},
-  {path: 'analysis/:id', component: ExamAnalysisComponent, children: [
+  { path: 'test' , component: TestComponent , canActivate:[LoginGuard]} ,
+  { path: 'details/:id', component: DetailsComponent , canActivate:[LoginGuard]} ,
+  { path: 'rank/:id' , component: RankComponent , canActivate:[LoginGuard]},
+  {path: 'analysis/:id', component: ExamAnalysisComponent,canActivate:[LoginGuard],
+    children: [
       { path: '',   redirectTo: 'examExport', pathMatch: 'full' },
       {path: 'examExport', component: ReportComponent} ,
       {path: 'examAnalysis', component: AnalysisComponent}
     ]},
-  {path: 'problem' , component: ProblemComponent},
-  {path: 'publicProblem' , component:PublisProblemComponent},
+  {path: 'problem' , component: ProblemComponent , canActivate:[LoginGuard]},
+  {path: 'publicProblem' , component:PublisProblemComponent , canActivate:[LoginGuard]},
   {path: 'login' , component: LoginComponent},
   {path: 'list', component: KindComponent},
   {path: 'learn',  component: CatalogComponent},//目录页面
-  {path: 'video', component: VideoComponent},
-  {path: 'user', component:UserComponent},
+  {path: 'video', component: VideoComponent ,canActivate:[LoginGuard]},
+  {path: 'user', component:UserComponent , canActivate:[LoginGuard]},
   {path: '', component: BodyComponent},
-  {path: 'approval/:id' , component: ApprovalExamComponent},
-  {path: 'approvalPage' , component: ApprovalPageComponent},
-  {path: 'backstage' , component: BackstageComponent, children : [
+  {path: 'approval/:id' , component: ApprovalExamComponent , canActivate:[LoginGuard]},
+  {path: 'approvalPage' , component: ApprovalPageComponent , canActivate:[LoginGuard]},
+  {path: 'classicProblem' , component: ClassicProblemComponent , canActivate:[LoginGuard]},
+  {path: 'backstage' , component: BackstageComponent , canActivate:[LoginGuard]
+    , children : [
       {path: 'userManager', component: UserManagemetComponent},
       {path: 'recommend', component:RecommendComponent}
     ]}
@@ -48,6 +53,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [ RouterModule.forRoot(routes)],
-  exports: [ RouterModule ]
+  exports: [ RouterModule ],
+  providers: [LoginGuard]
 })
 export class AppRoutingModule {}
