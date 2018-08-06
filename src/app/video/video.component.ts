@@ -12,12 +12,12 @@ import {Video} from "./domain/video";
 export class VideoComponent implements OnInit {
 
   class: string = 'win';
+  catalog: string;
   chapter: string;
   url: string = 'https://weke-resoure.oss-cn-beijing.aliyuncs.com/230_14.%E6%8E%92%E5%BA%8F-%E5%90%8E%E7%AB%AF.mp4';
   content: string;
   constructor(private location: Location, private route: ActivatedRoute, private  videoService: VideoService) { }
   video: Video;
-  chapterId: string;
 
   onPlus(): void{
     if (this.class === 'win'){
@@ -32,11 +32,16 @@ export class VideoComponent implements OnInit {
 
   private getPathMsg(){
     //调用getParam方法 获得path中的参数
+    this.catalog = this.getParam('catalog');
+    this.chapter = this.getParam('chapter');
   }
 
   // 获得视频信息和用户Id；
   getVideo(): void{
-   this.videoService.getVideo(this.chapterId).subscribe(video => this.video=video);
+   this.videoService.getVideo(this.catalog, this.chapter).subscribe(video => {
+     this.video=video;
+     console.log(this.video.videoUrl);
+   });
   }
 
 
@@ -45,7 +50,8 @@ export class VideoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getVideo()
+    this.getPathMsg();
+    this.getVideo();
   }
 
 }

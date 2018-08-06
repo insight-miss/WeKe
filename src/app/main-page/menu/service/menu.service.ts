@@ -10,7 +10,7 @@ import {catchError, retry} from "rxjs/operators";
   providedIn: 'root'
 })
 export class MenuService {
-  url: string = 'http://10.0.0.26:8083/page/direction';
+  url: string = 'http://10.0.0.26:8080/page/direction';
 
   getMenuList(): Observable<Array<MenuList>>{
      return this.http.get<Array<MenuList>>(this.url).pipe(

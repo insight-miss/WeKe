@@ -4,12 +4,12 @@
       <ul class="course-menu">
         <li>
           <a [class]="kind==='1'?'moco-change-big-btn active':'moco-change-big-btn '" id="learnOn"
-             [routerLink]="['/learn']" [queryParams]="{kind:'1',id:courseId}">课程章节</a>
+             [routerLink]="['/learn']" [queryParams]="{kind:'1',id:courseId}" (click)="changeKind('1')">课程章节</a>
         </li>
         <li>
           <span>1266</span>
           <a [class]="kind==='2'?'moco-change-big-btn active':'moco-change-big-btn '" id="qaOn"
-             class="moco-change-big-btn " [routerLink]="['/ques']" [queryParams]="{kind:'2',id:courseId}">问答评论</a>
+             class="moco-change-big-btn " [routerLink]="['/learn']" [queryParams]="{kind:'2',id:courseId}" (click)="changeKind('2')">问答评论</a>
         </li>
         <li>
           <a [class]="kind==='3'?'moco-change-big-btn active':'moco-change-big-btn '" id="noteOn"
@@ -36,7 +36,7 @@
             <ul class="video">
               <li *ngFor="let chapter of cata.course">
                 <em class="laststudy">最近学习</em>
-                <a href="#" class="J-media-item">
+                <a [routerLink]="['/video']" [queryParams]="{catalog:cata.title, chapter:chapter}" class="J-media-item">
                   <i class="icon-tick-revert done anticon anticon-check-square"></i>
                   <i class="imv2-play_circle type anticon anticon-play-circle"></i>
                   {{ chapter}}
@@ -107,6 +107,7 @@
     </div>
     <div class="clear"></div>
   </div>
+  <!--评论-->
   <div *ngIf="kind === '2'"class="course-info-main clearfix w">
     <div class="content-wrap clearfix">
       <div class="content">
@@ -163,7 +164,7 @@
                       </span>
                         <em>{{ comment.num }}</em>
                       </a>
-                      <a href="javascript:;">举报</a>
+                      <a>举报</a>
                     </div>
                     <span class="r timeago">时间:{{ comment.time }}</span>
                   </div>

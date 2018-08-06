@@ -11,7 +11,7 @@
               <div class="banner-line"><span class="bold mr10 l small-title">{{ menu.info }}</span></div>
             </div>
             <div class="tag-box l">
-              <a *ngFor="let uls of menu.tecList" href="{{ uls.ul}}" target="_blank">{{ uls.tec }}</a>
+              <a *ngFor="let uls of menu.tecList" (click)="selectDirection(menu.info, uls.tec)" routerLink="/list" target="_blank">{{ uls.tec }}</a>
             </div>
           </div>
         </div>
@@ -29,7 +29,12 @@
       <div class="g-banner-box">
         <a href="#" target="_blank">
           <div class="banner-slide">
-            <img src="https://img.mukewang.com/5b191458000144b309360316.jpg" alt="轮播图">
+            <nz-carousel nzAutoPlay>
+              <div nz-carousel-content *ngFor="let index of array">
+                <img src="https://img.mukewang.com/5b191458000144b309360316.jpg" alt="轮播图">
+              </div>
+            </nz-carousel>
+
           </div>
         </a>
       </div>

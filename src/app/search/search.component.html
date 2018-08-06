@@ -1,0 +1,37 @@
+<div id="main">
+  <div class="search-main">
+    <div class="search-body">
+      <div class="search-content">
+        <div class="search-classify clearfix">
+          <ul class="search-classify-list clearfix">
+            <li><a data-page="course" class="active">课程</a></li>
+          </ul>
+          <span class="search-related">共找到 {{ len }} 个相关内容</span>
+          <div class="search-related-classify search-related-select js-course-select cur">
+            <div class="search-select-content js-course-content">
+              <p class="active">全部</p>
+            </div>
+          </div>
+        </div>
+        <div *ngFor="let course of courses" class="course-item">
+          <a class="course-detail-title">
+            <img src="{{ course.url }}" class="course-item-img">
+          </a>
+          <div class="course-item-detail">
+            <a href="//coding.imooc.com/class/191.html" target="_blank" class="course-detail-title">
+              {{ course.courseName }}
+            </a>
+            <div class="course-item-classify">
+              <span>{{ course.courseKind }}</span>
+              <span>{{ course.courseDiff }}</span>
+              <i class="course-study-number icon-set_sns"></i>
+            </div>
+            <p>
+              {{ course.courseInfo }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

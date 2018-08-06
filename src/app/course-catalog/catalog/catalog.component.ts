@@ -32,20 +32,25 @@ export class CatalogComponent implements OnInit {
   private getParam(index: string): string{
     return this.route.snapshot.queryParams[index];
   }
+
+  changeKind(kind: string) {
+    this.kind = kind;
+  }
+
   openDialog(kind: string): void {
     if (kind === '1'){
       const dialogRef = this.dialog.open(PublishComponent);//评论
       dialogRef.afterClosed().subscribe(result =>{
         console.log('ca '+result);
         this.catalogService.savaComment(this.courseId, result);
-        this.getAllComments();
+        this.comments.push(new Comment('2','0','','',result,'用户名','','userid'));
       });
     }else{
       const dialogRef = this.dialog.open(WriteDemoComponent);//提问
       dialogRef.afterClosed().subscribe(result =>{
         console.log('da '+result.title+"  "+result.content);
         this.catalogService.savaProblem(this.courseId, result.content, result.title);
-        this.getAllComments();
+        this.comments.push(new Comment('1','0','','',result.content,'用户名',result.title,'userid'));
       });
     }
   }

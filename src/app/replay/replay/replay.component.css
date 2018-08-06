@@ -1,0 +1,639 @@
+#main {
+  padding-top: 0;
+}
+
+#main {
+  min-height: 750px;
+  padding: 20px 0;
+}
+
+.container {
+  margin-top: 20px;
+}
+
+.container, .newcontainer, .page-container {
+  width: 1152px;
+  margin: 0 auto;
+}
+
+.container, .waper {
+  margin: 0 auto;
+}
+
+.qa-left {
+  width: 840px;
+}
+
+.l {
+  float: left;
+}
+
+.wenda-tip {
+  margin: 0 20px;
+  padding: 0 20px;
+  height: 40px;
+  line-height: 40px;
+  background: #fffbe5;
+  color: #ff9600;
+  font-size: 14px;
+  overflow: hidden;
+}
+
+.qa-header {
+  position: relative;
+  height: 40px;
+  padding-top: 16px;
+}
+
+.qa-content {
+  padding: 15px 0;
+  margin: 0;
+  border-bottom: 1px solid #edf1f2;
+}
+
+.qa-comments {
+  padding: 0;
+}
+
+.qa-comment-input {
+  position: relative;
+  padding: 20px 0 40px 40px;
+}
+
+a:link, a:visited, body, html {
+  color: #1c1f21;
+}
+
+.qa-content-addon {
+  position: relative;
+  padding-top: 15px;
+  font-size: 12px;
+  color: #d0d6d9;
+}
+
+.clearfix {
+}
+
+.qa-comment {
+  position: relative;
+  min-height: 80px;
+  border-bottom: 1px solid #edf1f2;
+}
+
+.qa-ci-avator {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 120px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.qa-ci-wrap {
+  margin-left: 70px;
+}
+
+.qa-author img {
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 7px;
+}
+
+fieldset, img {
+  border: 0;
+}
+
+.qa-createtime {
+  margin-right: 20px;
+}
+
+.qa-createtime {
+  color: #c8cdd2;
+  line-height: 24px;
+}
+
+.qa-course-from:link, .qa-course-from:visited, .qa-createtime {
+  color: #c8cdd2;
+  line-height: 24px;
+}
+
+.qa-total-comment, .qa-view-num {
+  margin-left: 20px;
+  line-height: 24px;
+  color: #c8cdd2;
+}
+
+.qa-comment-wrap {
+  padding: 10px 0;
+  position: relative;
+}
+
+.qa-reply {
+  clear: both;
+  margin-top: 9px;
+  border-bottom: 0;
+}
+
+.qa-reply {
+  border-top: 1px solid #edf1f2;
+  padding-left: 110px;
+}
+
+div {
+  margin: 0;
+  padding: 0;
+}
+
+.qa-ci-avator {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 120px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.qa-ci-wrap {
+  margin-left: 70px;
+}
+
+.qa-wenda-title {
+  word-break: break-all;
+  word-wrap: break-word;
+  overflow: hidden;
+  font-weight: bolder;
+  font-size: 16px;
+  line-height: 32px;
+}
+
+.rich-text {
+  margin-top: 5px;
+}
+
+.qa-disscus, .qa-wenda {
+  line-height: 20px;
+  font-size: 14px;
+  word-break: break-all;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+.qa-comment-author {
+  float: left;
+  line-height: 1em;
+  width: 90px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.qa-comment-d {
+  position: relative;
+  margin-left: 90px;
+  padding: 10px 0 10px 20px;
+}
+
+.qa-replies {
+  margin-bottom: -1px;
+}
+
+.syntaxhighlighter {
+  background-color: #f5f5f5 !important;
+}
+
+.syntaxhighlighter {
+  width: 100% !important;
+  margin: .3em 0 .3em 0 !important;
+  position: relative !important;
+  overflow: auto !important;
+  background-color: #f5f5f5 !important;
+  border: 1px solid #ccc !important;
+  border-radius: 4px !important;
+  border-collapse: separate !important;
+}
+
+.rich-text p {
+  margin: 0;
+}
+
+.qa-comment-author a:link {
+  color: #787d82;
+}
+
+.qa-comment-author a {
+  font-size: 12px;
+}
+
+.qa-comment-author img {
+  border-radius: 50%;
+}
+
+.qa-comment-nick {
+  display: block;
+  line-height: 1.2em;
+  height: 18px;
+  margin: 3px 10px auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.qa-comment-c {
+  line-height: 20px;
+  font-size: 14px;
+  word-break: break-all;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+.qa-comment-addon {
+  position: relative;
+  padding: 10px 0 0;
+  font-size: 12px;
+  color: #c8cdd2;
+}
+
+.qa-reply-c, .qa-reply-item {
+  position: relative;
+}
+
+.qa-reply-item {
+  border-bottom: 1px solid #edf1f2;
+}
+
+.qa-comment-box, .wd-comment-box {
+  line-height: 100%;
+  position: relative;
+  z-index: 0;
+}
+
+.qa-ci-footer {
+  padding: 10px 0;
+}
+
+.qa-ci-footer, .qa-reply-ifoot {
+  position: relative;
+}
+
+.qa-comment-addon-r {
+  position: absolute;
+  right: 0;
+  top: 10px;
+  line-height: 24px;
+}
+
+.qa-reply-item-inner {
+  margin-left: 50px;
+  font-size: 12px;
+  padding: 17px 0 17px 10px;
+}
+
+.edui-imooc .edui-editor {
+  border: 1px solid #c8cdd2;
+  background-color: white;
+  position: relative;
+  overflow: visible;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+
+.q-reply-item-c {
+  font-size: 12px;
+  line-height: 1.7em;
+  padding-top: 3px;
+  word-break: break-all;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+.qa-reply-item-foot {
+  color: #c8cdd2;
+  font-size: 12px;
+  padding: 10px 0 7px;
+}
+
+.qa-ci-footer .captcha-verify-box, .qa-reply-ifoot .captcha-verify-box {
+  position: absolute;
+  padding: 6px;
+  width: 320px;
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid #d0d6d9;
+  z-index: 900;
+}
+
+.qa-ci-footer .captcha-verify-box {
+  right: -97px;
+  bottom: 65px;
+}
+
+.hide {
+  display: none;
+}
+
+.qa-tips {
+  color: #666;
+}
+
+.qa-tips, button.btn-mini {
+  line-height: 29px;
+  font-size: 12px;
+}
+
+.btn-green {
+  background-color: #17823b;
+  border-color: #17823b;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.btn-blue, .btn-green {
+  -moz-transition: all .3s;
+  color: #fff;
+  border-style: solid;
+  border-width: 1px;
+  -weibkit-transition: all .3s;
+  width: 138px;
+  height: 38px;
+  line-height: 38px;
+  font-size: 14px;
+}
+
+.btn {
+  margin-bottom: 0;
+  font-weight: 200;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  text-decoration: none;
+  box-sizing: content-box;
+  border: 1px solid transparent;
+  -webkit-appearance: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.btn, .btn.active, .btn:active {
+  outline: 0;
+  background-image: none;
+}
+
+.qa-total-reply {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.qa-comment-support {
+  cursor: pointer;
+  line-height: 1em;
+}
+
+.qa-comment-addon-r [class^=icon-] {
+  font-size: 14px;
+  margin-right: 3px;
+}
+
+.qa-code, .qa-comment-support, .qa-icon, .qa-total-reply [class^=icon-] {
+  vertical-align: middle;
+}
+
+[class*=" icon-"], [class^=icon-] {
+  color: #b5b9bc;
+}
+
+[class*=" icon-"], [class^=icon-] {
+  font-family: icomoon !important;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.qa-reply-nick:link {
+  color: red;
+}
+
+.qa-reply-item-reply [class^=icon-] {
+  font-size: 14px;
+  vertical-align: middle;
+  margin-right: 3px;
+}
+
+[class*=" icon-"], [class^=icon-] {
+  color: #b5b9bc;
+}
+
+[class*=" icon-"], [class^=icon-] {
+  font-family: icomoon !important;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.qa-ci-avator img {
+  width: 40px;
+  border-radius: 50%;
+}
+
+img {
+  border: 0;
+}
+
+.qa-reply-item-author img {
+  width: 40px;
+  border-radius: 50%;
+}
+
+.qa-reply-item-author {
+  position: absolute;
+  left: 0;
+  top: 20px;
+  line-height: 1em;
+}
+
+.qa-reply-ibox {
+  padding: 20px 0;
+  border-bottom: 1px solid #e3e5e5;
+}
+
+.qa-reply-iavator {
+  width: 60px;
+  text-align: center;
+}
+
+.qa-reply-iwrap {
+  padding-left: 7px;
+  overflow: hidden;
+  margin-left: 60px;
+}
+
+.qa-reply-ifoot {
+  position: relative;
+}
+
+.qa-reply-iarea {
+  line-height: 1em;
+}
+
+.r {
+  float: right;
+}
+
+.qa-reply-iavator img {
+  width: 40px;
+  border-radius: 50%;
+}
+
+.qa-reply-iwrap textarea {
+  padding: 7px;
+  resize: none;
+  height: 80px;
+  line-height: 1.7em;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+textarea.ipt {
+  height: auto;
+}
+
+.ipt {
+  color: #1c1f21;
+  background-color: #fff;
+  border: 1px solid #98a1a6;
+  padding: 9px;
+  font-size: 14px;
+  border-radius: 0;
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  -moz-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+
+.ipt, select.ipt {
+  height: 20px;
+  line-height: 20px;
+}
+
+textarea {
+  margin: 0;
+  padding: 0;
+}
+
+.qa-reply-ifoot .captcha-verify-box {
+  position: absolute;
+  padding: 6px;
+  width: 320px;
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid #d0d6d9;
+  z-index: 900;
+}
+
+.qa-reply-ifoot .captcha-verify-box {
+  right: -134px;
+  bottom: 52px;
+}
+
+.qa-tips {
+  color: #666;
+}
+
+.qa-tips, button.btn-mini {
+  line-height: 29px;
+  font-size: 12px;
+}
+
+button.btn-mini {
+  height: 29px;
+  padding: 0 15px;
+  width: auto;
+}
+
+button.btn-mini {
+  line-height: 29px;
+  font-size: 12px;
+}
+
+.btn-normal {
+  background-color: #fff;
+  border-color: #d0d6d9;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  -weibkit-transition: all .3s;
+  -moz-transition: all .3s;
+  transition: all .3s;
+  width: 138px;
+  height: 38px;
+  line-height: 38px;
+  font-size: 14px;
+}
+
+.btn-normal, .btn-normal:link, .btn-normal:visited {
+  color: #787d82;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, input, button, textarea, p, blockquote, th, td, form {
+  margin: 0;
+  padding: 0;
+}
+
+a, button, input {
+  outline: 0;
+}
+
+input, button, textarea, select {
+  border: 0;
+}
+
+button.btn-mini {
+  height: 29px;
+  padding: 0 15px;
+  width: auto;
+}
+
+.qa-tips, button.btn-mini {
+  line-height: 29px;
+  font-size: 12px;
+}
+.qa-ci-wrap {
+  margin-left: 70px;
+}
+.qa-comment-box, .wd-comment-box {
+  line-height: 100%;
+  position: relative;
+  z-index: 0;
+}
+.qa-ci-footer {
+  padding: 10px 0;
+}
+.qa-ci-footer, .qa-reply-ifoot {
+  position: relative;
+}
+.edui-imooc .edui-editor {
+  border: 1px solid #c8cdd2;
+  background-color: white;
+  position: relative;
+  overflow: visible;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}

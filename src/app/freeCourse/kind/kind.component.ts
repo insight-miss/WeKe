@@ -28,8 +28,21 @@ export class KindComponent implements OnInit {
     this.getMenu();
   }
 
+  // 判断是否从首页跳转而来
+  directiveThis() {
+    let dire = localStorage.getItem("direction");
+    let kin = localStorage.getItem("kind");
+    if (dire != null && kin != null) {
+      this.kind = kin;
+      this.direction = dire;
+      localStorage.removeItem("direction");
+      localStorage.removeItem("kind");
+    }
+  }
+
 
   ngOnInit() {
+    this.directiveThis();
     this.getMenu();
   }
 }

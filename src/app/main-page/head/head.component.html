@@ -1,6 +1,6 @@
 <header>
   <nav class="navbar navbar-expand-md navbar-light fixed-top bg-white" id="nav">
-    <a href="#"><img src="https://www.imooc.com/static/img/index/logo.png" alt="慕课网"></a>
+    <a routerLink="/"><img src="https://www.imooc.com/static/img/index/logo.png" alt="慕课网"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -8,7 +8,7 @@
       <div class="d-flex" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">免费课程</a>
+            <a class="nav-link" routerLink="/list">免费课程</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">职业路径</a>
@@ -25,13 +25,13 @@
         </ul>
         <form class="form-inline mt-2 mt-md-0 ml-3">
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="输入课程" >
+            <input matInput placeholder="输入课程" [(ngModel)]="inputMsg" (keypress)="enterSearch($event)" name="search">
           </mat-form-field>
-          <button mat-button>搜索</button>
+          <button mat-button (click)="jump()">搜索</button>
         </form>
       </div>
       <div class="pt-2">
-        <a href="#" target="_self">
+        <a routerLink="/user" target="_self">
           <nz-avatar nzIcon="anticon anticon-user" nzSrc="https://img3.mukewang.com/59e5c5b30001aa2601000100-100-100.jpg"></nz-avatar>
         </a>
       </div>

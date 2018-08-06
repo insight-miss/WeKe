@@ -1,0 +1,170 @@
+<div id="main">
+  <div class="container qa-container clearfix">
+    <div class="qa-left l">
+      <div class="qa-left-wrap">
+        <div class="wenda-tip">已有同学回复你了，快去采纳为答案吧！帮助你的同学可得到+20经验。一起来努力吧！</div>
+        <div class="qa-header">
+          <a href="#" class="qa-author">
+            <img src="https://img3.mukewang.com/user/59e5c5b30001aa2601000100-40-40.jpg" width="40" height="40">
+            {{ reply.comment.nickname }}
+          </a>
+        </div>
+        <div class="qa-content">
+          <div class="qa-content-inner aimgPreview">
+            <div id="js-content-main">
+              <h1 class="js-qa-wenda-title qa-wenda-title">{{ reply.comment.title }}</h1>
+              <div id="js-qa-content" class="qa-disscus rich-text">
+                <table border="0" cellpadding="0" cellspacing="0" class="syntaxhighlighter  cpp">
+                  <tbody>
+                  <tr>
+                    <td class="gutter">
+                      <div class="line number1 index0 alt2">1</div>
+                    </td>
+                    <td class="code">
+                      <div class="container">
+                        <div class="line number1 index0 alt2">
+                          <div highlight="all" [innerHTML]="reply.comment.content"></div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+                <p><br></p>
+              </div>
+            </div>
+          </div>
+          <div class="qa-content-addon clearfix">
+            <span class="qa-createtime l">{{ reply.comment.time }}</span>
+            <a href="/learn/18" class="qa-course-from">源自：焦点图轮播特效</a>
+            <span class="qa-view-num r">{{ reply.comment.browser }} 浏览</span>
+            <span class="qa-total-comment r">{{ reply.comment.num }} 回答</span>
+          </div>
+        </div>
+        <div class="qa-comments">
+          <div *ngFor="let re of reply.replys let i = index" class="qa-comment js-qa-comment">
+            <div class="qa-comment-wrap clearfix  js-comment-accept-hover">
+              <div class="qa-comment-author">
+                <a title="{{ re.nickname }}">
+                  <img src="https://img3.mukewang.com/user/59e5c5b30001aa2601000100-40-40.jpg" width="40" height="40">
+                  <span class="qa-comment-nick">{{ re.nickname }}</span>
+                </a>
+              </div>
+              <div class="qa-comment-d ">
+                <div class="qa-comment-inner">
+                  <div class="qa-comment-c aimgPreview">
+                    <div class="rich-text">
+                      <table border="0" cellpadding="0" cellspacing="0" class="syntaxhighlighter  cpp">
+                        <tbody>
+                        <tr>
+                          <div highlight="all" [innerHTML]="re.info"></div>
+                        </tr>
+                        </tbody>
+                      </table>
+                      <p><br></p>
+                    </div>
+                  </div>
+                  <div class="qa-comment-addon">
+                    <span class="qa-comment-time">{{ re.time }}</span>
+                    <div class="qa-comment-addon-r">
+                      <div class="qa-total-reply js-reply-item-reply"></div>
+                      <span style="margin-right: 20px;" (click)="replyAB(i.toString(),'1',re.nickname, re.replyId)">
+                        <i class="anticon anticon-form" style="margin-right: 10px;"></i>
+                        <!--点击打开回复框-->
+                        <span class="js-qa-tr-num" >回复</span>
+                      </span>
+                      <span class="js-qa-comment-support qa-comment-support  js-qacom-supported-user">
+                    <i class="anticon anticon-like "></i>
+                        <!--赞   -->
+                    <span>{{ re.like }}</span>
+                  </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="qa-reply">
+              <div class="qa-reply-header"></div>
+              <div class="qa-replies">
+                <div class="qa-replies">
+                  <div class="qa-reply-c">
+                    <div *ngFor="let detail of re.details" class="qa-reply-item">
+                      <a class="qa-reply-item-author" title="{{ re.nickname }}">
+                        <img src="//img3.mukewang.com/user/59e5c5b30001aa2601000100-40-40.jpg">
+                      </a>
+                      <div class="qa-reply-item-inner">
+                        <p>
+                          <a class="qa-reply-nick">
+                            {{ detail.nickname }}
+                            <span *ngIf="detail.sb !== ''">回复 <a href="#">{{ detail.sb }}</a></span>
+                          </a>
+                        </p>
+                        <div highlight="all" [innerHTML]="detail.info"></div>
+                        <div class="qa-reply-item-foot">
+                          <span>{{ detail.time }}</span>
+                          <!--回复-->
+                          <span class="qa-reply-item-reply js-reply-item-reply" (click)="replyAB(i.toString(),'2', detail.nickname, re.replyId)">
+                            <i class="icon-resp"></i>回复
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="qa-reply-item"></div>
+                  </div>
+                  <!--回复框-->
+                  <div class="js-qa-reply-ibox qa-reply-ibox  clearfix" *ngIf="index===i.toString()">
+                    <div class="qa-reply-iavator l">
+                      <a  title="{{ userName }}">
+                        <img src="https://img3.mukewang.com/user/59e5c5b30001aa2601000100-40-40.jpg" width="40"
+                             height="40">
+                      </a>
+                    </div>
+                    <div class="qa-reply-iwrap">
+                      <div class="qa-reply-iarea">
+                        <!--回复->回答-->
+                        <textarea name="" id="" class="js-reply-ipt-default ipt" placeholder="写下你的评论..."
+                                  [(ngModel)]="inputMsg">回复：{{ inputMsg }}</textarea>
+                      </div>
+                    </div>
+                    <div class="qa-reply-ifoot clearfix">
+                      <div class="qa-reply-footright r">
+                        <div class="captcha-verify-box js-reply-verify-box hide"></div>
+                        <span class="qa-tips"></span>
+                        <button class="btn-normal btn-mini js-ipt-cancel" style="margin-right: 5px;" (click)="selectReply('0')">取消</button>
+                        <button class="btn-mini btn-green  js-ipt-submit" (click)="selectReply('1')">提交</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--回复这个主题-->
+        <div class="qa-comment-input js-msg-context  clearfix">
+          <div class="qa-ci-avator l">
+            <a title="丁丁鱼">
+              <img src="//img.mukewang.com/user/59e5c5b30001aa2601000100-40-40.jpg" width="40" height="40">
+            </a>
+          </div>
+          <div class="qa-ci-wrap">
+            <div id="js-reply-editor-box" class="qa-comment-box js-ci-inner  edui-imooc">
+              <div class="edui-editor  edui-imooc" style="width: 730px; z-index: 999;">
+                <ckeditor [(ngModel)]="content" (ngModelChange)="change($event)" debounce="500" [config]="conf">
+                </ckeditor>
+              </div>
+            </div>
+            <div id="js-qa-ci-footer" class="qa-ci-footer clearfix">
+              <div class="qa-ci-footright r">
+                <div class="captcha-verify-box js-verify-box hide"></div>
+                <span class="qa-tips"></span>
+                <button id="js-qa-ci-submit" class="btn btn-green " (click)="replyMaster(reply.comment.browser)">回答</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -20,9 +20,9 @@ export class Section {
   set title(value: string) {
     this._title = value;
   }
-  private _title: string;
-  private _course: string[];
-  private _info: string;
+  private _title: string;// 课程章节名
+  private _course: string[];// 课程章节下的小节
+  private _info: string;// 课程章节描述
 
   constructor(title: string, info: string,course: string[]){
     this._info = info;

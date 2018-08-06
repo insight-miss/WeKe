@@ -44,9 +44,11 @@ import { UserComponent } from './user/user.component';
 import { PersonComponent } from './msgInput/person/person.component';
 import {HttpModule} from "@angular/http";
 import { UploadVideoComponent } from './upload-video/upload-video.component';
+import { ReplayComponent } from './replay/replay/replay.component';
+import { SearchComponent } from './search/search.component';
 const options: HighlightOptions = {
   theme: 'monokai_sublime',
-  path: 'assets/js/ckeditor/plugins/codesnippet/lib/highlight/'
+  path: 'assets/ckeditor/plugins/codesnippet/lib/highlight/'
 };
 
 
@@ -76,7 +78,9 @@ const options: HighlightOptions = {
     VideoComponent,
     UserComponent,
     PersonComponent,
-    UploadVideoComponent
+    UploadVideoComponent,
+    ReplayComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

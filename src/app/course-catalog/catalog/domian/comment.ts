@@ -70,6 +70,7 @@ export class Comment {
   private _browse: string;//浏览数
   private _title: string;
   private _userId: string;
+
   constructor(kind: string, num: string, time: string, photo: string, comment: string, browse: string, title:string, userId: string) {
     this._kind = kind;
     this._num = num;

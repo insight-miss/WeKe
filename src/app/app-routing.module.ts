@@ -14,6 +14,9 @@ import {BodyComponent} from './main-page/body/body.component';
 import {CatalogComponent} from './course-catalog/catalog/catalog.component';
 import {VideoComponent} from './video/video.component';
 import {UserComponent} from './user/user.component';
+import {ReplayComponent} from "./replay/replay/replay.component";
+import {UploadVideoComponent} from "./upload-video/upload-video.component";
+import {SearchComponent} from "./search/search.component";
 
 const routes: Routes = [
   { path: 'test' , component: TestComponent } ,
@@ -23,6 +26,8 @@ const routes: Routes = [
       {path: '', component: ReportComponent} ,
       {path: 'examAnalysis', component: AnalysisComponent}
     ]},
+  {path: 'search', component:SearchComponent},
+  {path:"replys", component: ReplayComponent},
   {path: 'problem' , component: ProblemComponent},
   {path: 'publicProblem' , component:PublisProblemComponent},
   {path: 'login' , component: LoginComponent},
@@ -30,6 +35,7 @@ const routes: Routes = [
   {path: 'learn',  component: CatalogComponent},//目录页面
   {path: 'video', component: VideoComponent},
   {path: 'user', component:UserComponent},
+  {path: 'uploadVideo', component: UploadVideoComponent},
   {path: '', component: BodyComponent}
 ];
 

@@ -9,22 +9,23 @@
         </li>
         <li class="nv nv-menu" style="text-align: center;">
           <a class="chaptername J-chaptername" style="cursor:text;">
-            <em>{{ video.chapterName }}</em>
+            <em>{{ chapter }}</em>
           </a>
         </li>
       </ul>
       <div id="login-area">
         <ul class="clearfix logined">
           <li class="set_btn user-card-box" id="header-user-card">
-            <a id="header-avator" class="user-card-item" target="_self">
-              <img src="//img2.mukewang.com/user/59e5c5b30001aa2601000100-40-40.jpg" width="40" height="40">
+            <a id="header-avator" class="user-card-item" target="_self" title="{{ video.nickname }}">
+              <img src="{{ video.photoUrl }}" width="40" height="40">
             </a>
           </li>
         </ul>
       </div>
       <div class="search-warp clearfix">
         <div class="search-area">
-          <input type="text" class="search-input" placeholder="搜你想搜" [(ngModel)]="content" name="search">
+          <input type="text" class="search-input" placeholder="搜你想搜" [(ngModel)]="content" name="search"
+                 style="color: black;">
         </div>
         <div class="showhide-search">
           <i style="font-size: 20px;" class="icon-search anticon anticon-search"></i>
@@ -33,62 +34,35 @@
     </div>
   </div>
 </div>
-<video controls="" autoplay="" name="media">
-  <source src="{{ video.videoUrl }}" type="video/mp4">
-</video>
-<!--<div style="background-color:black;">-->
-  <!--<vg-player [class]="class">-->
-    <!--&lt;!&ndash;播放&ndash;&gt;-->
-    <!--<vg-overlay-play></vg-overlay-play>-->
-    <!--&lt;!&ndash;缓冲&ndash;&gt;-->
-    <!--<vg-buffering></vg-buffering>-->
-
-    <!--&lt;!&ndash;进度条&ndash;&gt;-->
-    <!--<vg-scrub-bar>-->
-      <!--<vg-scrub-bar-current-time></vg-scrub-bar-current-time>-->
-      <!--<vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>-->
-      <!--<vg-scrub-bar-cue-points></vg-scrub-bar-cue-points>-->
-    <!--</vg-scrub-bar>-->
-
-
-    <!--&lt;!&ndash;一系列控制器&ndash;&gt;-->
-    <!--<vg-controls>-->
-      <!--&lt;!&ndash;暂停&ndash;&gt;-->
-      <!--<vg-play-pause></vg-play-pause>-->
-      <!--&lt;!&ndash;播放速度&ndash;&gt;-->
-      <!--<vg-playback-button [playbackValues]="[ '1.0', '2.0', '3.0' ]"></vg-playback-button>-->
-
-      <!--&lt;!&ndash;视频已播时长&ndash;&gt;-->
-      <!--<vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>-->
-
-      <!--<vg-scrub-bar style="pointer-events: none;"></vg-scrub-bar>-->
-
-      <!--&lt;!&ndash;视频总时长&ndash;&gt;-->
-      <!--<vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>-->
-      <!--&lt;!&ndash;视频剩余时长&ndash;&gt;-->
-      <!--<vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>-->
-
-      <!--<vg-track-selector [vgFor]="media"></vg-track-selector>-->
-      <!--&lt;!&ndash;所选音量和静音音量之间切换&ndash;&gt;-->
-      <!--<vg-mute></vg-mute>-->
-      <!--&lt;!&ndash;音量&ndash;&gt;-->
-      <!--<vg-volume id="volume"></vg-volume>-->
-
-      <!--&lt;!&ndash;全屏&ndash;&gt;-->
-      <!--<vg-fullscreen (click)="onPlus()"></vg-fullscreen>-->
-    <!--</vg-controls>-->
-
-    <!--&lt;!&ndash;视频资源&ndash;&gt;-->
-    <!--<video [vgMedia]="media" #media id="singleVideo" preload="auto" crossorigin>-->
-      <!--<source src="{{ url }}" type="video/mp4">-->
-      <!--&lt;!&ndash;<source src="http://static.videogular.com/assets/videos/videogular.ogg" type="video/ogg">&ndash;&gt;-->
-      <!--&lt;!&ndash;<source src="http://static.videogular.com/assets/videos/videogular.webm" type="video/webm">&ndash;&gt;-->
-
-      <!--<track kind="subtitles" label="English" src="http://static.videogular.com/assets/subs/pale-blue-dot.vtt"-->
-             <!--srclang="en" default>-->
-      <!--<track kind="subtitles" label="Español" src="http://static.videogular.com/assets/subs/pale-blue-dot-es.vtt"-->
-             <!--srclang="es">-->
-    <!--</video>-->
-  <!--</vg-player>-->
-
-<!--</div>-->
+<div class="playerMain_bg">
+  <div class="playerMain_bg">
+    <div class="flashArea" id="flashArea">
+      <div class="jujiPlayWrap">
+        <div class="container pt10 padplay">
+          <div class="videoArea-flash clearfix" >
+            <div class="videoArea" id="block-B">
+              <div id="flashbox" style="position:relative;float:left;">
+                <video src="{{ video.videoUrl }}" controls="controls" style="width: 980px; height: 393px;"></video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mod-breadcrumb" id="block-C">
+    <div id="wrapper">
+      <div class="clearfix">
+        <div class="wrapper-left" style="margin-left: 465px;">
+          <div class="mod-breadcrumb_left">
+            <div class="mod-play-tits">
+              <h1 class="mod-play-tit">
+                <span id="widget-videoname">{{ chapter }}</span>
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

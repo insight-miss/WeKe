@@ -26,7 +26,7 @@
                   <a (click)="onSelect('all','all','all')">全部</a>
                 </li>
                 <li *ngFor="let dire of menu.direction" [class]="direction === dire.direction ? 'course-nav-item on': 'course-nav-item'">
-                  <a (click)="onSelect(dire.direction,kind,diff)">{{ dire.direction }}</a>
+                  <a (click)="onSelect(dire.direction,'all',diff)">{{ dire.direction }}</a>
                 </li>
               </ul>
             </div>
@@ -77,33 +77,17 @@
         </span>
       </div>
       <div class="tool-right r">
-        <span class="tool-item">
-          <a href="#" class="hide-learned tool-chk ">隐藏已参加的课程</a>
-        </span>
         <span class="tool-item total-num">
            共 <b>887</b>个课程
         </span>
-        <span class="tool-item tool-pager">
-          <span class="pager-num">
-            <b class="pager-cur">1</b>
-            <em class="pager-total"></em>
-            <a href="#" class="pager-action pager-prev  disabled">
-              <i class="icon-left2"></i>
-            </a>
-            <a href="#" class="pager-action pager-next">
-              <i class="icon-right2"></i>
-            </a>
-          </span>
-          <a href="#" class="pager-action pager-prev  disabled"></a>
-          <a href="#" class="pager-action pager-next"></a>
-        </span>
       </div>
     </div>
+    <!--课程列表-->
     <div class="course-list">
       <div class="moco-course-list">
         <div class="clearfix">
           <div *ngFor="let course of menu.course" class="course-card-container">
-            <a href="#" class="course-card">
+            <a [routerLink]="['/learn']" [queryParams]="{kind:'2', id: course.info}" class="course-card">
               <div class="course-card-top">
                 <img src="https://img1.mukewang.com/5b470bfe0001cdbf06000338-240-135.jpg" class="course-banner lazy" style="display: inline">
                 <div class="course-label"><label>{{ course.star }}</label></div>

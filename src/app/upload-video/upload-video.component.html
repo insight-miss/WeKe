@@ -1,12 +1,81 @@
-<nz-upload
-  nzType="drag"
-  [nzMultiple]="true"
-  [nzLimit]="2"
-  nzAction="http://10.0.0.31:8080/upload/video"
-  (nzChange)="handleChange($event)">
-  <p class="ant-upload-drag-icon">
-    <i class="anticon anticon-inbox"></i>
-  </p>
-  <p class="ant-upload-text">单击或拖动文件到此区域进行上传</p>
-  <p class="ant-upload-hint">支持单个或批量上传</p>
-</nz-upload>
+<nz-layout>
+  <nz-sider [nzCollapsible]="false" [(nzCollapsed)]="isCollapsed" [nzWidth]="335" [nzBreakpoint]="'lg'"
+            style="background-color: white;">
+    <div class="logo" style="padding-top: 6px;">
+      <p style="text-align: center;">章节目录及视频上传</p>
+    </div>
+    <div>
+      <button style="margin-left: 20px;" nz-button (click)="add()">
+        <i class="anticon anticon-plus"></i><span>Click</span>
+      </button>
+      <button style="margin-left: 110px; width: 80px;"
+              nz-popconfirm nzTitle="你确定删除此节点?"
+              (nzOnConfirm)="confirm()" (nzOnCancel)="cancel()"
+              nzPlacement="top" nz-button>
+        <i class="anticon anticon-close-circle-o"></i>
+        <span>Delete</span>
+      </button>
+      <nz-collapse>
+        <nz-collapse-panel *ngFor="let catalog of catalogs let i = index" [nzHeader]="'第'+i+catalog.catalogName"
+                           (nzActiveChange)="changeHeader(i,'1')">
+          <p style="margin:0;" *ngFor="let chapter of catalog.chapters let j = index"
+             (click)="changeTitle(i,j,catalog.catalogName,'2')">
+            {{ '第'+i+'.'+j+chapter }}
+          </p>
+        </nz-collapse-panel>
+      </nz-collapse>
+
+      <div>
+        <input style="width: 335px;" type="text" [(ngModel)]="catalogs[i].chapters[j]" *ngIf="kind === '2'">
+        <input style="width: 335px;" type="text" [(ngModel)]="catalogs[i].catalogName" *ngIf="kind === '1'">
+        <nz-upload *ngIf="kind==='2'"
+                   nzAction="http://10.0.0.31:8080/upload/video"
+                   [nzFileList]="fileList"
+                   nzMultiple
+                   [nzLimit]="2"
+                   (nzChange)="handleChange($event)"
+                   [nzHeaders]="u">
+          <button nz-button>
+            <i class="anticon anticon-upload"></i><span>Upload</span>
+          </button>
+        </nz-upload>
+      </div>
+    </div>
+  </nz-sider>
+  <nz-layout>
+    <nz-header style="background: #fff; padding:0;">
+      <input nz-input placeholder="输入课程标题" [(ngModel)]="courseName" [nzSize]="5"
+             style="width: 1430px; margin-left: 30px;">
+      <button nz-button nzShape="circle" style="margin-left: 20px;" title="保存" (click)="save()">
+        <i class="anticon anticon-check"></i>
+      </button>
+    </nz-header>
+    <nz-content style="margin:24px 16px 0;">
+      <div style="padding:24px; background: #fff; min-height: 360px;">
+        <h2>课程简介</h2>
+        <textarea row="4" nz-input [(ngModel)]="content" placeholder="输入课程简介"></textarea>
+        <div style="margin-top: 15px;">
+          <h3>课程难度</h3>
+          <nz-radio-group [(ngModel)]="courseDiff" nzName="radiogroup">
+            <label nz-radio nzValue="入门">入门</label>
+            <label nz-radio nzValue="初级">初级</label>
+            <label nz-radio nzValue="中级">中级</label>
+            <label nz-radio nzValue="高级">高级</label>
+          </nz-radio-group>
+        </div>
+        <div style="margin-top: 15px;">
+          <h3>课程等级</h3>
+          <nz-radio-group [(ngModel)]="courseLevel" nzName="radiogroup">
+            <label nz-radio nzValue="1">1</label>
+            <label nz-radio nzValue="2">2</label>
+            <label nz-radio nzValue="3">3</label>
+            <label nz-radio nzValue="4">4</label>
+            <label nz-radio nzValue="5">5</label>
+          </nz-radio-group>
+        </div>
+      </div>
+    </nz-content>
+    <nz-footer style="text-align: center;">Ant Design ©2018 Implement By WeKe</nz-footer>
+  </nz-layout>
+</nz-layout>
+

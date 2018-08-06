@@ -11,6 +11,7 @@ export class MenuComponent implements OnInit {
 
   selector: number;
   menus: Array<MenuList>;
+  array = [ 1, 2, 3, 4 ];
 
   constructor(private menueService: MenuService) {
   }
@@ -23,6 +24,12 @@ export class MenuComponent implements OnInit {
       this.menus = menus;
       console.log(this.menus);
     });
+  }
+
+  // 保存用户选择
+  selectDirection(direction: string, kind: string) {
+    localStorage.setItem("direction", direction);
+    localStorage.setItem("kind", kind);
   }
 
   ngOnInit() {

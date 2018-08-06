@@ -17,8 +17,8 @@ export class Catalog {
     this._info = value;
   }
 
-  private _info: string;
-  private _section: Section[];
+  private _info: string;// 课程简介
+  private _section: Section[];// 课程章节
 
   constructor(info: string, section: Section[]) {
     this._info = info;

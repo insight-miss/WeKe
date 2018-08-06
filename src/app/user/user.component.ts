@@ -25,11 +25,7 @@ export class UserComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       this.personMsg = result;
-      if (this.personMsg === 'null'){
-        console.log("no");
-      } else{
-        console.log("user "+this.personMsg.nickname);
-      }
+      this.userService.savaPerson(result);
     });
   }
 
@@ -44,6 +40,7 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit() {
+    // this.person.nickname = localStorage.getItem('userName');
     this.getPerson();
     this.getHistory();
   }

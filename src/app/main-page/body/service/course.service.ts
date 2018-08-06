@@ -9,7 +9,7 @@ import {retry} from "rxjs/operators";
   providedIn: 'root'
 })
 export class CourseService {
-  url: string = 'http://10.0.0.26:8083/page/course';
+  url: string = 'http://10.0.0.26:8080/page/course';
 
   getCourses(): Observable<Course[]> {
     return this.http.get<Course[]>(this.url).pipe(

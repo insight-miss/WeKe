@@ -9,11 +9,12 @@ import {Video} from "../domain/video";
 })
 export class VideoService {
 
-  url: string = '';
+  url: string = 'http://10.0.0.31:8080/videoApi/getVideo';
 
   constructor(private http: HttpClient) { }
-  getVideo(chapterId: string): Observable<Video>{
-    const params = new HttpParams().set('courseName', chapterId);
+
+  getVideo(catalogName: string, chapterName: string): Observable<Video>{
+    const params = new HttpParams().set('catalogName', catalogName).set('chapterName', chapterName);
     return this.http.get<Video>(this.url, {params}).pipe(
       retry(3)
     );
