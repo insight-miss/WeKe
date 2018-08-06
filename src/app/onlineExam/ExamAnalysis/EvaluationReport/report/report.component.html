@@ -3,12 +3,12 @@
   <div class="border-right pl-5 col-xl-6 d-flex flex-column">
     <div style="margin-bottom: 20px;">
       <img src="../../../../../assets/grade.png" style="height: 28px;width: 28px">
-      <span style="font-size: 16px;margin-bottom: 20px;" class="pl-2">得分:{{examReport.sumGrade}}分</span>
+      <span style="font-size: 16px;margin-bottom: 20px;" class="pl-2" *ngIf="examReport.sumGrade">得分:{{examReport.sumGrade}}分</span>
     </div>
     <div class="detail">
       <p>
         <span class="item-label">试卷：</span>
-        <span class="item-label">{{examReport.examName}}</span>
+        <span class="item-label" >{{examReport.examName}}</span>
       </p>
       <p>
         <span class="item-label">正确题数：</span>
@@ -19,7 +19,7 @@
         <span class="item-label">{{examReport.choiceScore}}</span>
       </p>
       <p>
-        <span class="item-label">填空题得分：</span>
+        <span class="item-label">判断题得分：</span>
         <span class="item-label">{{examReport.blankScore}}</span>
       </p>
       <p>
@@ -37,5 +37,5 @@
 </div>
 
 <div style="margin:auto;background-color: #F4F4F4;text-align: center;padding: 30px 0; width: 1250px;">
-  <button nz-button nzType="default">查看答案解析</button>
+  <button nz-button nzType="default" routerLink="/rank/{{testId}}">排行榜</button>
 </div>

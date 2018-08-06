@@ -4,7 +4,8 @@
   <div style="margin: auto; background-color: white; width: 1250px;padding: 1.25rem;height: 802px">
     <div style="margin-bottom: 16px;">
       <button nz-button [nzType]="'primary'" class="mr-3" (click)="showModal()">发表题集</button>
-      <button nz-button (click)="addRow()" class="editable-add-btn">Add</button>
+      <button nz-button (click)="addRow()" class="editable-add-btn">添加题目</button>
+      <button nz-button [routerLink]="['/classicProblem']" class="editable-add-btn ml-3">经典例题</button>
     </div>
 
     <nz-table
@@ -69,7 +70,7 @@
         <label><b>起始时间</b></label>
       </div>
       <div class="col-8">
-        <nz-range-picker [(ngModel)]="dateRange" (ngModelChange)="onChange($event)" [nzShowTime]="true"></nz-range-picker>
+        <nz-range-picker [(ngModel)]="dateRange" (ngModelChange)="onChange($event)"></nz-range-picker>
       </div>
     </div>
   </div>

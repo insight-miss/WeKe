@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import { TestComponent } from './onlineExam/testExam/test/test.component';
 import {TestService} from './onlineExam/testExam/service/test.service';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { DetailsComponent } from './onlineExam/examDetails/details/details.component';
 import {HeadComponent} from './main-page/head/head.component';
 import { BodyComponent } from './main-page/body/body.component';
@@ -17,8 +17,8 @@ import { RainBowDirective } from './freeCourse/kind/rainbow/rain-bow.directive';
 import { CatalogComponent } from './course-catalog/catalog/catalog.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NgZorroAntdModule} from 'ng-zorro-antd';
-import {FormsModule} from '@angular/forms';
+import {en_US, NgZorroAntdModule, NZ_I18N} from 'ng-zorro-antd';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ReportComponent } from './onlineExam/ExamAnalysis/EvaluationReport/report/report.component';
 import { AnalysisComponent } from './onlineExam/ExamAnalysis/AnswerAnalysis/analysis/analysis.component';
 import { ExamAnalysisComponent } from './onlineExam/ExamAnalysis/exam-analysis/exam-analysis.component';
@@ -42,10 +42,19 @@ import {VgBufferingModule} from 'videogular2/buffering';
 import { VideoComponent } from './video/video.component';
 import { UserComponent } from './user/user.component';
 import { PersonComponent } from './msgInput/person/person.component';
-import {HttpModule} from "@angular/http";
 import { UploadVideoComponent } from './upload-video/upload-video.component';
-import { ReplayComponent } from './replay/replay/replay.component';
-import { SearchComponent } from './search/search.component';
+import {EmitService} from "./route/emit.service";
+import {LoginService} from "./onlineExam/login/service/login.service";
+import { ApprovalExamComponent } from './onlineExam/approval-exam/approval-exam.component';
+import {ApprovalService} from "./onlineExam/approval-exam/service/approval.service";
+import { ApprovalPageComponent } from './onlineExam/approval-page/approval-page.component';
+import { BackstageComponent } from './backstage/backstage.component';
+import { UserManagemetComponent } from './backstage/user-managemet/user-managemet.component';
+import {UserInfoService} from "./backstage/user-managemet/service/user-info.service";
+import { RecommendComponent } from './backstage/recommend/recommend.component';
+import {MessagePushService} from "./service/message-push.service";
+import { ClassicProblemComponent } from './onlineExam/classic-problem/classic-problem.component';
+import {AuthInterceptor} from "./Jwt/JWTInterceptor";
 const options: HighlightOptions = {
   theme: 'monokai_sublime',
   path: 'assets/ckeditor/plugins/codesnippet/lib/highlight/'
@@ -79,8 +88,12 @@ const options: HighlightOptions = {
     UserComponent,
     PersonComponent,
     UploadVideoComponent,
-    ReplayComponent,
-    SearchComponent
+    ApprovalExamComponent,
+    ApprovalPageComponent,
+    BackstageComponent,
+    UserManagemetComponent,
+    RecommendComponent,
+    ClassicProblemComponent
   ],
   imports: [
     BrowserModule,
@@ -102,12 +115,20 @@ const options: HighlightOptions = {
     VgControlsModule,
     VgOverlayPlayModule,
     VgBufferingModule,
+    ReactiveFormsModule
   ],
   providers: [
     TestService,
     DetailsService,
     ReportService,
-    ProblemService
+    ProblemService,
+    EmitService,
+    LoginService,
+    ApprovalService,
+    UserInfoService,
+    MessagePushService,
+    {provide: NZ_I18N, useValue: en_US},
+    [ { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true } ]
   ],
   entryComponents:[
     PublishComponent,

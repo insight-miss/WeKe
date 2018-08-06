@@ -1,0 +1,70 @@
+.example-input .ant-input {
+  width: 200px;
+  margin: 0 8px 8px 0;
+}
+.anslysis_page {
+  background: #FFF;
+  padding: 20px 30px;
+  border-bottom: 1px solid #EDEDED;
+}
+
+.anslysis_page h1 {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.result_question {
+  padding: 30px;
+  border-bottom: 1px solid #ECECEC;
+}
+
+.question_number {
+  background: #1ABC9C;
+  border-radius: 12px;
+  float: left;
+  color: #FFF;
+  padding: 5px 7px;
+  line-height: 12px;
+  font-weight: 400;
+}
+.question_main {
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.result_subject_item {
+  background: #f9f9f9;
+  padding: 20px 30px;
+  border-bottom: 1px solid #EDEDED;
+}
+
+.result_subject_item h1{
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #666
+}
+.font-green {
+  color: #25bb9b;
+  font-size: 14px;
+}
+
+.font-red {
+  color: #fb8a4c;
+  font-size: 14px;
+}
+
+.subject_options {
+  margin-bottom: 20px;
+  border: 1px solid #d4d4d4;
+  border-radius: 2px;
+  padding: 12px 20px 13px;
+  background: #FFF;
+  display: block;
+  word-break: break-all;
+}
+
+[nz-button] {
+  margin-right: 8px;
+  margin-bottom: 12px;
+}

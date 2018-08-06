@@ -18,144 +18,25 @@
       </div>
 
      <div class="titOper">
-        <span class="titOper-span">
-          {{info.grade}}
+       <div *ngIf="info.statues.includes('已完成')">
+         <span class="titOper-span">
+          {{info.grade}}分
         </span>
+       </div>
 
-       <a routerLink="/exam/{{info.id}}"><span class="a-span">查看</span></a>
+       <div *ngIf="info.statues.includes('进行中')">
+         <a (click)="getExamInfo(info.id)"><span class="a-span">考试</span></a>
+       </div>
+       <div *ngIf="info.statues.includes('已完成')">
+         <a routerLink="/analysis/{{info.id}}"><span class="a-span">查看</span></a>
+       </div>
+
+       <div *ngIf="info.statues.includes('待审批')">
+         <a><span class="a-span">待审批</span></a>
+       </div>
+
      </div>
    </div>
-
-  <div class="lookLi">
-    <div class="titTxt">
-      <p>
-        <a>2016级第4套Java程序设计</a>
-      </p>
-
-      <span class="pt5">
-          <span>考试时间:</span>
-          2018-07-04 08:22 至 2018-07-06 23:59
-        </span>
-
-      <span class="pt5">
-          <span>考试状态</span>
-          <strong>&nbsp;&nbsp;已完成</strong>
-        </span>
-    </div>
-
-    <div class="titOper">
-        <span class="titOper-span">
-          120
-        </span>
-
-      <a><span class="a-span">查看</span></a>
-    </div>
-  </div>
-
-  <div class="lookLi">
-    <div class="titTxt">
-      <p>
-        <a>2016级第4套Java程序设计</a>
-      </p>
-
-      <span class="pt5">
-          <span>考试时间:</span>
-          2018-07-04 08:22 至 2018-07-06 23:59
-        </span>
-
-      <span class="pt5">
-          <span>考试状态</span>
-          <strong>&nbsp;&nbsp;已完成</strong>
-        </span>
-    </div>
-
-    <div class="titOper">
-        <span class="titOper-span">
-          120
-        </span>
-
-      <a><span class="a-span">查看</span></a>
-    </div>
-  </div>
-
-  <div class="lookLi">
-    <div class="titTxt">
-      <p>
-        <a>2016级第4套Java程序设计</a>
-      </p>
-
-      <span class="pt5">
-          <span>考试时间:</span>
-          2018-07-04 08:22 至 2018-07-06 23:59
-        </span>
-
-      <span class="pt5">
-          <span>考试状态</span>
-          <strong>&nbsp;&nbsp;已完成</strong>
-        </span>
-    </div>
-
-    <div class="titOper">
-        <span class="titOper-span">
-          120
-        </span>
-
-      <a><span class="a-span">查看</span></a>
-    </div>
-  </div>
-
-  <div class="lookLi">
-    <div class="titTxt">
-      <p>
-        <a>2016级第4套Java程序设计</a>
-      </p>
-
-      <span class="pt5">
-          <span>考试时间:</span>
-          2018-07-04 08:22 至 2018-07-06 23:59
-        </span>
-
-      <span class="pt5">
-          <span>考试状态</span>
-          <strong>&nbsp;&nbsp;已完成</strong>
-        </span>
-    </div>
-
-    <div class="titOper">
-        <span class="titOper-span">
-          120
-        </span>
-
-      <a><span class="a-span">查看</span></a>
-    </div>
-  </div>
-
-  <div class="lookLi">
-    <div class="titTxt">
-      <p>
-        <a>2016级第4套Java程序设计</a>
-      </p>
-
-      <span class="pt5">
-          <span>考试时间:</span>
-          2018-07-04 08:22 至 2018-07-06 23:59
-        </span>
-
-      <span class="pt5">
-          <span>考试状态</span>
-          <strong>&nbsp;&nbsp;已完成</strong>
-        </span>
-    </div>
-
-    <div class="titOper">
-        <span class="titOper-span">
-          120
-        </span>
-
-      <a><span class="a-span">查看</span></a>
-    </div>
-  </div>
-
 </div>
 
 <!--<div class="d-flex flex-wrap container">-->

@@ -1,33 +1,28 @@
 <div class="container">
   <div class="shadow-none p-3 bg-light rounded">
-    <p class="pb-2" style="margin: 0 0">数据结构与算法题目集（中文）</p>
-  </div>
-  <table class="table table-hover">
-    <thead>
-    <tr>
-      <th>排名</th>
-      <th>用户</th>
-      <th>分数</th>
-      <th>正确率</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let info of userInfos ;">
-      <td>{{info.rank}}</td>
-      <td>{{info.name}}</td>
-      <td>{{info.grade}}</td>
-      <td>{{info.statues}}%</td>
-    </tr>
-    </tbody>
-  </table>
-  <div class="d-flex flex-row-reverse">
-    <ul class="pagination">
-      <li class="page-item"><a class="page-link" href="#"> << </a></li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item active"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item"><a class="page-link" href="#"> >> </a></li>
-    </ul>
+    <p class="pb-2" style="margin: 0 0">{{examName}}（中文）</p>
   </div>
 
+  <div class="pt-3">
+    <nz-table
+      #editRowTable
+      [nzData]="userInfos">
+      <thead>
+      <tr>
+        <th nzWidth="25%">排名</th>
+        <th nzWidth="25%">用户</th>
+        <th nzWidth="25%">分数</th>
+        <th nzWidth="25%">正确率</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let data of userInfos">
+        <td>{{data.rank}}</td>
+        <td>{{data.name}}</td>
+        <td>{{data.grade}}</td>
+        <td>{{data.statues}}</td>
+      </tr>
+      </tbody>
+    </nz-table>
+  </div>
 </div>

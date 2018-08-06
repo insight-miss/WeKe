@@ -11,15 +11,15 @@
       <li nz-menu-item>
         <a href="#" target="_blank" rel="noopener noreferrer" style="font-size: large">考试详情</a>
       </li>
-      <li nz-menu-item>
-        <a routerLink="/rank" target="_blank" rel="noopener noreferrer" style="font-size: large">排行榜</a>
-      </li>
+      <!--<li nz-menu-item>-->
+        <!--<a routerLink="/rank" target="_blank" rel="noopener noreferrer" style="font-size: large">排行榜</a>-->
+      <!--</li>-->
     </ul>
 
       <!--题目类型-->
-      <div *ngFor="let question of detailsService.getQuestions();let i = index">
+      <div *ngFor="let question of detailsService.questions;let i = index">
 
-          <div *ngIf="question._questionNumber==pos">
+          <div *ngIf="question.questionNumber==pos">
 
             <!--选择题-->
             <div *ngIf="question.type==1">
@@ -28,17 +28,26 @@
               </div>
               <div class="subject-main">
                 <div class="subject-question">
-                  {{question._questionNumber}}:{{question._problem}}
+                  {{question.questionNumber}}:
+                  <div highlight="all" [innerHTML]="question.problem | safeHTML"></div>
                 </div>
                 <!--选项详情-->
-                <div *ngIf="question._options">
-                  <nz-checkbox-wrapper style="width: 100%;" (nzOnChange)="log($event , question._questionNumber)">
+                <div *ngIf="question.options">
+                  <nz-checkbox-wrapper style="width: 100%;" (nzOnChange)="log($event , question.questionNumber)">
                     <div nz-row>
-                      <a class="subject-options" *ngFor="let option of question._options">
+                      <a class="subject-options" *ngFor="let option of question.options">
                         <div nz-col>
-                          <label nz-checkbox nzValue="{{option._optionNumber}}"  [ngModel]="question.userAnswer.includes(option._optionNumber)">
-                            {{option._optionDetails}}
-                          </label>
+                          <div *ngIf="question.userAnswer">
+                            <label nz-checkbox nzValue="{{option.optionNumber}}" [ngModel]="question.userAnswer.includes(option.optionNumber)">
+                              <!--[ngModel]="question.userAnswer.includes(option.optionNumber)"-->
+                              {{option.optionDetails}}
+                            </label>
+                          </div>
+                          <div *ngIf="!question.userAnswer">
+                            <label nz-checkbox nzValue="{{option.optionNumber}}">
+                              {{option.optionDetails}}
+                            </label>
+                          </div>
                         </div>
                       </a>
                     </div>
@@ -55,14 +64,15 @@
               </div>
               <div class="subject-main">
                 <div class="subject-question">
-                  {{question._questionNumber}}:{{question._problem}}
+                  {{question.questionNumber}}:
+                  <div highlight="all" [innerHTML]="question.problem | safeHTML"></div>
                 </div>
                 <!--选项详情-->
-                <div *ngIf="question._options">
+                <div *ngIf="question.options">
                   <nz-radio-group [(ngModel)]="radioValue" style="width: 100%" (ngModelChange)="setRadioAnswer(question.questionNumber)">
-                    <a class="subject-options" *ngFor="let option of question._options">
-                      <label nz-radio nzValue="{{option._optionNumber}}">
-                        {{option._optionDetails}}
+                    <a class="subject-options" *ngFor="let option of question.options">
+                      <label nz-radio nzValue="{{option.optionNumber}}">
+                        {{option.optionDetails}}
                       </label>
                     </a>
                   </nz-radio-group>
@@ -77,7 +87,8 @@
               </div>
               <div class="subject-main">
                 <div class="subject-question">
-                  {{question.questionNumber}}:{{question.problem}}
+                  {{question.questionNumber}}:
+                  <div highlight="all" [innerHTML]="question.problem | safeHTML"></div>
                 </div>
 
                 <textarea [nzAutosize]="{ minRows: 15, maxRows: 25 }" nz-input [(ngModel)]="inputValue" (blur)="setTextAreaAnswer(inputValue , question.questionNumber)"></textarea>
@@ -97,7 +108,7 @@
         </div>
         <div class="subject-next" *ngIf="pos == sum">
           <form>
-            <input type="submit" name="button" value="交卷" class="btn-next button">
+            <input type="submit" name="button" value="交卷" class="btn-next button" (click)="submitExam()">
           </form>
         </div>
       </div>

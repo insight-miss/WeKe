@@ -1,0 +1,69 @@
+<nz-table
+  #editRowTable
+  [nzData]="dataSet">
+  <thead>
+  <tr>
+    <th nzWidth="20%">用户名</th>
+    <th nzWidth="20%">性别</th>
+    <th nzWidth="20%">年级</th>
+    <th nzWidth="20%">权限</th>
+    <th>操作</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of editRowTable.data">
+    <td>
+      <div class="editable-cell">
+        <div class="editable-cell-text-wrapper">
+          <ng-container>
+            {{data.userName}}
+          </ng-container>
+        </div>
+      </div>
+    </td>
+    <td>
+      <ng-container>
+        {{data.userSex}}
+      </ng-container>
+    </td>
+    <td>
+      <ng-container>
+        {{data.userJob}}
+      </ng-container>
+    </td>
+    <td>
+      <div *ngIf="data.userAdmin.includes('admin')">
+        {{data.userAdmin}}
+      </div>
+
+      <div *ngIf="!data.userAdmin.includes('admin')">
+        <ng-container *ngIf="!editCache[data.key].edit">
+          {{data.userAdmin}}
+        </ng-container>
+        <ng-container *ngIf="editCache[data.key].edit">
+          <nz-input-group>
+            <nz-select [(ngModel)]="editCache[data.key].data.userAdmin">
+              <nz-option [nzLabel]="'User'" [nzValue]="'User'"></nz-option>
+              <nz-option [nzLabel]="'Teacher'" [nzValue]="'Teacher'"></nz-option>
+            </nz-select>
+          </nz-input-group>
+        </ng-container>
+      </div>
+
+    </td>
+    <td>
+      <div class="editable-row-operations">
+        <ng-container *ngIf="!editCache[data.key].edit">
+          <a (click)="startEdit(data.key)">Edit</a>
+        </ng-container>
+        <ng-container *ngIf="editCache[data.key].edit">
+          <a (click)="saveEdit(data.key)">Save</a>
+          <nz-popconfirm [nzTitle]="'Sure to cancel?'" (nzOnConfirm)="cancelEdit(data.key)">
+            <a nz-popconfirm>Cancel</a>
+          </nz-popconfirm>
+        </ng-container>
+      </div>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>

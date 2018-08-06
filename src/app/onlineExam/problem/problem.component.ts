@@ -15,7 +15,7 @@ export class ProblemComponent implements OnInit {
   conf: any = {
     extraPlugins: `clipboard,lineutils,lineheight,widget,dialog,codesnippet`,
     codeSnippet_theme: 'monokai_sublime',
-    filebrowserImageUploadUrl: ''
+    filebrowserImageUploadUrl: 'http://127.0.0.1:8080/exam/upload'
   };
 
   change(event): void {
@@ -43,7 +43,7 @@ export class ProblemComponent implements OnInit {
   // 添加选项框
   optionLen=1;
   options : Array<Option> = [ new Option(null,'')];
-  problem = new Questions(null,null,null,null,null,null,null,null);
+  problem = new Questions();
   addInput() {
     console.log("添加选项");
     this.optionLen++;
