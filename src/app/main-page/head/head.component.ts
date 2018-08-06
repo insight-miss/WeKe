@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {CourseService} from '../body/service/course.service';
 import {Router} from "@angular/router";
+import {EmitService} from "../../route/emit.service";
+import {LoginService} from "../../onlineExam/login/service/login.service";
 
 @Component({
   selector: 'app-head',
@@ -11,7 +13,8 @@ export class HeadComponent implements OnInit {
 
   inputMsg: string = '';
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              public emitService: EmitService) {
   }
 
   enterSearch($event): void {
@@ -37,4 +40,17 @@ export class HeadComponent implements OnInit {
   ngOnInit() {
   }
 
+  login() {
+    this.emitService.eventEmit.emit("login");
+  }
+
+  register() {
+    this.emitService.eventEmit.emit("register");
+  }
+
+  getUserName(): string {
+    // const name = localStorage.getItem("userName");
+    // console.log("name="+name);
+    return localStorage.getItem("token");
+  }
 }

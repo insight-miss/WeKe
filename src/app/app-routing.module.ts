@@ -21,6 +21,8 @@ import {UserManagemetComponent} from "./backstage/user-managemet/user-managemet.
 import {RecommendComponent} from "./backstage/recommend/recommend.component";
 import {ClassicProblemComponent} from "./onlineExam/classic-problem/classic-problem.component";
 import {LoginGuard} from "./Jwt/LoginGuard";
+import {ReplayComponent} from "./replay/replay/replay.component";
+import {UploadVideoComponent} from "./upload-video/upload-video.component";
 
 const routes: Routes = [
   { path: 'test' , component: TestComponent , canActivate:[LoginGuard]} ,
@@ -47,7 +49,8 @@ const routes: Routes = [
     , children : [
       {path: 'userManager', component: UserManagemetComponent},
       {path: 'recommend', component:RecommendComponent}
-    ]}
+    ]},
+  {path: 'uploadVideo', component: UploadVideoComponent},
 ];
 
 
