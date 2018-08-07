@@ -16,7 +16,8 @@
       <tbody>
       <tr *ngFor="let data of approvalPageService.userExams">
         <td>
-          <a style="color: blue" routerLink="/approval/{{data.userExamId}}">{{data.examName}}</a>
+          <!--<a style="color: blue" routerLink="/approval/{{data.userExamId}}">{{data.examName}}</a>-->
+          <a style="color: blue" [routerLink]="['/approval']" [queryParams]="{'id':data.userExamId,'userName':data.userName}">{{data.examName}}</a>
         </td>
         <td>{{data.userName}}</td>
         <td>{{data.examGrade}}</td>

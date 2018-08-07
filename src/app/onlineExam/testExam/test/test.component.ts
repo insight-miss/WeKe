@@ -18,6 +18,7 @@ export class TestComponent implements OnInit {
               private reportService:ReportService) { }
 
   ngOnInit() {
+
     this.testService.getTestInfo().subscribe(
       res => {
         if (res) {

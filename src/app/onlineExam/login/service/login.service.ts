@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {retry} from "rxjs/operators";
 import {Observable} from "rxjs/index";
 import {environment} from "../../../../environments/environment";
+import {UserParam} from "../domain/UserParam";
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -16,6 +17,8 @@ export class LoginService {
   url = environment.baseUrl+'user/register';
   url1 = environment.baseUrl + 'login';
   url2 = environment.baseUrl + "user/sendCode";
+
+  githubUrl = environment.baseUrl + "aLiPay/login";
 
 
 
@@ -39,6 +42,10 @@ export class LoginService {
         "password":password
       },{observe: 'response',
         responseType: 'text'}).pipe();
+  }
+
+  githubLogin(): Observable<UserParam> {
+    return this.http.get<UserParam>(this.githubUrl).pipe();
   }
 
   sendCode(phoneNumber : number) {

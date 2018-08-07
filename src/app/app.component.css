@@ -9,3 +9,90 @@
 .login-form-button {
   width: 100%;
 }
+
+footer {
+  border-top: 1px solid #e5e7eb;
+  clear: both;
+  font-size: 14px;
+  background: #fff;
+  position: relative;
+  z-index: 100;
+  color: #314659;
+  box-shadow: 0 1000px 0 1000px #fff;
+}
+
+footer.dark {
+  background-color: #000;
+  color: rgba(255,255,255,.65);
+}
+
+.ant-row {
+  position: relative;
+  margin-left: 0;
+  margin-right: 0;
+  height: auto;
+  zoom: 1;
+  display: block;
+  box-sizing: border-box;
+}
+
+footer .ant-row {
+  text-align: center;
+}
+
+footer .footer-wrap {
+  position: relative;
+  padding: 86px 144px 93px;
+}
+
+.ant-col-lg-6 {
+  display: block;
+  box-sizing: border-box;
+  width: 25%;
+}
+
+footer .ant-row .footer-center {
+  display: inline-block;
+  text-align: left;
+}
+
+a {
+  color: #1890ff;
+  background-color: transparent;
+  text-decoration: none;
+  outline: 0;
+  cursor: pointer;
+  transition: color .3s;
+  -webkit-text-decoration-skip: objects;
+  transition: color .3s ease;
+}
+
+footer.dark a {
+  color: rgba(255,255,255,.9);
+}
+
+footer .ant-row .footer-center {
+  display: inline-block;
+  text-align: left;
+}
+
+.anticon {
+  display: inline-block;
+  font-style: normal;
+  vertical-align: baseline;
+  text-align: center;
+  text-transform: none;
+  line-height: 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.anticon:before {
+  display: block;
+  font-family: anticon!important;
+}
+.anticon-github:before {
+  content: "\e6ad";
+}
+

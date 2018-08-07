@@ -27,12 +27,13 @@ export class ApprovalExamComponent implements OnInit {
               private router : Router) { }
 
   ngOnInit() {
-    this.approvalService.testId = this.activeRouter.snapshot.params["id"];
+    this.approvalService.testId = this.activeRouter.snapshot.queryParams["id"];
+    this.approvalService.userName = this.activeRouter.snapshot.queryParams["userName"];
     this.approvalService.getAnswerQuestion().subscribe(
       res => {
         if (res) {
           this.approvalService.answerQuestion = res;
-
+          console.log(res);
           var i =1 ;
           for (let question of res) {
             this.getQuestionFlag(i,question.type);

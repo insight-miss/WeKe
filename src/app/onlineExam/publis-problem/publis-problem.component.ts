@@ -112,6 +112,8 @@ export class PublisProblemComponent implements OnInit {
         if(res) {
           if (res.toString() === "true") {
              this.rout.navigateByUrl("test");
+             this.problemService.problems = null;
+
           } else {
             alert("发表失败,请重新发表!!!");
           }

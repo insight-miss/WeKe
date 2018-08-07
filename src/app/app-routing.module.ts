@@ -23,6 +23,7 @@ import {ClassicProblemComponent} from "./onlineExam/classic-problem/classic-prob
 import {LoginGuard} from "./Jwt/LoginGuard";
 import {ReplayComponent} from "./replay/replay/replay.component";
 import {UploadVideoComponent} from "./upload-video/upload-video.component";
+import {SearchComponent} from "./search/search.component";
 
 const routes: Routes = [
   { path: 'test' , component: TestComponent , canActivate:[LoginGuard]} ,
@@ -42,7 +43,7 @@ const routes: Routes = [
   {path: 'video', component: VideoComponent ,canActivate:[LoginGuard]},
   {path: 'user', component:UserComponent , canActivate:[LoginGuard]},
   {path: '', component: BodyComponent},
-  {path: 'approval/:id' , component: ApprovalExamComponent , canActivate:[LoginGuard]},
+  {path: 'approval' , component: ApprovalExamComponent , canActivate:[LoginGuard]},
   {path: 'approvalPage' , component: ApprovalPageComponent , canActivate:[LoginGuard]},
   {path: 'classicProblem' , component: ClassicProblemComponent , canActivate:[LoginGuard]},
   {path: 'backstage' , component: BackstageComponent , canActivate:[LoginGuard]
@@ -51,6 +52,7 @@ const routes: Routes = [
       {path: 'recommend', component:RecommendComponent}
     ]},
   {path: 'uploadVideo', component: UploadVideoComponent},
+  {path:'search', component: SearchComponent}
 ];
 
 

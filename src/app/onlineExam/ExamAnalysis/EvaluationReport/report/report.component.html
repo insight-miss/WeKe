@@ -4,6 +4,7 @@
     <div style="margin-bottom: 20px;">
       <img src="../../../../../assets/grade.png" style="height: 28px;width: 28px">
       <span style="font-size: 16px;margin-bottom: 20px;" class="pl-2" *ngIf="examReport.sumGrade">得分:{{examReport.sumGrade}}分</span>
+      <span style="font-size: 16px;margin-bottom: 20px;" class="pl-2" *ngIf="!examReport.sumGrade">得分:0分</span>
     </div>
     <div class="detail">
       <p>

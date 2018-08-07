@@ -55,6 +55,10 @@ import { RecommendComponent } from './backstage/recommend/recommend.component';
 import {MessagePushService} from "./service/message-push.service";
 import { ClassicProblemComponent } from './onlineExam/classic-problem/classic-problem.component';
 import {AuthInterceptor} from "./Jwt/JWTInterceptor";
+import {SearchComponent} from "./search/search.component";
+import {ReplayComponent} from "./replay/replay/replay.component";
+import {OAuthModule} from "angular-oauth2-oidc";
+
 const options: HighlightOptions = {
   theme: 'monokai_sublime',
   path: 'assets/ckeditor/plugins/codesnippet/lib/highlight/'
@@ -93,7 +97,9 @@ const options: HighlightOptions = {
     BackstageComponent,
     UserManagemetComponent,
     RecommendComponent,
-    ClassicProblemComponent
+    ClassicProblemComponent,
+    SearchComponent,
+    ReplayComponent
   ],
   imports: [
     BrowserModule,
@@ -115,7 +121,8 @@ const options: HighlightOptions = {
     VgControlsModule,
     VgOverlayPlayModule,
     VgBufferingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    OAuthModule.forRoot()
   ],
   providers: [
     TestService,

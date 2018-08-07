@@ -34,6 +34,9 @@ export class ApprovalPageComponent implements OnInit {
         } else {
           this.message.create('error', '权限不够');
         }
+      },
+      error => {
+        this.message.create('error', '权限不够');
       }
     )
   }

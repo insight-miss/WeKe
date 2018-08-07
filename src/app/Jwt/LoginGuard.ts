@@ -15,7 +15,9 @@ export class LoginGuard implements CanActivate{
       return false;
     }
     console.log('登录成功过' + localStorage.getItem('token'));
+    console.log('登录成功过' + localStorage.getItem('userName'));
     // localStorage.removeItem('token');
+    // localStorage.removeItem('userName');
     return true;
   }
 

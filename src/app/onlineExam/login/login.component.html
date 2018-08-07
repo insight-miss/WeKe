@@ -27,8 +27,30 @@
         <div>
           <a class="pr-3">QQ</a>
           <a class="pr-3">微信</a>
-          <a>微博</a>
+          <!--<a (click)="githubLogin()">github</a>-->
+          <a href="https://github.com/login/oauth/authorize?client_id=e3a5b0739fc1d784e02e&state=101&redirect_uri=http://21j6z47736.51mypc.cn/aLiPay/callback" target="_blank"
+            (click)="githubLogin()">github</a>
         </div>
+
+        <!--<div>-->
+          <!--<h1 *ngIf="!name">-->
+            <!--Hallo-->
+          <!--</h1>-->
+          <!--<h1 *ngIf="name">-->
+            <!--Hallo, {{name}}-->
+          <!--</h1>-->
+
+          <!--<button class="btn btn-default" (click)="logins()">-->
+            <!--Login-->
+          <!--</button>-->
+          <!--<button class="btn btn-default" (click)="logoff()">-->
+            <!--Logout-->
+          <!--</button>-->
+
+          <!--<div>-->
+            <!--Username/Passwort zum Testen: max/geheim-->
+          <!--</div>-->
+        <!--</div>-->
       </div>
     </div>
   </div>
