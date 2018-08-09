@@ -1,31 +1,37 @@
-<h3 mat-dialog-title="备选课程"></h3>
-<nz-table
-  #editRowTable
-  nzBordered
-  [nzData]="allCourses">
-  <thead>
-  <tr>
-    <th>课程名字</th>
-    <th>图片</th>
-    <th>简介</th>
-    <th>所属行业</th>
-    <th>替换</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let course of allCourses">
-    <td>
-      {{ course.courseName }}
-    </td>
-    <td>
-      <img src="{{ course.imgSrc }}" width="40" height="40">
-      <span>{{ course.kind }}</span>
-    </td>
-    <td>{{ course.info }}</td>
-    <td>{{ course.bleng }}</td>
-    <td>
-      <button nz-button nzType="primary" (click)="onSave(course.id)">确定</button>
-    </td>
-  </tr>
-  </tbody>
-</nz-table>
+<div >
+  <h3 mat-dialog-title="备选课程"></h3>
+  <nz-table
+    #editRowTable
+    nzBordered
+    [nzData]="allCourses"
+    [nzPageSize]="size"
+    [(nzPageIndex)]="page"
+    (nzPageIndexChange)="pageChange(page)">
+    <thead>
+    <tr>
+      <th>课程名字</th>
+      <th>图片</th>
+      <th>简介</th>
+      <th>所属行业</th>
+      <th>替换</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let course of courses let i = index">
+      <td>
+        {{ course.courseName }}
+      </td>
+      <td style="width: 130px">
+        <img src="{{ course.imgSrc }}" width="30" height="30">
+        <span style="margin-left: 10px">{{ course.kind }}</span>
+      </td>
+      <td>{{ course.info }}</td>
+      <td>{{ i+(page-1)*size }}</td>
+      <td>
+        <button nz-button nzType="primary" (click)="onSave(i+(page-1)*size, course.id)">确定</button>
+      </td>
+    </tr>
+    </tbody>
+  </nz-table>
+
+</div>

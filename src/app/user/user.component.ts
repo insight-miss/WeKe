@@ -15,6 +15,7 @@ import {OrderMsg} from "./domian/orderMsg";
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css', '../ali-pay/ali-pay.component.css']
 })
+// './bind-account/bind-account.component.css'
 export class UserComponent implements OnInit {
 
   personMsg: any;

@@ -12,7 +12,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let ad of adCourse">
+  <tr *ngFor="let ad of adCourse let i = index">
     <td>
       {{ ad.courseName }}
     </td>
@@ -23,11 +23,12 @@
     <td>{{ ad.info }}</td>
     <td>{{ ad.bleng }}</td>
     <td>
-      <button nz-button nzType="primary" (click)="openDialog(ad.id)">替换课程</button>
+      <button nz-button nzType="primary" (click)="openDialog(i)">替换课程</button>
     </td>
   </tr>
   </tbody>
 </nz-table>
+
 <nz-modal [(nzVisible)]="isVisible" nzTitle="{{ courseName }}" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" nzWidth="580px" nzOkText="确定" nzCancelText="取消">
   <img src="{{ imgSrc}}" alt="详细情况">
 </nz-modal>

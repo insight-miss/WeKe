@@ -55,7 +55,8 @@ const routes: Routes = [
     ]},
   {path: 'uploadVideo', component: UploadVideoComponent},
   {path:'search', component: SearchComponent},
-  {path:'reply', component: ReplayComponent}
+  {path:'reply', component: ReplayComponent},
+  {path: 'ad', component: RecommendComponent}
 ];
 
 
