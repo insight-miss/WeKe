@@ -11,7 +11,7 @@
               <div class="banner-line"><span class="bold mr10 l small-title">{{ menu.info }}</span></div>
             </div>
             <div class="tag-box l">
-              <a *ngFor="let uls of menu.tecList" (click)="selectDirection(menu.info, uls.tec)" routerLink="/list" target="_blank">{{ uls.tec }}</a>
+              <a *ngFor="let uls of menu.tecList" (click)="selectDirection(menu.info, uls.tec)" routerLink="/list">{{ uls.tec }}</a>
             </div>
           </div>
         </div>

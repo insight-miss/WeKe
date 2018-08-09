@@ -588,3 +588,31 @@ a:link, a:visited {
   color: #004974;
   text-decoration: none;
 }
+.commentModel {
+  border-radius: 24px;
+}
+
+[nz-button] {
+  margin-right: 8px;
+  margin-bottom: 12px;
+}
+
+.login_btu {
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  -moz-transition: all .3s;
+  transition: all .3s;
+  color: #fff;
+  background-color: #f20d0d;
+  border-color: #f20d0d;
+  opacity: 1;
+  padding: 23px 32px;
+  font-size: 16px;
+  line-height: 4px;
+  border-radius: 24px;
+  width: 120px;
+  margin-top: 20px;
+  box-sizing: border-box;
+}
+

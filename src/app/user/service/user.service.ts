@@ -7,6 +7,7 @@ import {retry} from "rxjs/operators";
 import {Menu} from "../../freeCourse/kind/domain/menu";
 import {Photourl} from "../domian/photourl";
 import {OrderMsg} from "../domian/orderMsg";
+import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class UserService {
   url3: string = 'http://10.0.0.31:8080/upload/photo';
   url4: string = 'http://10.0.0.31:8080/payApi/tobePublisher';
 
-  history: History[] = [new History("账号登录", "2018/7/15", '张家界', '10.0.0.29', 'web'), new History("账号登录", "2018/8/16", '张家界', '10.0.0.29', 'web')];
+  history: History[] = [];
 
   getPersonById(): Observable<Person> {
     // 通过Id返回Person信息
@@ -28,12 +29,14 @@ export class UserService {
     );
   }
 
-  getHistoryById(): Observable<History[]> {
+  getHistoryById():Observable<History[]> {
     // 通过Id返回History信息
+    const loginInfoUrl = environment.baseUrl + "user/userLoginInfo?userName="+localStorage.getItem('userName');
+    return this.http.get<History[]>(loginInfoUrl).pipe();
     // return this.http.get<History[]>(this.url).pipe(
     //   retry(3)
     // );
-    return of(this.history);
+    // return of(this.history);
   }
 
   uploadPhoto(file: FormData): Observable<Photourl>{
