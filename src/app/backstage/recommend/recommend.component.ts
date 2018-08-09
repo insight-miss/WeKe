@@ -11,9 +11,11 @@ import {AllCourseComponent} from "./componet/all-course/all-course.component";
 })
 export class RecommendComponent implements OnInit {
 
-  adCourse: Array<AdCourse> = [new AdCourse(1,"courseName","https://img1.mukewang.com/szimg/5b5835a60001907e05400300.jpg","Java","好课","实战推荐")];
-  allCourses: Array<AdCourse> = [new AdCourse(1,"courseName","https://img1.mukewang.com/szimg/5b5835a60001907e05400300.jpg","Java","好课","实战推荐")];;
+  // [new AdCourse(1,"courseName","https://img1.mukewang.com/szimg/5b5835a60001907e05400300.jpg","Java","好课","实战推荐")];
+  adCourse: Array<AdCourse>;
+  allCourses: Array<AdCourse>;
   imgSrc : string;
+  index: number;
   courseName: string;
   adId: number;// 实战推荐中所选中需要替换的课程的id
   allId: number;// 所选中的备选课程的id
@@ -26,21 +28,24 @@ export class RecommendComponent implements OnInit {
       data: this.allCourses
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log("id alid "+id+"  "+result);
-      this.allId = result;
+      console.log("id alid "+id+"  "+result.index);
+      this.allId = result.index;
+      this.index = result.id;
       this.adId = id;
+      this.changeRecommend();
     });
   }
 
   // 更改广告栏目
   changeRecommend() {
     let ad = this.adCourse[this.adId];
-    let all = this.allCourses[this.allId];
+    let all = this.allCourses[this.allId+1];
     ad.courseName = all.courseName;
+    console.log("name  "+ad.courseName);
     ad.imgSrc = all.imgSrc;
     ad.kind = all.kind;
     ad.info = all.info;
-    this.recommendService.changeRecommend(ad);
+    this.recommendService.changeRecommend(this.adId, this.index);
   }
 
   showModal(src: string, courseName: string): void {
@@ -73,7 +78,8 @@ export class RecommendComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.getAllCourses();
+    this.getRecommends();
   }
 
 }
