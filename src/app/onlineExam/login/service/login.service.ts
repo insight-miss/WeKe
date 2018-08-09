@@ -52,4 +52,10 @@ export class LoginService {
     const codeUrl = this.url2 + "?phone=" + phoneNumber;
     return this.http.get(codeUrl).pipe();
   }
+
+  //登录成功就请求后台 后台根据ip获取用户登录信息
+  setUserInfo(userName : string) {
+    const userInfoUrl = environment.baseUrl + "page/userInfo?userName="+ userName;
+    return this.http.get(userInfoUrl);
+  }
 }

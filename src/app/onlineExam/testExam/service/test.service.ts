@@ -26,7 +26,8 @@ export class TestService {
    */
   getTestInfo(): Observable<Array<any>> {
     const url = environment.baseUrl + "exam/allExam?userName="+localStorage.getItem('userName');
-    return this.http.get<Array<any>>(url,httpOptions).pipe();
+    console.log(url);
+    return this.http.get<Array<any>>(url).pipe();
   }
 
   /**

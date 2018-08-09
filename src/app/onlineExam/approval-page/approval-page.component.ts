@@ -13,6 +13,8 @@ export class ApprovalPageComponent implements OnInit {
 
   dataSet:Array<UserExam>=[];
 
+  teacherExam : Array<UserExam>;
+
   constructor(private approvalPageService: ApprovalPageService,
               private router : Router,
               private message: NzMessageService) { }
@@ -23,7 +25,9 @@ export class ApprovalPageComponent implements OnInit {
       res => {
         if (res) {
           console.log(res);
+          this.totalIndexs = res.length;
           this.approvalPageService.userExams = res;
+          this.teacherExam = res;
           var i=0;
           for (let userExam of this.approvalPageService.userExams) {
             i++;
@@ -44,4 +48,7 @@ export class ApprovalPageComponent implements OnInit {
   addExam() {
     this.router.navigateByUrl("/publicProblem");
   }
+
+  currentIndexs = 1;
+  totalIndexs = 30;
 }

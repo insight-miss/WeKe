@@ -17,7 +17,7 @@ export class ApprovalPageService {
   getUserExam():Observable<Array<UserExam>> {
 
     const url = environment.baseUrl + 'teacher/getUserExam?userName='+ localStorage.getItem('userName');
-    return this.http.get<Array<UserExam>>(url,httpOptions).pipe();
+    return this.http.get<Array<UserExam>>(url).pipe();
   }
 
 }

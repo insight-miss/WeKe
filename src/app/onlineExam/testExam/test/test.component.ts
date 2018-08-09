@@ -18,7 +18,7 @@ export class TestComponent implements OnInit {
               private reportService:ReportService) { }
 
   ngOnInit() {
-
+    console.log("test");
     this.testService.getTestInfo().subscribe(
       res => {
         if (res) {
@@ -30,7 +30,7 @@ export class TestComponent implements OnInit {
 
       } ,
       error => {
-        console.log("没有权限");
+        console.log("error => 没有权限");
       }
     )
   }

@@ -58,6 +58,7 @@ import {AuthInterceptor} from "./Jwt/JWTInterceptor";
 import {SearchComponent} from "./search/search.component";
 import {ReplayComponent} from "./replay/replay/replay.component";
 import {OAuthModule} from "angular-oauth2-oidc";
+import { BindAccountComponent } from './user/bind-account/bind-account.component';
 
 const options: HighlightOptions = {
   theme: 'monokai_sublime',
@@ -99,7 +100,8 @@ const options: HighlightOptions = {
     RecommendComponent,
     ClassicProblemComponent,
     SearchComponent,
-    ReplayComponent
+    ReplayComponent,
+    BindAccountComponent
   ],
   imports: [
     BrowserModule,

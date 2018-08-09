@@ -19,12 +19,14 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     // 接收发射过来的数据
     this.emitService.eventEmit.subscribe((value: any) => {
-      this.isVisible = true;
-      if(value == "login") {
+
+      if(value === "login") {
+        this.isVisible = true;
         // 这里就可以调取接口，刷新userList列表数据
         this.choiceFlag = 1;
       }
-      if (value == 'register') {
+      if (value === 'register') {
+        this.isVisible = true;
         this.choiceFlag = 2;
       }
     });
@@ -115,6 +117,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("token",res.body);
           localStorage.setItem("userName",this.loginName);
           this.message.create('success', '登录成功');
+          this.loginService.setUserInfo(this.loginName).subscribe();
         }
       },
       error => {

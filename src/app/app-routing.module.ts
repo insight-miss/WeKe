@@ -24,6 +24,8 @@ import {LoginGuard} from "./Jwt/LoginGuard";
 import {ReplayComponent} from "./replay/replay/replay.component";
 import {UploadVideoComponent} from "./upload-video/upload-video.component";
 import {SearchComponent} from "./search/search.component";
+import {CanDeactivateGuardService} from "./video/service/can-deactivate-guard.service";
+import {BindAccountComponent} from "./user/bind-account/bind-account.component";
 
 const routes: Routes = [
   { path: 'test' , component: TestComponent , canActivate:[LoginGuard]} ,
@@ -40,7 +42,7 @@ const routes: Routes = [
   {path: 'login' , component: LoginComponent},
   {path: 'list', component: KindComponent},
   {path: 'learn',  component: CatalogComponent},//目录页面
-  {path: 'video', component: VideoComponent ,canActivate:[LoginGuard]},
+  {path: 'video', component: VideoComponent ,canActivate:[LoginGuard] , canDeactivate:[CanDeactivateGuardService]},
   {path: 'user', component:UserComponent , canActivate:[LoginGuard]},
   {path: '', component: BodyComponent},
   {path: 'approval' , component: ApprovalExamComponent , canActivate:[LoginGuard]},
@@ -59,6 +61,6 @@ const routes: Routes = [
 @NgModule({
   imports: [ RouterModule.forRoot(routes)],
   exports: [ RouterModule ],
-  providers: [LoginGuard]
+  providers: [LoginGuard , CanDeactivateGuardService]
 })
 export class AppRoutingModule {}
