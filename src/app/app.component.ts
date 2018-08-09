@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {NzNotificationService} from "ng-zorro-antd";
 import {MessagePushService} from "./service/message-push.service";
-import {JwksValidationHandler, OAuthService} from "angular-oauth2-oidc";
 import {authConfig} from "./onlineExam/login/config/authConfig";
 import {EmitService} from "./route/emit.service";
 
@@ -16,8 +15,7 @@ export class AppComponent {
   num: number =0 ;
 
   constructor(private notification: NzNotificationService,
-              private messagePushService : MessagePushService,
-              private oauthService: OAuthService) {
+              private messagePushService : MessagePushService) {
 
 
     // setInterval(() => {

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {EmitService} from "../../route/emit.service";
 import {LoginService} from "./service/login.service";
 import {NzMessageService, NzNotificationService} from "ng-zorro-antd";
-import {OAuthService} from "angular-oauth2-oidc";
 
 @Component({
   selector: 'app-login',
@@ -13,8 +12,7 @@ export class LoginComponent implements OnInit {
 
   constructor(public emitService: EmitService,
               private loginService: LoginService,
-              private message: NzMessageService,
-              private oauthService: OAuthService) { }
+              private message: NzMessageService) { }
 
   ngOnInit() {
     // 接收发射过来的数据

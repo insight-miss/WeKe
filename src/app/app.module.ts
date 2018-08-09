@@ -62,6 +62,7 @@ import { QRCodeModule } from "angular2-qrcode";
 import { AliPayComponent } from './ali-pay/ali-pay.component';
 import { PayComponent } from './user/componet/pay/pay.component';
 import { AllCourseComponent } from './backstage/recommend/componet/all-course/all-course.component';
+import { BindAccountComponent } from './user/bind-account/bind-account.component';
 
 const options: HighlightOptions = {
   theme: 'monokai_sublime',
@@ -107,7 +108,9 @@ const options: HighlightOptions = {
     UpdateComponent,
     AliPayComponent,
     PayComponent,
-    AllCourseComponent
+    AllCourseComponent,
+    ReplayComponent,
+    BindAccountComponent
   ],
   imports: [
     BrowserModule,
