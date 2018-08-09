@@ -35,6 +35,14 @@
             </a>
           </li>
           <li>
+            <a [class]="selected==='4'?'on':''" (click)="selector('4')">
+              更改邮箱
+              <span class="arr">
+                <i class="icon-right2 anticon anticon-right"></i>
+              </span>
+            </a>
+          </li>
+          <li>
             <a *ngIf="person.permission === 'User'" [class]="selected==='3'?'on':''" (click)="selector('3')">
               申请成为发布者
               <span class="arr">
@@ -217,6 +225,94 @@
         </div>
 
       </div>
+    </div>
+    <div *ngIf="selected==='4'" class="setting-right">
+
+      <div class="container" style="width: 935px">
+        <div class="comment-title">
+          <p style="font-size: 20px"><b>账号绑定</b></p>
+        </div>
+        <div class="line"></div>
+        <div>
+          <div class="itemBox d-flex justify-content-between">
+            <div class="d-flex">
+              <div class="left">
+                <i class="anticon anticon-mail"></i>
+              </div>
+
+              <div class="rights">
+                <p>
+                  <span class="font1">邮箱</span>
+                  <span class="font3">1850257253@qq.com 已绑定</span>
+                </p>
+
+                <p class="font2">可用邮箱加密码登录慕课网，可用邮箱找回密码</p>
+              </div>
+            </div>
+
+            <div>
+              <button nz-button nzType="default">修改</button>
+            </div>
+          </div>
+          <div class="itemBox d-flex justify-content-between">
+            <div class="d-flex">
+              <div class="left">
+                <i class="anticon anticon-mobile"></i>
+              </div>
+
+              <div class="rights">
+                <p>
+                  <span class="font1">手机</span>
+                  <span class="font3" style="color: #f01414;">152******89</span>
+                </p>
+
+                <p class="font2">可用手机号加密码登录慕课网，可通过手机号找回密码</p>
+              </div>
+            </div>
+
+            <div>
+              <button nz-button nzType="default">修改</button>
+            </div>
+          </div>
+          <div class="itemBox d-flex justify-content-between">
+            <div class="d-flex">
+              <div class="left">
+                <i class="anticon anticon-safety"></i>
+              </div>
+
+              <div class="rights">
+                <p>
+                  <span class="font1">密码</span>
+                  <span class="font3">已设置</span>
+                </p>
+
+                <p class="font2">用于保护账号信息和登录安全修改</p>
+              </div>
+            </div>
+
+            <div>
+              <button nz-button nzType="default">修改</button>
+            </div>
+          </div>
+          <div class="itemBox d-flex justify-content-between">
+            <div class="d-flex">
+              <div class="left">
+                <i class="anticon anticon-message"></i>
+              </div>
+
+              <div class="rights">
+                <p>
+                  <span class="font1">社交帐号</span>
+                </p>
+
+                <p class="font2">绑定第三方帐号，可以直接登录，还可以将内容同步到以下平台</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
     </div>
   </div>
 </div>
