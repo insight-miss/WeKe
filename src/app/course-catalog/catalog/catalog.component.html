@@ -83,52 +83,55 @@
           <div class="course_quescon" *ngIf="flag === '1'">
             <div *ngFor="let comment of comments" class="wenda-listcon mod-qa-list clearfix" (click)="openComment(comment.kind, comment.userId)">
               <div *ngIf="comment.kind==='1'" class="icon-wenda" ></div>
-              <div class="headslider qa-medias l">
-                <a href="#" class="wenda-head" target="_blank" title="{{ comment.photo }}">
-                  <img src="{{ comment.photo }}" width="40" height="40">
-                </a>
-              </div>
-              <div class="wendaslider qa-content">
-                <div *ngIf="comment.kind === '1'">
-                  <h2 class="wendaquetitle qa-header">
-                    <div class="wendatitlecon qa-header-cnt clearfix">
-                      <a href="#" target="_blank" class="qa-tit">{{comment.title }}</a>
-                    </div>
-                  </h2>
-                  <div class="replycont qa-body clearfix">
-                    <div highlight="all" [innerHTML]="comment.comment"></div>
-                  </div>
-                  <div class="replymegfooter qa-footer clearfix">
-                    <div class="wenda-time">
-                      <div class="l-box l">
-                        <a href="#" target="_blank" class="replynumber static-count l">
-                          <span class="static-item answer">{{ comment.num}} 回答</span>
-                          <span class="static-item">{{ comment.browse }} 浏览</span>
-                        </a>
-                      </div>
-                      <em class="r">时间：{{ comment.time }}</em>
-                    </div>
-                  </div>
+
+              <div class="d-flex">
+                <div class="headslider qa-medias l">
+                  <a href="#" class="wenda-head" target="_blank" title="{{ comment.photo }}">
+                    <img src="{{ comment.photo }}" width="40" height="40">
+                  </a>
                 </div>
-                <div *ngIf="comment.kind === '2'">
-                  <div class="tit">
-                    <a href="#" target="_blank">{{ comment.browse }}</a>
+                <div class="wendaslider qa-content">
+                  <div *ngIf="comment.kind === '1'">
+                    <h2 class="wendaquetitle qa-header">
+                      <div class="wendatitlecon qa-header-cnt clearfix">
+                        <a href="#" target="_blank" class="qa-tit">{{comment.title }}</a>
+                      </div>
+                    </h2>
+                    <div class="replycont qa-body clearfix">
+                      <div highlight="all" [innerHTML]="comment.comment"></div>
+                    </div>
+                    <div class="replymegfooter qa-footer clearfix">
+                      <div class="wenda-time">
+                        <div class="l-box l">
+                          <a href="#" target="_blank" class="replynumber static-count l">
+                            <span class="static-item answer">{{ comment.num}} 回答</span>
+                            <span class="static-item">{{ comment.browse }} 浏览</span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="cnt">{{ comment.comment }}</div>
-                  <div class="replymegfooter qa-footer clearfix">
-                    <div class="l-box l">
-                      <a title="赞" class="js-pl-praise moco-btn moco-btn-gray-l"
-                         style="background-color: #eeeeef;border: 0px;">
+                  <div *ngIf="comment.kind === '2'">
+                    <div class="tit">
+                      <a href="#" target="_blank">{{ comment.browse }}</a>
+                    </div>
+                    <div class="cnt">{{ comment.comment }}</div>
+                    <div class="replymegfooter qa-footer clearfix">
+                      <div class="l-box l">
+                        <a title="赞" class="js-pl-praise moco-btn moco-btn-gray-l"
+                           style="background-color: #eeeeef;border: 0px;">
                       <span class="icon-thumb-revert">
                         <i class="anticon anticon-like" style="color:#93999f;"></i>
                       </span>
-                        <em>{{ comment.num }}</em>
-                      </a>
+                          <em>{{ comment.num }}</em>
+                        </a>
+                      </div>
+                      <!--<span class="r timeago">时间:{{ comment.time }}</span>-->
                     </div>
-                    <span class="r timeago">时间:{{ comment.time }}</span>
                   </div>
                 </div>
               </div>
+              <em class="r">时间：{{ comment.time }}</em>
             </div>
           </div>
           <div class="page"></div>

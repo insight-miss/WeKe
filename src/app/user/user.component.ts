@@ -13,7 +13,7 @@ import {OrderMsg} from "./domian/orderMsg";
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css', '../ali-pay/ali-pay.component.css','./bind-account/bind-account.component.css']
+  styleUrls: ['./user.component.css', '../ali-pay/ali-pay.component.css']
 })
 export class UserComponent implements OnInit {
 
@@ -100,26 +100,34 @@ export class UserComponent implements OnInit {
     });
   }
   getHistory(){
-    this.userService.getHistoryById().subscribe(result => this.historys=result);
+    this.userService.getHistoryById().subscribe(
+      result => {
+        console.log(result);
+        if (result) {
+          this.historys=result;
+        }
+
+      }
+    );
   }
 
-  handleOk(): void {
-    console.log('Button ok clicked!');
-    this.isVisible = false;
-  }
-
-  handleCancel(): void {
-    console.log('Button cancel clicked!');
-    this.isVisible = false;
-  }
-
-  showModal(): void {
-    this.isVisible = true;
-  }
 
   ngOnInit() {
     this.getPerson();
     this.getHistory();
   }
 
+  isEmail = false;
+
+  emailOk() {
+    this.isEmail = false;
+  }
+
+  emailCancel() {
+    this.isEmail = false;
+  }
+
+  showEmail() {
+    this.isEmail = true;
+  }
 }

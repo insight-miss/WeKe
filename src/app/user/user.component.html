@@ -227,7 +227,7 @@
       </div>
     </div>
     <div *ngIf="selected==='4'" class="setting-right">
-
+      <!--<app-bind-account></app-bind-account>-->
       <div class="container" style="width: 935px">
         <div class="comment-title">
           <p style="font-size: 20px"><b>账号绑定</b></p>
@@ -251,7 +251,7 @@
             </div>
 
             <div>
-              <button nz-button nzType="default">修改</button>
+              <button nz-button nzType="default" (click)="showEmail()">立即绑定</button>
             </div>
           </div>
           <div class="itemBox d-flex justify-content-between">
@@ -311,9 +311,21 @@
           </div>
         </div>
       </div>
-
-
     </div>
   </div>
 </div>
 
+
+<!--邮箱绑定-->
+<!--<nz-modal [(nzVisible)]="isEmail" (nzOnCancel)="emailCancel()" (nzOnOk)="handleOk()"-->
+          <!--nzWidth="560px" [nzFooter]="null" class="commentModel">-->
+  <!--<div class="commentTitle">-->
+    <!--<span>我要评论</span>-->
+  <!--</div>-->
+
+  <!--<input nz-input placeholder="请输入要验证的邮箱" nzSize="large">-->
+
+  <!--<div class="d-flex justify-content-end ">-->
+    <!--<button nz-button nzType="primary" class="login_btu" (click)="loginClick()">发表评论</button>-->
+  <!--</div>-->
+<!--</nz-modal>-->
