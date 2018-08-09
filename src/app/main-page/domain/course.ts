@@ -4,4 +4,5 @@ export class Course {
     level: String;
     star: number;
     people: number;
+    url: string;
 }

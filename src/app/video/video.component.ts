@@ -41,6 +41,7 @@ export class VideoComponent implements OnInit {
    this.videoService.getVideo(this.catalog, this.chapter).subscribe(video => {
      this.video=video;
      console.log(this.video.videoUrl);
+     console.log("nickName "+this.video.nickname);
    });
   }
 

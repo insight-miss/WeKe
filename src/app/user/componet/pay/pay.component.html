@@ -1,0 +1,18 @@
+<div class="moco-modal-overlay" style="z-index: 901; opacity: 1;">
+  <div class="moco-modal-layer" style="z-index: 901; visibility: visible; left: 315px; top: 298.5px;">
+    <div class="moco-modal-inner">
+      <div class="moco-modal-dialog" style="display: block; border-left-color: yellow;">
+        <div class="pay-tip-modal" style="width: 320px;height: 250px;">
+          <div style="height: 130px; width: 130px; background-color:whitesmoke; margin-left: 90px; padding-top: 5px">
+          <qr-code [value]="orderMsg.qrCode" style="margin-left: 5px;margin-right: 5px;" level="M" size="120"></qr-code>
+          </div>
+          <div style="margin-top: 10px;">
+            <p>{{ msg }}</p>
+            <button nz-button nzType="primary" style="margin-top: 5px" (click)="jungleOrder()">支付完成</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

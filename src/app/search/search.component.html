@@ -18,7 +18,7 @@
             <img src="{{ course.url }}" class="course-item-img">
           </a>
           <div class="course-item-detail">
-            <a href="//coding.imooc.com/class/191.html" target="_blank" class="course-detail-title">
+            <a [routerLink]="['/learn']" [queryParams]="{'kind':'1', 'id':course.courseName}" target="_blank" class="course-detail-title">
               {{ course.courseName }}
             </a>
             <div class="course-item-classify">

@@ -15,7 +15,7 @@ export class PersonComponent implements OnInit {
 
   constructor(private dialogRef: MatDialogRef<PersonComponent>,
               @Inject(MAT_DIALOG_DATA) public data: Person) {
-    this.person2 = new Person(this.data.url,this.data.nickname, this.data.job, this.data.address, this.data.sex, this.data.info);
+    this.person2 = new Person(this.data.url,this.data.nickname, this.data.job, this.data.address, this.data.sex, this.data.info, this.data.permission);
   }
 
   selectSex(sex: string){
@@ -35,7 +35,7 @@ export class PersonComponent implements OnInit {
     console.log("flag "+flag);
      if (flag === '1'){
        if (this.data.nickname!='' && this.data.job!='' && this.data.address!='' && this.data.info!=''){
-         this.person = new Person(this.data.url,this.data.nickname, this.data.job, this.data.address, this.data.sex, this.data.info);
+         this.person = new Person(this.data.url,this.data.nickname, this.data.job, this.data.address, this.data.sex, this.data.info, this.data.permission);
          console.log(this.person);
          this.dialogRef.close(this.person);
        } else {

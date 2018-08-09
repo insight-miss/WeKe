@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {Course} from '../../domain/course';
-import {COURSES} from '../../mock/mock';
 import {HttpClient} from "@angular/common/http";
 import {retry} from "rxjs/operators";
 

@@ -1,133 +1,33 @@
-<div id="page-inner">
-  <div class="col-md-12">
-    <h1 class="page-header">首页推荐</h1>
-  </div>
-
-
-
-
-</div>
-<div class="bgff">
-  <div class="container-types clearfix">
-
-    <div class="types-content">
-      <div class="index-card-container course-card-container container d-flex justify-content-sm-between" >
-        <a href="#" class="course-card" target="_blank">
-          <div class="course-card-top hashadow">
-            <img class="course-banner" src="https://img4.mukewang.com/szimg/5ac2dfe100014a9005400300.jpg">
-            <div class="course-label">
-              <label>Vue.js</label>
-            </div>
-          </div>
-          <div class="course-card-content">
-            <h3 class="course-card-name"> React16.4 开发简书项目 从零基础入门到实战</h3>
-            <div class="clearfix course-card-bottom">
-              <div class="course-card-info">
-                <span>实战</span>
-                <span>中级</span>
-                <span>
-              <i class="icon-set_sns"></i>454
-            </span>
-                <span class="course-star-box">
-              <i class="icon-star2 on" *ngFor="let i of rangeArray(0,5)"></i>
-            </span>
-              </div>
-            </div>
-          </div>
-        </a>
-        <a href="#" class="course-card" target="_blank">
-          <div class="course-card-top hashadow">
-            <img class="course-banner" src="https://img4.mukewang.com/szimg/5ac2dfe100014a9005400300.jpg">
-            <div class="course-label">
-              <label>Vue.js</label>
-            </div>
-          </div>
-          <div class="course-card-content">
-            <h3 class="course-card-name"> React16.4 开发简书项目 从零基础入门到实战</h3>
-            <div class="clearfix course-card-bottom">
-              <div class="course-card-info">
-                <span>实战</span>
-                <span>中级</span>
-                <span>
-              <i class="icon-set_sns"></i>454
-            </span>
-                <span class="course-star-box">
-              <i class="icon-star2 on" *ngFor="let i of rangeArray(0,5)"></i>
-            </span>
-              </div>
-            </div>
-          </div>
-        </a>
-        <a href="#" class="course-card" target="_blank">
-          <div class="course-card-top hashadow">
-            <img class="course-banner" src="https://img4.mukewang.com/szimg/5ac2dfe100014a9005400300.jpg">
-            <div class="course-label">
-              <label>Vue.js</label>
-            </div>
-          </div>
-          <div class="course-card-content">
-            <h3 class="course-card-name"> React16.4 开发简书项目 从零基础入门到实战</h3>
-            <div class="clearfix course-card-bottom">
-              <div class="course-card-info">
-                <span>实战</span>
-                <span>中级</span>
-                <span>
-              <i class="icon-set_sns"></i>454
-            </span>
-                <span class="course-star-box">
-              <i class="icon-star2 on" *ngFor="let i of rangeArray(0,5)"></i>
-            </span>
-              </div>
-            </div>
-          </div>
-        </a>
-        <a href="#" class="course-card" target="_blank">
-          <div class="course-card-top hashadow">
-            <img class="course-banner" src="https://img4.mukewang.com/szimg/5ac2dfe100014a9005400300.jpg">
-            <div class="course-label">
-              <label>Vue.js</label>
-            </div>
-          </div>
-          <div class="course-card-content">
-            <h3 class="course-card-name"> React16.4 开发简书项目 从零基础入门到实战</h3>
-            <div class="clearfix course-card-bottom">
-              <div class="course-card-info">
-                <span>实战</span>
-                <span>中级</span>
-                <span>
-              <i class="icon-set_sns"></i>454
-            </span>
-                <span class="course-star-box">
-              <i class="icon-star2 on" *ngFor="let i of rangeArray(0,5)"></i>
-            </span>
-              </div>
-            </div>
-          </div>
-        </a>
-        <a href="#" class="course-card" target="_blank">
-          <div class="course-card-top hashadow">
-            <img class="course-banner" src="https://img4.mukewang.com/szimg/5ac2dfe100014a9005400300.jpg">
-            <div class="course-label">
-              <label>Vue.js</label>
-            </div>
-          </div>
-          <div class="course-card-content">
-            <h3 class="course-card-name"> React16.4 开发简书项目 从零基础入门到实战</h3>
-            <div class="clearfix course-card-bottom">
-              <div class="course-card-info">
-                <span>实战</span>
-                <span>中级</span>
-                <span>
-              <i class="icon-set_sns"></i>454
-            </span>
-                <span class="course-star-box">
-              <i class="icon-star2 on" *ngFor="let i of rangeArray(0,5)"></i>
-            </span>
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
+<nz-table
+  #editRowTable
+  nzBordered
+  [nzData]="adCourse">
+  <thead>
+  <tr>
+    <th>课程名字</th>
+    <th>图片</th>
+    <th>简介</th>
+    <th>所属行业</th>
+    <th>替换</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let ad of adCourse">
+    <td>
+      {{ ad.courseName }}
+    </td>
+    <td (click)="showModal(ad.imgSrc, ad.courseName)">
+      <img src="{{ ad.imgSrc }}" width="40" height="40">
+      <span>{{ ad.kind }}</span>
+    </td>
+    <td>{{ ad.info }}</td>
+    <td>{{ ad.bleng }}</td>
+    <td>
+      <button nz-button nzType="primary" (click)="openDialog(ad.id)">替换课程</button>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>
+<nz-modal [(nzVisible)]="isVisible" nzTitle="{{ courseName }}" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" nzWidth="580px" nzOkText="确定" nzCancelText="取消">
+  <img src="{{ imgSrc}}" alt="详细情况">
+</nz-modal>

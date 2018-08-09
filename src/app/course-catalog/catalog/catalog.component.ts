@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {CatalogService} from './service/catalog.service';
 import {Catalog} from './domian/catalog';
 import {MatDialog} from '@angular/material';
@@ -25,7 +25,7 @@ export class CatalogComponent implements OnInit {
   flag: string = '0';
 
 
-  constructor(private route: ActivatedRoute,
+  constructor(private router: Router,private route: ActivatedRoute,
               private catalogService: CatalogService,
               public dialog: MatDialog) { }
 
@@ -35,6 +35,17 @@ export class CatalogComponent implements OnInit {
 
   changeKind(kind: string) {
     this.kind = kind;
+  }
+
+  openComment(kind: string, id: string) {
+    if (kind === '2') {
+      return;
+    }
+    this.router.navigate(['/reply'], {
+      queryParams: {
+        'commentId': id,
+      }
+    });
   }
 
   openDialog(kind: string): void {

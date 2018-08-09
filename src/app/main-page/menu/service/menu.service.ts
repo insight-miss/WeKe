@@ -2,7 +2,6 @@ import {Injectable, OnInit} from '@angular/core';
 import {MenuList} from '../../domain/menuList';
 import {TecDetail} from '../../domain/tecDetail';
 import {Observable, of} from 'rxjs';
-import {TEC1} from '../../mock/tecMock';
 import {HttpClient} from "@angular/common/http";
 import {catchError, retry} from "rxjs/operators";
 

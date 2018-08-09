@@ -1,4 +1,11 @@
 export class Person {
+  get permission(): string {
+    return this._permission;
+  }
+
+  set permission(value: string) {
+    this._permission = value;
+  }
   get url(): string {
     return this._url;
   }
@@ -47,13 +54,15 @@ export class Person {
   private _address: string;
   private _sex: string;
   private _info: string;//个性签名
+  private _permission: string;
 
-  constructor(url: string, nickname: string, job: string, address: string, sex: string, info: string){
+  constructor(url: string, nickname: string, job: string, address: string, sex: string, info: string,permission: string){
     this._url = url;
     this._nickname = nickname;
     this._job = job;
     this._address = address;
     this._sex = sex;
     this._info = info;
+    this._permission = permission;
   }
 }

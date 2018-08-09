@@ -1,5 +1,6 @@
 
 export class Comment {
+
   get userId(): string {
     return this._userId;
   }

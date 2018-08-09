@@ -1,0 +1,193 @@
+/*div{*/
+  /*margin: 0;*/
+  /*padding: 0;*/
+/*}*/
+/*.moco-modal-layer {*/
+  /*box-shadow: 8px 0 16px 0 rgba(7,17,27,.2);*/
+  /*border-radius: 4px;*/
+  /*top: 50%!important;*/
+  /*left: 50%!important;*/
+  /*-webkit-transform: translate(-50%,-50%)!important;*/
+  /*height: auto!important;*/
+/*}*/
+/*.moco-modal-layer {*/
+  /*position: absolute;*/
+  /*background: #fff;*/
+  /*box-shadow: 0 8px 16px 0 rgba(7,17,27,0.2);*/
+  /*border-radius: 12px;*/
+/*}*/
+/*.moco-modal-overlay {*/
+  /*position: fixed;*/
+  /*top: 0;*/
+  /*right: 0;*/
+  /*bottom: 0;*/
+  /*left: 0;*/
+  /*overflow: auto;*/
+/*}*/
+/*.moco-modal-inner .moco-modal-dialog {*/
+  /*padding: 32px;*/
+/*}*/
+/*.moco-modal-dialog {*/
+  /*padding: 0!important;*/
+  /*margin-bottom: 0!important;*/
+/*}*/
+/*.pay-tip-modal {*/
+  /*padding: 36px 0 32px;*/
+  /*background: #fff;*/
+  /*box-shadow: 0 12px 24px 0 rgba(7,17,27,.2);*/
+  /*border-radius: 12px;*/
+  /*width: 320px;*/
+  /*text-align: center;*/
+/*}*/
+/*.pay-tip-modal .wait-img {*/
+  /*width: 96px;*/
+  /*height: 96px;*/
+  /*background: #f3f5f6;*/
+  /*border-radius: 50%;*/
+  /*margin: 0 auto 12px;*/
+/*}*/
+/*.pay-tip-modal h3 {*/
+  /*font-size: 16px;*/
+  /*font-weight: 700;*/
+  /*color: #1c1f21;*/
+  /*line-height: 24px;*/
+/*}*/
+/*.pay-tip-modal .error {*/
+  /*color: #f20d0d;*/
+/*}*/
+/*.pay-tip-modal p {*/
+  /*margin: 4px auto 16px;*/
+  /*font-size: 12px;*/
+  /*color: #9199a1;*/
+  /*line-height: 18px;*/
+/*}*/
+/*.pay-tip-modal .wait-img span {*/
+  /*font-size: 64px;*/
+  /*color: #b2b8bd;*/
+  /*line-height: 96px;*/
+/*}*/
+/*.pay-tip-modal .btnwarp {*/
+  /*display: inline-block;*/
+/*}*/
+/*.pay-tip-modal .success-btn {*/
+  /*padding: 8px 52px;*/
+  /*cursor: pointer;*/
+  /*background: #383d42;*/
+  /*border-radius: 24px;*/
+  /*font-size: 14px;*/
+  /*color: #fff;*/
+  /*line-height: 20px;*/
+/*}*/
+/*.pay-tip-modal .restart-btn {*/
+  /*margin-top: 16px;*/
+  /*cursor: pointer;*/
+  /*font-size: 14px;*/
+  /*color: #9199a1;*/
+  /*line-height: 24px;*/
+/*}*/
+/*.pay-tip-modal .restart-btn span {*/
+  /*font-size: 16px;*/
+  /*color: #9199a1;*/
+  /*line-height: 24px;*/
+  /*margin-right: 8px;*/
+/*}*/
+.moco-modal-layer {
+  box-shadow: 8px 0 16px 0 rgba(7,17,27,.2);
+  border-radius: 4px;
+  top: 50%!important;
+  left: 50%!important;
+  -webkit-transform: translate(-50%,-50%)!important;
+  height: auto!important;
+}
+.moco-modal-layer {
+  position: absolute;
+  background: #fff;
+  box-shadow: 0 8px 16px 0 rgba(7,17,27,0.2);
+  border-radius: 12px;
+}
+.moco-modal-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+}
+.moco-modal-inner .moco-modal-dialog {
+  padding: 32px;
+}
+.moco-modal-dialog {
+  padding: 0!important;
+  margin-bottom: 0!important;
+}
+.pay-tip-modal {
+  padding: 36px 0 32px;
+  background: #fff;
+  box-shadow: 0 12px 24px 0 rgba(7,17,27,.2);
+  border-radius: 12px;
+  width: 320px;
+  text-align: center;
+}
+.pay-tip-modal .wait-img {
+  width: 96px;
+  height: 96px;
+  background: #f3f5f6;
+  border-radius: 50%;
+  margin: 0 auto 12px;
+}
+.pay-tip-modal h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1c1f21;
+  line-height: 24px;
+}
+.pay-tip-modal .error {
+  color: #f20d0d;
+}
+.pay-tip-modal p {
+  margin: 4px auto 16px;
+  font-size: 12px;
+  color: #9199a1;
+  line-height: 18px;
+}
+.pay-tip-modal .btnwarp {
+  display: inline-block;
+}
+.pay-tip-modal .wait-img span {
+  font-size: 64px;
+  color: #b2b8bd;
+  line-height: 96px;
+}
+[class*=" imv2-"], [class^=imv2-] {
+  font-family: imv2!important;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.pay-tip-modal .success-btn {
+  padding: 8px 52px;
+  cursor: pointer;
+  background: #383d42;
+  border-radius: 24px;
+  font-size: 14px;
+  color: #fff;
+  line-height: 20px;
+}
+.pay-tip-modal .restart-btn {
+  margin-top: 16px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #9199a1;
+  line-height: 24px;
+}
+.pay-tip-modal .restart-btn span {
+  font-size: 16px;
+  color: #9199a1;
+  line-height: 24px;
+  margin-right: 8px;
+}

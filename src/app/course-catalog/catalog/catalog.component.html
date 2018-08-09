@@ -9,7 +9,8 @@
         <li>
           <span>1266</span>
           <a [class]="kind==='2'?'moco-change-big-btn active':'moco-change-big-btn '" id="qaOn"
-             class="moco-change-big-btn " [routerLink]="['/learn']" [queryParams]="{kind:'2',id:courseId}" (click)="changeKind('2')">问答评论</a>
+             class="moco-change-big-btn " [routerLink]="['/learn']" [queryParams]="{kind:'2',id:courseId}"
+             (click)="changeKind('2')">问答评论</a>
         </li>
         <li>
           <a [class]="kind==='3'?'moco-change-big-btn active':'moco-change-big-btn '" id="noteOn"
@@ -46,69 +47,26 @@
           </div>
         </div>
       </div>
-      <div class="aside r" style="margin-top: 30px;">
+      <div class="aside r" style="margin-top: 86px;">
         <div class="course-wrap course-aside-info js-usercard-box">
           <div class="learn-btn" id="continue">
             <div class="learn-info">
-              <span>已学 100% </span>
-              学习耗时 5小时26分
+              <span>课程简介 </span>
             </div>
-            <div class="progress">
-              <ins style="display: inline-block; width: 100%;"></ins>
-            </div>
-            <div class="learn-info-media">{{ learnTime.lastLearn }}</div>
-            <a href="#" class="moco-btn moco-btn-red moco-btn-lg">继续学习</a>
           </div>
-          <div class="course-info-tip">
+          <div class="course-info-tip" style="margin-top: 20px;">
             <dl class="first">
-              <dt>课程须知</dt>
-              <dt class="autowrap">{{ learnTime.mustKnow }}</dt>
+              <dt class="autowrap">{{ catalog.info}}</dt>
             </dl>
-          </div>
-          <div class="course-info-tip download">
-            <h4>资料下载</h4>
-            <ul class="downlist">
-              <li>
-                <a href="#" class="download-item">
-                <span>
-                  <i class="icon icon-folder"></i>
-                  焦点图轮播效果(源代码)
-                </span>
-                  <span class="downcode">下载</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="js-commend-box">
-          <div class="mb40 recom-course-list-box">
-            <h4>推荐课程</h4>
-            <ul class="js-recom-course moco-aside-course clearfix">
-              <li>
-                <div class="aside-course-img"></div>
-                <div class="aside-course-content"></div>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="js-tag-box">
-          <div class="mb40 all-attention-box">
-            <h4>热门专题标签</h4>
-            <div class="js-all-attention all-attention"></div>
-          </div>
-        </div>
-        <div class="js-related-box">
-          <div class="mb40 recom-course-list-box">
-            <h4>相关课程</h4>
-            <ul class="js-recom-course moco-aside-course clearfix"></ul>
           </div>
         </div>
       </div>
+
     </div>
     <div class="clear"></div>
   </div>
   <!--评论-->
-  <div *ngIf="kind === '2'"class="course-info-main clearfix w">
+  <div *ngIf="kind === '2'" class="course-info-main clearfix w">
     <div class="content-wrap clearfix">
       <div class="content">
         <div class="comp-filter-bar clearfix">
@@ -117,16 +75,17 @@
           <a href="#" class="moco-change-smalle-btn ">问答</a>
           <a href="#" class="moco-change-smalle-btn ">未解决</a>
           <a href="#" class="moco-change-smalle-btn ">精华</a>
-          <span class="js-pub-btn moco-btn moco-btn-gray-l" style="background-color:#eeeeef;margin-right: 160px" (click)="openDialog('1')">我要发布</span>
+          <span class="js-pub-btn moco-btn moco-btn-gray-l" style="background-color:#eeeeef;margin-right: 160px"
+                (click)="openDialog('1')">我要发布</span>
           <span class="js-pub-btn moco-btn moco-btn-gray-l" style="background-color:#eeeeef;" (click)="openDialog('2')">我要提问</span>
         </div>
-        <div class="answertabcon">
+        <div class="answertabcon" >
           <div class="course_quescon" *ngIf="flag === '1'">
-            <div *ngFor="let comment of comments" class="wenda-listcon mod-qa-list clearfix">
-              <div *ngIf="comment.kind==='1'" class="icon-wenda"></div>
+            <div *ngFor="let comment of comments" class="wenda-listcon mod-qa-list clearfix" (click)="openComment(comment.kind, comment.userId)">
+              <div *ngIf="comment.kind==='1'" class="icon-wenda" ></div>
               <div class="headslider qa-medias l">
                 <a href="#" class="wenda-head" target="_blank" title="{{ comment.photo }}">
-                  <img src="https://img2.mukewang.com/user/59e5c5b30001aa2601000100-80-80.jpg" width="40" height="40">
+                  <img src="{{ comment.photo }}" width="40" height="40">
                 </a>
               </div>
               <div class="wendaslider qa-content">
@@ -137,7 +96,7 @@
                     </div>
                   </h2>
                   <div class="replycont qa-body clearfix">
-                    <div  highlight="all" [innerHTML]="comment.comment"></div>
+                    <div highlight="all" [innerHTML]="comment.comment"></div>
                   </div>
                   <div class="replymegfooter qa-footer clearfix">
                     <div class="wenda-time">
@@ -158,13 +117,13 @@
                   <div class="cnt">{{ comment.comment }}</div>
                   <div class="replymegfooter qa-footer clearfix">
                     <div class="l-box l">
-                      <a title="赞"  class="js-pl-praise moco-btn moco-btn-gray-l" style="background-color: #eeeeef;border: 0px;">
+                      <a title="赞" class="js-pl-praise moco-btn moco-btn-gray-l"
+                         style="background-color: #eeeeef;border: 0px;">
                       <span class="icon-thumb-revert">
                         <i class="anticon anticon-like" style="color:#93999f;"></i>
                       </span>
                         <em>{{ comment.num }}</em>
                       </a>
-                      <a>举报</a>
                     </div>
                     <span class="r timeago">时间:{{ comment.time }}</span>
                   </div>
@@ -179,57 +138,13 @@
         <div class="course-wrap course-aside-info js-usercard-box">
           <div class="learn-btn" id="continue">
             <div class="learn-info">
-              <span>已学 {{learnTime.studyPercent}}% </span>
-              学习耗时 {{ learnTime.studyTime }}
+              <span>课程简介 </span>
             </div>
-            <div class="progress">
-              <ins style="display: inline-block; width: {{learnTime.studyPercent}}%;"></ins>
-            </div>
-            <div class="learn-info-media">上次学至 1-1 原理介绍</div>
-            <a href="#" class="moco-btn moco-btn-red moco-btn-lg">继续学习</a>
           </div>
-          <div class="course-info-tip">
+          <div class="course-info-tip" style="margin-top: 20px;">
             <dl class="first">
-              <dt>课程须知</dt>
-              <dt class="autowrap">{{ learnTime.mustKnow }}</dt>
+              <dt class="autowrap">{{ catalog.info}}</dt>
             </dl>
-          </div>
-          <div class="course-info-tip download">
-            <h4>资料下载</h4>
-            <ul class="downlist">
-              <li>
-                <a href="#" class="download-item">
-                <span>
-                  <i class="icon icon-folder"></i>
-                  焦点图轮播效果(源代码)
-                </span>
-                  <span class="downcode">下载</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="js-commend-box">
-          <div class="mb40 recom-course-list-box">
-            <h4>推荐课程</h4>
-            <ul class="js-recom-course moco-aside-course clearfix">
-              <li>
-                <div class="aside-course-img"></div>
-                <div class="aside-course-content"></div>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="js-tag-box">
-          <div class="mb40 all-attention-box">
-            <h4>热门专题标签</h4>
-            <div class="js-all-attention all-attention"></div>
-          </div>
-        </div>
-        <div class="js-related-box">
-          <div class="mb40 recom-course-list-box">
-            <h4>相关课程</h4>
-            <ul class="js-recom-course moco-aside-course clearfix"></ul>
           </div>
         </div>
       </div>
@@ -237,3 +152,4 @@
   </div>
 
 </div>
+

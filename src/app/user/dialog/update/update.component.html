@@ -1,0 +1,31 @@
+<div class="moco-modal-overlay" style="z-index: 901; opacity: 1;">
+  <div class="moco-modal-layer" style="z-index: 901; visibility: visible; left: 717px; top: 261.5px;">
+    <div class="moco-modal-layer">
+      <div class="moco-modal-inner">
+        <div class="moco-modal-dialog" style="display: block;">
+          <div class="tpl-avator">
+            <div class="moco-form-group avator-wapper">
+              <div class="avator-mode">
+                <img [src]=" imgUrl" class="avator-img" width="192" height="192">
+              </div>
+              <div class="clearfix w140 files" style="margin-left: 140px;">
+                {{ fileName }}
+                <input type="file" accept="image/*" id = "file" (change)="changePic($event)" #files>
+              </div>
+            </div>
+            <mat-dialog-actions>
+              <div style="margin-left: 128px;"class="moco-form-group">
+                <label class="moco-control-label"></label>
+                <div class="moco-control-input">
+                  <a class="moco-btn moco-btn-blue js-avator-save marR10" (click)="onSave('1', files)">确定</a>
+                  <a class="moco-btn moco-btn-normal js-modal-close" (click)="onSave('0')">取消</a>
+                  <p class="js-gerror g_error"></p>
+                </div>
+              </div>
+            </mat-dialog-actions>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

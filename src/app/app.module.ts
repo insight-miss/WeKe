@@ -55,6 +55,14 @@ import { RecommendComponent } from './backstage/recommend/recommend.component';
 import {MessagePushService} from "./service/message-push.service";
 import { ClassicProblemComponent } from './onlineExam/classic-problem/classic-problem.component';
 import {AuthInterceptor} from "./Jwt/JWTInterceptor";
+import {SearchComponent} from "./search/search.component";
+import {ReplayComponent} from "./replay/replay/replay.component";
+import { UpdateComponent } from './user/dialog/update/update.component';
+import { QRCodeModule } from "angular2-qrcode";
+import { AliPayComponent } from './ali-pay/ali-pay.component';
+import { PayComponent } from './user/componet/pay/pay.component';
+import { AllCourseComponent } from './backstage/recommend/componet/all-course/all-course.component';
+
 const options: HighlightOptions = {
   theme: 'monokai_sublime',
   path: 'assets/ckeditor/plugins/codesnippet/lib/highlight/'
@@ -88,12 +96,18 @@ const options: HighlightOptions = {
     UserComponent,
     PersonComponent,
     UploadVideoComponent,
+    ReplayComponent,
     ApprovalExamComponent,
     ApprovalPageComponent,
     BackstageComponent,
     UserManagemetComponent,
     RecommendComponent,
-    ClassicProblemComponent
+    ClassicProblemComponent,
+    SearchComponent,
+    UpdateComponent,
+    AliPayComponent,
+    PayComponent,
+    AllCourseComponent
   ],
   imports: [
     BrowserModule,
@@ -115,7 +129,8 @@ const options: HighlightOptions = {
     VgControlsModule,
     VgOverlayPlayModule,
     VgBufferingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    QRCodeModule
   ],
   providers: [
     TestService,
@@ -134,7 +149,10 @@ const options: HighlightOptions = {
     PublishComponent,
     CommentComponent,
     WriteDemoComponent,
-    PersonComponent
+    PersonComponent,
+    UpdateComponent,
+    PayComponent,
+    AllCourseComponent
   ],
   bootstrap: [AppComponent]
 })

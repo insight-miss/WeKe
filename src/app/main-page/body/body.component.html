@@ -11,9 +11,9 @@
     </h3>
     <div class="clearfix types-content">
       <div class="index-card-container course-card-container container" *ngFor="let course of courses">
-        <a  [routerLink]="['/learn']" [queryParams]="{kind:'1',id:course.info}" target="_blank">
+        <a [routerLink]="['/learn']" [queryParams]="{kind:'1',id:course.info}" target="_blank">
           <div class="course-card-top hashadow">
-            <img class="course-banner" src="https://img4.mukewang.com/szimg/5ac2dfe100014a9005400300.jpg">
+            <img class="course-banner" src="{{ course.url }}">
             <div class="course-label">
               <label>Vue.js</label>
             </div>

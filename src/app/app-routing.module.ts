@@ -23,6 +23,7 @@ import {ClassicProblemComponent} from "./onlineExam/classic-problem/classic-prob
 import {LoginGuard} from "./Jwt/LoginGuard";
 import {ReplayComponent} from "./replay/replay/replay.component";
 import {UploadVideoComponent} from "./upload-video/upload-video.component";
+import {SearchComponent} from "./search/search.component";
 
 const routes: Routes = [
   { path: 'test' , component: TestComponent , canActivate:[LoginGuard]} ,
@@ -51,6 +52,8 @@ const routes: Routes = [
       {path: 'recommend', component:RecommendComponent}
     ]},
   {path: 'uploadVideo', component: UploadVideoComponent},
+  {path:'search', component: SearchComponent},
+  {path: 'reply', component: ReplayComponent}
 ];
 
 

@@ -17,7 +17,7 @@ export class ReplayComponent implements OnInit {
     filebrowserImageUploadUrl: ''
   };
 
-  content: string = "xxx";
+  content: string = "";
   userName: string = '让让群';
   nickname: string;
   index: string = '-1';
@@ -40,24 +40,32 @@ export class ReplayComponent implements OnInit {
     this.nickname = nickname;
     this.flag = kind;
     this.index = index;
-    this.inputMsg = nickname;
+    // this.inputMsg = nickname;
     this.replyId = replyId;
     console.log(index + "  " + kind + "  " + nickname);
   }
 
   // 直接回复题主
   replyMaster(nickname: string) {
+    if (this.content.length === 0) {
+      return;
+    }
     this.nickname = nickname;
     console.log("content "+this.content);
-    this.replyService.saveReply(new Po("1", this.commentId, this.userName, this.content,"让让群"));
+    this.replyService.saveReply(new Po("1", this.commentId, this.userName, this.content,"让让群")).subscribe(result =>{
+      this.getReply();
+    });
     this.content = '';
   }
 
   // 小框回复
   selectReply(flag: string) {
     this.index = '-1';
-    if (this.flag === '1') {
-      this.replyService.saveReply(new Po("2",this.replyId, this.userName, this.inputMsg,this.nickname));
+    if (this.flag === '1'&& this.inputMsg.length != 0) {
+      this.replyService.saveReply(new Po("2",this.replyId, this.userName, this.inputMsg,this.nickname)).subscribe(result =>{
+        this.getReply();
+      });
+      this.inputMsg = '';
     }
   }
 

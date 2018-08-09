@@ -18,14 +18,14 @@ export class ReplyService {
     return this.http.get<Reply>(this.url, {params});
   }
 
-  saveReply(po: Po): void{
-     this.http.post(this.url1,{
+  saveReply(po: Po): Observable<any>{
+     return this.http.post(this.url1,{
       "kind": po.kind,
       "id": po.id,
       "sb": po.sb,
       "content": po.content,
       "replyer": po.replyer
-    }).subscribe();
+    });
   }
 
   constructor(private http: HttpClient) { }

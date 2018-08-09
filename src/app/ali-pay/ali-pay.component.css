@@ -1,0 +1,316 @@
+.cart-body {
+  width: 1152px;
+  padding: 0 36px 32px;
+  background-color: #fff;
+  /*margin-top: -40px;*/
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 8px 16px 0 rgba(7, 17, 27, .1);
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+div {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.cart-body .cart-body-title {
+  border-bottom: 0;
+}
+
+.cart-body .cart-body-title {
+  min-height: 88px;
+  line-height: 88px;
+  border-bottom: 1px solid #b7bbbf;
+  box-sizing: border-box;
+}
+
+.cart-body .pay-method {
+  padding: 30px 12px 48px;
+  border-top: 1px solid #d9dde1;
+  border-bottom: 1px solid #d9dde1;
+}
+
+.cart-body .item-ul {
+  height: 0;
+  overflow: hidden;
+}
+
+ul {
+  list-style: none;
+}
+
+.cart-body .pay-method .pay-method-title {
+  height: 46px;
+  line-height: 30px;
+  font-size: 16px;
+  color: #07111b;
+}
+
+.cart-body .pay-summary .warning {
+  font-size: 14px;
+  color: #f90;
+  padding-top: 32px;
+  line-height: 20px;
+  float: left;
+}
+
+.cart-body .pay-summary .summary {
+  float: right;
+  padding-top: 36px;
+}
+
+.cart-body .cart-body-title .trade-title {
+  line-height: 16px;
+  padding-top: 36px;
+  padding-bottom: 24px;
+}
+
+.cart-body .right {
+  float: right !important;
+}
+
+.cart-body .item {
+  height: 140px;
+  padding: 24px;
+  background-color: #f3f5f7;
+  border-bottom: 2px solid #fff;
+}
+
+.cart-body .pay-method .pay-way.active {
+  border-color: #f01414;
+}
+
+.cart-body .pay-method .alipay {
+  background-position: 55px -304px;
+  background-repeat: no-repeat;
+}
+
+.cart-body .pay-method li {
+  float: left;
+  margin-right: 25px;
+  position: relative;
+  width: 236px;
+  height: 86px;
+  background-color: #f3f5f7;
+  border: 2px solid #f3f5f7;
+  cursor: pointer;
+  background-image: url(https://order.imooc.com/static/module/pay/center/img/pay_s.png);
+}
+
+.cart-body .pay-method .wxpay {
+  background-position: 48px -423px;
+  background-repeat: no-repeat;
+}
+
+.cart-body .pay-method li {
+  float: left;
+  margin-right: 25px;
+  position: relative;
+  width: 236px;
+  height: 86px;
+  background-color: #f3f5f7;
+  border: 2px solid #f3f5f7;
+  cursor: pointer;
+  background-image: url(https://order.imooc.com/static/module/pay/center/img/pay_s.png);
+}
+
+.cart-body .pay-method li:last-child {
+  margin-right: 0;
+}
+
+.cart-body .pay-method .huabei {
+  background-image: url(https://order.imooc.com/static/module/pay/center/img/huabeifenqi.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.cart-body .pay-method li {
+  float: left;
+  margin-right: 25px;
+  position: relative;
+  width: 236px;
+  height: 86px;
+  background-color: #f3f5f7;
+  border: 2px solid #f3f5f7;
+  cursor: pointer;
+}
+
+.cart-body .pay-summary .total {
+  height: 24px;
+}
+
+.cart-body .pay-summary .submit-warp {
+  margin-top: 32px;
+  margin-bottom: 16px;
+}
+
+.cart-body .cart-body-title .trade-title .order {
+  font-size: 16px;
+  color: #07111b;
+}
+
+.cart-body .cart-body-title .num {
+  font-size: 16px;
+  color: #070000;
+}
+
+.cart-body .cart-body-title a {
+  font-size: 14px;
+  color: #f01414;
+}
+
+.cart-body .item-left {
+  line-height: 22px;
+}
+
+.cart-body .left {
+  float: left !important;
+}
+.cart-body .item-right {
+  width: 28%;
+}
+.cart-body .right {
+  float: right!important;
+}
+.cart-body .pay-method .pay-way.active .bottomright {
+  display: block;
+}
+.cart-body .pay-method .bottomright {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: none;
+}
+.cart-body .pay-summary .total .label {
+  line-height: 26px;
+}
+.cart-body .pay-summary .label {
+  width: 96px;
+  font-size: 14px;
+  color: #07111b;
+  height: 20px;
+  text-align: right;
+  float: left;
+  line-height: 20px;
+}
+.cart-body .pay-summary .total .price {
+  font-size: 24px;
+  line-height: 24px;
+  height: 24px;
+}
+.cart-body .pay-summary .price {
+  font-size: 14px;
+  color: #f01414;
+  height: 20px;
+  text-align: right;
+  line-height: 20px;
+  float: left;
+}
+.cart-body .price {
+  color: #f01414;
+}
+.cart-body .pay-summary .pay-summary-submit {
+  float: right;
+  width: 140px;
+  height: 40px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  background-color: #f01414;
+  border-radius: 2px;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+}
+.cart-body .cart-body-title a {
+  font-size: 14px;
+  color: #f01414;
+}
+.cart-body .item-left dl {
+  margin: 0;
+  padding: 0;
+  width: 462px;
+  height: 90px;
+}
+.cart-body .left {
+  float: left!important;
+}
+.cart-body .item-right .price {
+  font-size: 16px;
+}
+.cart-body .price {
+  color: #f01414;
+}
+.cart-body .pay-method .triangle {
+  width: 0;
+  height: 0;
+  border-bottom: 20px solid red;
+  border-left: 20px solid transparent;
+}
+.cart-body .pay-method .bottomright i {
+  position: absolute;
+  right: -1px;
+  bottom: 0;
+  color: #fff;
+  font-size: 12px;
+}
+[class*=" imv2-"], [class^=imv2-] {
+  font-family: imv2!important;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.cart-body .pay-summary .price em, .cart-body .pay-summary .price span {
+  float: none;
+}
+.cart-body .pay-summary .price span {
+  float: none;
+}
+.cart-body .item-left img {
+  margin-right: 20px;
+}
+.cart-body .left {
+  float: left!important;
+}
+fieldset, img {
+  border: 0;
+}
+.cart-body .cart-body-title a {
+  font-size: 14px;
+  color: #f01414;
+}
+.cart-body .item-left dt {
+  margin: 0;
+  font-size: 16px;
+  color: #07111b;
+  line-height: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cart-body .item-right .price .price-text {
+  font-size: 14px;
+  color: #93999f;
+}
+.cart-body .item-right .price em {
+  margin-top: -3px;
+}
+em {
+  font-style: normal;
+}
+.cart-body .item-right .price {
+  font-size: 16px;
+}
+.cart-body .price {
+  color: #f01414;
+}
