@@ -12,6 +12,7 @@ export class ApprovalService {
   url1 = environment.baseUrl + 'exam/setQuestions';
 
   testId : number;
+  userName: string;
 
   answerQuestion: Array<Questions>=[];
 
@@ -20,14 +21,14 @@ export class ApprovalService {
   getAnswerQuestion():Observable<Array<Questions>> {
     return this.http.post<Array<Questions>>(this.url,{
       "testId": this.testId,
-      "userName": '6'
+      "userName": this.userName
     }).pipe();
   }
 
   setAnswerQuestion() {
     return this.http.post<Array<Questions>>(this.url1,{
       "testId": this.testId,
-      "userName": '6',
+      "userName": this.userName,
       "questions": this.answerQuestion
     }).pipe();
   }

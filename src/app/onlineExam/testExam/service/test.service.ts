@@ -11,7 +11,6 @@ import {ExamReport} from "../../ExamAnalysis/EvaluationReport/domain/ExamReport"
 @Injectable()
 export class TestService {
 
-  url = environment.baseUrl + "exam/allExam";
 
   constructor(private http: HttpClient) { }
 
@@ -26,7 +25,9 @@ export class TestService {
    * @returns {Observable<Array<any>>}
    */
   getTestInfo(): Observable<Array<any>> {
-    return this.http.get<Array<any>>(this.url,httpOptions).pipe();
+    const url = environment.baseUrl + "exam/allExam?userName="+localStorage.getItem('userName');
+    console.log(url);
+    return this.http.get<Array<any>>(url).pipe();
   }
 
   /**
@@ -45,9 +46,10 @@ export class TestService {
     const analysisUrl = environment.baseUrl + "exam/examAnalySis";
     return this.http.post<ExamReport>(analysisUrl,{
       'testId': id,
-      'userName': '6'
+      'userName': localStorage.getItem('userName')
     }).pipe();
   }
+
 }
 
 const httpOptions = {

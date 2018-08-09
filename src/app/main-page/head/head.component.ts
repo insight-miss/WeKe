@@ -37,7 +37,20 @@ export class HeadComponent implements OnInit {
     }
   }
 
+  isView = false;
+
   ngOnInit() {
+    this.emitService.eventEmit.subscribe((value: any) => {
+      console.log('是否显示');
+      if(value === "isView") {
+        // 这里就可以调取接口，刷新userList列表数据
+        this.isView = true;
+      }
+      if (value === 'isNotView') {
+        this.isView = false;
+      }
+
+    });
   }
 
   login() {

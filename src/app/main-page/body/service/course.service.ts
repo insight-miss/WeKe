@@ -3,12 +3,13 @@ import {Observable, of} from 'rxjs';
 import {Course} from '../../domain/course';
 import {HttpClient} from "@angular/common/http";
 import {retry} from "rxjs/operators";
+import {environment} from "../../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CourseService {
-  url: string = 'http://10.0.0.26:8080/page/course';
+  url: string = environment.baseUrl + 'page/course';
 
   getCourses(): Observable<Course[]> {
     return this.http.get<Course[]>(this.url).pipe(

@@ -1,68 +1,153 @@
-<div class="course-detail-header" id="header">
-  <div class="cd-inner clearfix">
-    <div class="cd-inner clearfix">
-      <ul class="l top">
-        <li class="nv nv-goback" (click)="goBack()">
-          <a class="revert l">
-            <i style="font-size: 20px;" class="imv2-arrow3_l anticon anticon-arrow-left"></i>
-          </a>
-        </li>
-        <li class="nv nv-menu" style="text-align: center;">
-          <a class="chaptername J-chaptername" style="cursor:text;">
-            <em>{{ chapter }}</em>
-          </a>
-        </li>
-      </ul>
-      <div id="login-area">
-        <ul class="clearfix logined">
-          <li class="set_btn user-card-box" id="header-user-card">
-            <a id="header-avator" class="user-card-item" target="_self" title="{{ video.nickname }}">
-              <img src="{{ video.photoUrl }}" width="40" height="40">
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="search-warp clearfix">
-        <div class="search-area">
-          <input type="text" class="search-input" placeholder="搜你想搜" [(ngModel)]="content" name="search"
-                 style="color: black;">
-        </div>
-        <div class="showhide-search">
-          <i style="font-size: 20px;" class="icon-search anticon anticon-search"></i>
-        </div>
-      </div>
-    </div>
+<!--<div class="course-detail-header" id="header">-->
+  <!--<div class="cd-inner clearfix">-->
+    <!--<div class="cd-inner clearfix">-->
+      <!--<ul class="l top">-->
+        <!--<li class="nv nv-goback" (click)="goBack()">-->
+          <!--<a class="revert l">-->
+            <!--<i style="font-size: 20px;" class="imv2-arrow3_l anticon anticon-arrow-left"></i>-->
+          <!--</a>-->
+        <!--</li>-->
+        <!--<li class="nv nv-menu" style="text-align: center;">-->
+          <!--<a class="chaptername J-chaptername" style="cursor:text;">-->
+            <!--<em>{{ chapter }}</em>-->
+          <!--</a>-->
+        <!--</li>-->
+      <!--</ul>-->
+      <!--<div id="login-area">-->
+        <!--<ul class="clearfix logined">-->
+          <!--<li class="set_btn user-card-box" id="header-user-card">-->
+            <!--<a id="header-avator" class="user-card-item" target="_self" title="{{ video.nickname }}">-->
+              <!--<img src="{{ video.photoUrl }}" width="40" height="40">-->
+            <!--</a>-->
+          <!--</li>-->
+        <!--</ul>-->
+      <!--</div>-->
+      <!--<div class="search-warp clearfix">-->
+        <!--<div class="search-area">-->
+          <!--<input type="text" class="search-input" placeholder="搜你想搜" [(ngModel)]="content" name="search"-->
+                 <!--style="color: black;">-->
+        <!--</div>-->
+        <!--<div class="showhide-search">-->
+          <!--<i style="font-size: 20px;" class="icon-search anticon anticon-search"></i>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+<!--<div class="playerMain_bg">-->
+  <!--<div class="playerMain_bg">-->
+    <!--<div class="flashArea" id="flashArea">-->
+      <!--<div class="jujiPlayWrap">-->
+        <!--<div class="container pt10 padplay">-->
+          <!--<div class="videoArea-flash clearfix" >-->
+            <!--<div class="videoArea" id="block-B">-->
+              <!--<div id="flashbox" style="position:relative;float:left;">-->
+                <!--<video src="{{ video.videoUrl }}" controls="controls" style="width: 980px; height: 393px;"></video>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="mod-breadcrumb" id="block-C">-->
+    <!--<div id="wrapper">-->
+      <!--<div class="clearfix">-->
+        <!--<div class="wrapper-left" style="margin-left: 465px;">-->
+          <!--<div class="mod-breadcrumb_left">-->
+            <!--<div class="mod-play-tits">-->
+              <!--<h1 class="mod-play-tit">-->
+                <!--<span id="widget-videoname">{{ chapter }}</span>-->
+              <!--</h1>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+
+<div id = "header" class="d-flex justify-content-between">
+  <div class="d-flex">
+    <a class="header_a"><i class="anticon anticon-arrow-left"></i></a>
+    <span>1.1Linux简介</span>
   </div>
+
+  <a class="nz_a">
+    <nz-avatar nzIcon="anticon anticon-user" nzSrc="https://img3.mukewang.com/59e5c5b30001aa2601000100-100-100.jpg"></nz-avatar>
+  </a>
+
 </div>
-<div class="playerMain_bg">
-  <div class="playerMain_bg">
-    <div class="flashArea" id="flashArea">
-      <div class="jujiPlayWrap">
-        <div class="container pt10 padplay">
-          <div class="videoArea-flash clearfix" >
-            <div class="videoArea" id="block-B">
-              <div id="flashbox" style="position:relative;float:left;">
-                <video src="{{ video.videoUrl }}" controls="controls" style="width: 980px; height: 393px;"></video>
-              </div>
-            </div>
-          </div>
-        </div>
+
+<div nz-row class="d-flex">
+
+  <div style="background: #1C1F21 " nz-col [nzSpan]="1">
+    <div style="margin-top: 250px">
+      <div class="openchapter d-flex flex-column">
+        <i class="anticon anticon-bars" style="font-size: 30px;color: white"></i>
+        <span>章节</span>
+      </div>
+
+      <div class="openchapter d-flex flex-column" (click)="problemClick()">
+        <i class="anticon anticon-question-circle-o" style="font-size: 30px;color: white"></i>
+        <span>问答</span>
+      </div>
+
+      <div class="openchapter d-flex flex-column" (click)="showModal()">
+        <i class="anticon anticon-exclamation-circle-o" style="font-size: 30px;color: white"></i>
+        <span>评论</span>
       </div>
     </div>
+
   </div>
-  <div class="mod-breadcrumb" id="block-C">
-    <div id="wrapper">
-      <div class="clearfix">
-        <div class="wrapper-left" style="margin-left: 465px;">
-          <div class="mod-breadcrumb_left">
-            <div class="mod-play-tits">
-              <h1 class="mod-play-tit">
-                <span id="widget-videoname">{{ chapter }}</span>
-              </h1>
-            </div>
-          </div>
-        </div>
+
+  <div nz-col [nzSpan]="nzSpan" style="height: 860px">
+    <vg-player>
+      <vg-overlay-play></vg-overlay-play>
+      <vg-buffering></vg-buffering>
+      <vg-scrub-bar>
+        <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+        <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+        <vg-scrub-bar-cue-points ></vg-scrub-bar-cue-points>
+      </vg-scrub-bar>
+      <vg-controls>
+        <vg-play-pause></vg-play-pause>
+        <vg-playback-button></vg-playback-button>
+        <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+        <vg-scrub-bar style="pointer-events: none;"></vg-scrub-bar>
+        <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
+        <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+        <vg-mute></vg-mute>
+        <vg-volume></vg-volume>
+        <vg-fullscreen></vg-fullscreen>
+      </vg-controls>
+      <video [vgMedia]="media" #media id="singleVideo" preload="auto" type="video/*">
+        <source src="https://weke-resoure.oss-cn-beijing.aliyuncs.com/230_14.%E6%8E%92%E5%BA%8F-%E5%90%8E%E7%AB%AF.mp4" type="video/mp4">
+      </video>
+    </vg-player>
+  </div>
+
+  <div nz-col [nzSpan]="7" style="background: #F8FAFC;box-shadow: 0 8px 16px 0 rgba(28,31,33,.1);" *ngIf="nzSpan!=23">
+      <div class="problem_sub">
+        <h3>提问题</h3>
+        <input nz-input placeholder="请一句话说明你的问题" nzSize="large">
+        <ckeditor [(ngModel)]="videoProblem" (ngModelChange)="changeVideo($event)" debounce="500" [config]="conf">
+        </ckeditor>
       </div>
-    </div>
   </div>
+
+
+  <nz-modal [(nzVisible)]="isVisible" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" [nzOkLoading]="isOkLoading"
+            nzWidth="560px" [nzFooter]="null" class="commentModel">
+    <div class="commentTitle">
+      <span>我要评论</span>
+    </div>
+
+    <textarea class="form-control" rows="3" id="comment" [(ngModel)] = "videoComment" placeholder="扯淡、吐槽、表扬、鼓励......想说啥就说啥"></textarea>
+
+    <div class="d-flex justify-content-end ">
+      <button nz-button nzType="primary" class="login_btu" (click)="loginClick()">发表评论</button>
+    </div>
+  </nz-modal>
+
 </div>

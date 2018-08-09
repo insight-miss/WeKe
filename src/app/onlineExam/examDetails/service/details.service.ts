@@ -23,7 +23,7 @@ export class DetailsService {
   getAnalySisPage(): Observable<Array<Questions> > {
     return this.http.post<Array<Questions>>(this.url2,{
       "testId": this.testId,
-      "userName": '6'
+      "userName": localStorage.getItem('userName')
     }).pipe();
   }
 
@@ -55,7 +55,7 @@ export class DetailsService {
   submitExamInfo(testId : number) {
     return this.http.post(this.url,{
       "testId": testId,
-      "userName": '6',
+      "userName": localStorage.getItem('userName'),
       "questions": this.questions
     }).pipe();
   }

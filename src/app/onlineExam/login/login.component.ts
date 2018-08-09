@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {EmitService} from "../../route/emit.service";
 import {LoginService} from "./service/login.service";
-import {NzMessageService} from "ng-zorro-antd";
+import {NzMessageService, NzNotificationService} from "ng-zorro-antd";
+import {OAuthService} from "angular-oauth2-oidc";
 
 @Component({
   selector: 'app-login',
@@ -12,17 +13,20 @@ export class LoginComponent implements OnInit {
 
   constructor(public emitService: EmitService,
               private loginService: LoginService,
-              private message: NzMessageService) { }
+              private message: NzMessageService,
+              private oauthService: OAuthService) { }
 
   ngOnInit() {
     // 接收发射过来的数据
     this.emitService.eventEmit.subscribe((value: any) => {
-      this.isVisible = true;
-      if(value == "login") {
+
+      if(value === "login") {
+        this.isVisible = true;
         // 这里就可以调取接口，刷新userList列表数据
         this.choiceFlag = 1;
       }
-      if (value == 'register') {
+      if (value === 'register') {
+        this.isVisible = true;
         this.choiceFlag = 2;
       }
     });
@@ -113,6 +117,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("token",res.body);
           localStorage.setItem("userName",this.loginName);
           this.message.create('success', '登录成功');
+          this.loginService.setUserInfo(this.loginName).subscribe();
         }
       },
       error => {
@@ -135,5 +140,34 @@ export class LoginComponent implements OnInit {
         }
       }
     );
+  }
+
+  num =0;
+
+  private timer;
+
+  githubLogin() {
+   this.timer = setInterval(() => {
+      this.num++;
+
+      if (this.num % 3 == 0) {
+        this.loginService.githubLogin().subscribe(
+          res => {
+            if (res.username) {
+              console.log("用户信息"+res.username);
+              console.log("头像"+res.password);
+              console.log("token"+res.phone);
+              // clearInterval();
+              clearInterval(this.timer);
+              this.isVisible = false;
+              this.loginService.loginFlag = 'true';
+              localStorage.setItem("token",res.phone);
+              localStorage.setItem("userName",res.username);
+              this.message.create('success', '登录成功');
+            }
+          }
+        );
+      }
+    },1000);
   }
 }

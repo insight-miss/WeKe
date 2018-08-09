@@ -4,7 +4,9 @@
     <button nz-button (click)="addExam()" class="editable-add-btn mb-3">新建题集</button>
     <nz-table
       #editRowTable
-      [nzData]=approvalPageService.userExams>
+      [nzData]= "teacherExam"
+      [nzShowPagination]="false"
+      (nzPageIndexChange)="changIx()">
       <thead>
       <tr>
         <th nzWidth="60%">标题</th>
@@ -14,24 +16,32 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let data of approvalPageService.userExams">
-        <td>
-          <a style="color: blue" routerLink="/approval/{{data.userExamId}}">{{data.examName}}</a>
-        </td>
-        <td>{{data.userName}}</td>
-        <td>{{data.examGrade}}</td>
-        <td>
-          <!--{{data.examStatues}}-->
-          <p *ngIf="data.examStatues == 0" style="color: red" class="pt-2">
-            待批阅
-          </p>
-          <p *ngIf="data.examStatues == 1" style="color: #27c4a7" class="pt-2">
-            已审批
-          </p>
-        </td>
+      <tr *ngFor="let data of approvalPageService.userExams let i = index">
+        <!--<div >-->
+          <td *ngIf="i>(currentIndexs-1)*10 && i<=currentIndexs*10">
+            <!--<a style="color: blue" routerLink="/approval/{{data.userExamId}}">{{data.examName}}</a>-->
+            <a style="color: blue" [routerLink]="['/approval']" [queryParams]="{'id':data.userExamId,'userName':data.userName}">{{data.examName}}</a>
+          </td>
+          <td *ngIf="i>(currentIndexs-1)*10 && i<=currentIndexs*10">{{data.userName}}</td>
+          <td *ngIf="i>(currentIndexs-1)*10 && i<=currentIndexs*10">{{data.examGrade}}</td>
+          <td *ngIf="i>(currentIndexs-1)*10 && i<=currentIndexs*10">
+            <!--{{data.examStatues}}-->
+            <p *ngIf="data.examStatues == 0" style="color: red" class="pt-2">
+              待批阅
+            </p>
+            <p *ngIf="data.examStatues == 1" style="color: #27c4a7" class="pt-2">
+              已审批
+            </p>
+          </td>
+
       </tr>
       </tbody>
     </nz-table>
+
+    <div class="d-flex justify-content-end mt-5">
+      <nz-pagination [(nzPageIndex)]="currentIndexs" [(nzTotal)]="totalIndexs"
+                     (nzPageIndexChange)="changCurrentIndex()"></nz-pagination>
+    </div>
   </div>
 
 </div>

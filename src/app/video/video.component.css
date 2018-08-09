@@ -388,3 +388,113 @@ body.qypage-1680 .wrapper, body.qypage-1680 .container {
   width: 980px;
   margin: 0 auto;
 }
+
+.openchapter {
+  display: -webkit-flex;
+  height: 72px;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.openchapter span {
+  margin-top: 4px;
+  font-size: 16px;
+  color: white;
+  line-height: 18px;
+}
+
+.problem_sub {
+  background: #FFF;
+  box-shadow: 0 4px 8px 0 rgba(28,31,33,.1);
+  padding: 16px 24px 24px;
+}
+
+.problem_sub h3 {
+  font-size: 16px;
+  color: #07111B;
+  line-height: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.commentModel {
+  border-radius: 24px;
+}
+
+.commentTitle {
+  line-height: 20px;
+  margin-bottom: 25px;
+}
+
+.commentTitle span {
+  font-size: 16px;
+  font-weight: bold;
+  color: #1c1f21;
+}
+
+.commentButton {
+  margin-top: 15px;
+  color: #fff;
+  border-color: #c20a0a;
+  background: #c20a0a;
+  opacity: 1;
+}
+
+[nz-button] {
+  margin-right: 8px;
+  margin-bottom: 12px;
+}
+
+.login_btu {
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  -moz-transition: all .3s;
+  transition: all .3s;
+  color: #fff;
+  background-color: #f20d0d;
+  border-color: #f20d0d;
+  opacity: 1;
+  padding: 23px 32px;
+  font-size: 16px;
+  line-height: 4px;
+  border-radius: 24px;
+  width: 120px;
+  margin-top: 20px;
+  box-sizing: border-box;
+}
+
+#header {
+  background: #FFF;
+  z-index: 2;
+  box-shadow: 0 4px 8px 0 rgba(28,31,33,.1);
+}
+
+.header_a {
+  width: 70px;
+  height: 72px;
+  text-align: center;
+}
+
+.header_a i {
+  font-size: 35px;
+  height: 60px;
+  margin-top: 20px;
+  margin-left: 40px;
+}
+
+#header span {
+  padding-left: 24px;
+  font-size: 16px;
+  color: #1C1F21;
+  font-weight: 700;
+  margin-top: 26px;
+}
+
+.nz_a {
+  margin-top: 25px;
+  margin-right: 202px;
+}
